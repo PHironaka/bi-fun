@@ -1,0 +1,69 @@
+{% load staticfiles %}
+<!--DOCTYPE html -->
+<html>
+<head>
+<title>{% block head_title %}Basketball Is Fun{% endblock head_title %}</title>
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400" rel="stylesheet">
+{% include "meta/meta.html" %}
+<link rel="shortcut icon" href='{% static "images/favi.png" %}'>
+<link rel='stylesheet' href='{% static "css/base.css" %}' />
+<style>
+{% block style %}{% endblock style %}
+</style>
+{% block head_extra %} {% endblock head_extra %}
+</head>
+<body class="{% block body_class %}default{% endblock %}">
+<header>
+{% include "messages_display.html" %}
+<div class="container">
+<div class="logo">
+<a href="/">
+{% include "section/logo.html" %}
+</a>
+</div>
+<nav class="navigation">
+ <div class="mobile-hamburger-icon" id="icon">
+    <div class="icon-1" id="a"></div>
+    <div class="icon-2" id="b"></div>
+    <div class="icon-3" id="c"></div>
+ </div>
+<ul class="nav-list">
+	<li ><a href='/'>Home</a></li>
+	<li ><a href='{% url "posts:list" %}'>Posts</a></li>
+	<li><a href='{% url "about" %}'>About</a></li>
+	<li><a href='https://nba.basketball-is.fun'>NBA</a></li>
+	{% if not request.user.is_authenticated %}
+	<li><a href='/accounts/signup'>Signup</a></li>
+	<li ><a href='{% url "login" %}'>Login</a></li>
+	{% else %}
+	<li><a class="things">Account</a>
+		<ul class="nav-dropdown">
+			<li><a href='{% url "forum:create" %}'>Write Forum</a></li>
+	{% if  request.user.is_staff %}
+			<li><a href='{% url "posts:create" %}'>Write Post</a></li>
+{% endif %}
+			<li><a href='{% url "logout" %}'>Logout</a></li>
+		</ul>
+	</li>	
+
+
+		<!-- <p class="pull-right">You're logged in as {{request.user.username}}</p> -->
+	{% endif %}
+</ul>	
+</nav>
+</header>
+<div class='container {% block container-page %} {% endblock  %}	'>
+{% block post_detail_link %}{% endblock  %}	
+{% block content %}{% endblock content %}
+</div>
+{% include "section/footer.html" %}
+{% load static %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+<script src='{% static "js/main.js" %}'></script>
+<script>
+      {% block jquery %}{% endblock %}
+ </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load urlify %}
+
+{% block head_title %}
+About | {{ block.super }}
+{% endblock head_title %}
+
+
+{% block content %}
+<div class='col-sm-6 col-sm-offset-3'>
+	<h1>HEYO </h1>
+
+	{{content}}
+
+</div>
+{% endblock content %}

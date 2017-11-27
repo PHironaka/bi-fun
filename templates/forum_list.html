@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="forum">
+
+<form method='GET' action='' >
+<input type='text' name='q' class="search-field" placeholder='Search Forum content' value='{{ request.GET.q }}'/>
+<input type='submit' class="search-button"  value='Search' />
+</form>
+{% for obj in object_list %}
+
+<div class="forum-content ">
+
+        {% if obj.draft %}<h3>Staff only: Draft</h3>{% endif %} {% if obj.publish > today %}<h3>Staff Only: Future Post</h3>{% endif %}
+        <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> </h3>
+      <div class="caption">
+
+  {% if obj.user %}<p>Author: <a href='/profiles/{{ obj.user }}'>{{ obj.user }}</p></a>{% endif %}
+    <p><a class='like-btn' data-href='{{ obj.get_api_like_url }}' data-likes='{{ obj.likes.count }}'  href='{{ obj.get_like_url }}'>{{ obj.likes.count }} Like</a></p>  
+
+      <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
+
+ <p>{{ obj.timestamp|timesince }}</p>
+
+
+      
+      </div>
+</div>
+{% endfor %}
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if object_list.has_previous %}
+            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+        </span>
+
+        {% if object_list.has_next %}
+            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+</div>
+
+
+
+{% endblock content %}
+
+
+
+
+
+

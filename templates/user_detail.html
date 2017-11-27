@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load urlify %}
+
+{% block head_title %}
+{{ object.username }} | {{ block.super }}
+{% endblock head_title %}
+
+<!-- {% block post_detail_link %}
+<li><a href='{{ object.get_absolute_url }}'> {{object.title}} </a></li>
+{% endblock  %} -->
+
+
+{% block content %}
+<div class='col-sm-6 col-sm-offset-3'>
+	<h1>{{object.username}} </h1>
+
+{% for forum in object.forum_set.all %}
+<a href="{{forum.get_absolute_url}}"><h1>{{ forum.title }}</h1></a>
+{{forum.get_markdown }}
+
+{% endfor %}
+
+</div>
+{% endblock content %}

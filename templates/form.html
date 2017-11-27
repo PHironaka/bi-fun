@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block head_extra %} 
+
+{% endblock head_extra %}
+
+
+{% block content %}
+
+<form method='POST' class="forum" action='' enctype='multipart/form-data'>{% csrf_token %}
+{{ form | crispy }}
+
+<input type='submit' class="search-button"  value='Create Post' />
+</form>
+{% endblock content %}

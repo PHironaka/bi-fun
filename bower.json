@@ -1,0 +1,24 @@
+{
+  "name": "django",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "PHironaka <peterhironaka@mac.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/PHironaka/bif-basketball",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "aws-sdk": "^2.151.0",
+    "gsap": "^1.20.3"
+  }
+}
