@@ -176,6 +176,7 @@ header  .container {
 
     margin: 4em 0;
     padding: 0em 0 1em;
+        border-bottom: 1px solid #eee;
 }
 .forum-content--post {
     background: white;
@@ -374,10 +375,18 @@ nav {
 /* landing page */
 
 .landing {
-    max-width: 600px;
-    margin: 4em auto;
+     max-width: 600px;
+    margin: 0em auto;
+    top: 22%;
+    position: relative;
+    z-index: 100;
+
 
 }
+
+   .landing svg {
+    overflow: initial;
+    }
 
 /* footer */
 
