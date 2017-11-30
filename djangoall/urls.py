@@ -26,15 +26,15 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^login/', login_view, name='login'),
-    url(r'^logout/', logout_view, name='logout'),
-    url(r'^posts/', include("posts.urls", namespace='posts')),
-    url(r'^about/$', page_about, name='about'),
+    # url(r'^login/', login_view, name='login'),
+    # url(r'^logout/', logout_view, name='logout'),
+    # url(r'^posts/', include("posts.urls", namespace='posts')),
+    # url(r'^about/$', page_about, name='about'),
     url(r'^$', page_landing, name='landing'),
-    url(r'^forum/', include("forum.urls", namespace='forum')),
-    url(r'^accounts/', include('allauth.urls')),
-    url(r'^comments/', include("comments.urls", namespace='comments')),
-    url(r'^profiles/', include('accounts.urls', namespace='accounts')),
+    # url(r'^forum/', include("forum.urls", namespace='forum')),
+    # url(r'^accounts/', include('allauth.urls')),
+    # url(r'^comments/', include("comments.urls", namespace='comments')),
+    # url(r'^profiles/', include('accounts.urls', namespace='accounts')),
 
     #url(r'^posts/$', "<appname>.views.<function_name>"),
 ]
