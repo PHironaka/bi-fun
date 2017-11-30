@@ -26,8 +26,11 @@ SECRET_KEY = 'sm@g)(fbwdh5wc*xe@j++m9rh^uza5se9a57c5ptwkg*b@ki0x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [".herokuapp.com", "basketball-is.fun/*"]
-
+ALLOWED_HOSTS = [
+    '.herokuapp.com', 
+    'basketball-is.fun',
+    'WWW.basketball-is.fun'
+]
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
