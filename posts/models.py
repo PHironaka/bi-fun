@@ -10,7 +10,8 @@ from django.utils.text import slugify
 from django.contrib.contenttypes.models import ContentType
 from taggit.managers import TaggableManager
 
-from markdownx.models import MarkdownxField
+
+from markdown_deux import markdown
 from comments.models import Comment
 
 # Create your models here.
@@ -73,7 +74,7 @@ class Post(models.Model):
 
     def get_markdown(self):
         content = self.content
-        markdown_text = MarkdownxField(content)
+        markdown_text = markdown(content)
         return mark_safe(markdown_text)
 
     @property

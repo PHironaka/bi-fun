@@ -1,6 +1,5 @@
 from django import forms
 from django.forms import ModelForm
-from markdownx.widgets import MarkdownxWidget
 
 from pagedown.widgets import PagedownWidget
 from .models import Post
@@ -8,7 +7,7 @@ from taggit.forms import *
 
 
 class PostForm(forms.ModelForm):
-    content = forms.CharField(widget=MarkdownxWidget())
+    content = forms.CharField(widget=PagedownWidget(show_preview=False))
     publish = forms.DateField(widget=forms.SelectDateWidget)
     p_tags = TagField()
 
