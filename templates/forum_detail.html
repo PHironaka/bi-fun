@@ -10,7 +10,7 @@
 
 
 {% block post_detail_link %}
-<div class="forum-content">
+<div class="forum-post-content">
 
     <ol class="breadcrumb">
         <li ><a href='{% url "forum:list" %}'>Home /</a> </li>
@@ -31,11 +31,12 @@
 <div class="caption">
 
 <!-- {% if instance.read_time|time:"i" <= "01" %} < 1 minute {% else %}{{ instance.read_time|time:"i" }} minutes {% endif %} -->
+<p>Author: <a href="/profiles/{{ instance.user }}">{{ instance.user }}</a></p>
+
 <p>{{ instance.publish }}</p>
-<p><a class='like-btn' data-href='{{ instance.get_api_like_url }}' data-likes='{{ instance.likes.count }}' href='{{ instance.get_like_url }}'>{{ instance.likes.count }} Like</a></p>
+<a class='like-btn' data-href='{{ instance.get_api_like_url }}' data-likes='{{ instance.likes.count }}' href='{{ instance.get_like_url }}'> ^ {{ instance.likes.count }} Upvotes</a>
 
 {% if instance.user %}
-<p>Author: <a href="/profiles/{{ instance.user }}">{{ instance.user }}</a></p>
 {% endif %}
 
     </div>
@@ -82,14 +83,18 @@ Linkedin
           <p> {{ comment.user }} | {{ comment.timestamp|timesince }} ago  </p>  
 
           <p>{{ comment.content }}</p>
-          <div> {% if comment.children.count > 0 %}{{ comment.children.count }} Comment{% if comment.children.count > 1 %}s{% endif %} | {% endif %} <a class='comment-reply-btn' href='#'>Reply</a> | <a class='' href='{{ comment.get_absolute_url }}'>Thread</a></div>
-          <div class='comment-reply'>
-              {% for child_comment in comment.children %}
+
+           {% for child_comment in comment.children %}
                 <blockquote>
                 <p>{{ child_comment.content }}</p>
                 <div> | {{ child_comment.timestamp|timesince }} ago</div>
                 </blockquote>
              {% endfor %}
+             
+          <div> {% if comment.children.count > 0 %}{{ comment.children.count }} Comment{% if comment.children.count > 1 %}s{% endif %} | {% endif %} <a class='comment-reply-btn' href='#'>Reply</a> | <a class='' href='{{ comment.get_absolute_url }}'>Thread</a></div>
+
+          <div class='comment-reply'>
+            
         {% if request.user.is_authenticated %}
 
             <form method="POST" action="."> {% csrf_token %}

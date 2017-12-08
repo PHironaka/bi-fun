@@ -1,8 +1,18 @@
 {% extends "base.html" %}
 
 
+{% block head_title %}
+Posts | {{ block.super }}
+{% endblock head_title %}
+
+{% block meta-image %} https://bif-ball.s3.amazonaws.com/media/2/Logov3.png{% endblock meta-image %}
+{% block twitter-image %} https://bif-ball.s3.amazonaws.com/media/2/Logov3.png{% endblock twitter-image %}
+
+
+
 {% block body_class %}body-posts{% endblock %}
 {% block content %}
+<div class="page-container">
 <div class="forum">
 <!-- 
 <form method='GET' action='' >

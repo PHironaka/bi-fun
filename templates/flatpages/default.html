@@ -7,10 +7,23 @@ About | {{ block.super }}
 
 
 {% block content %}
-<div class='col-sm-6 col-sm-offset-3'>
+<div class='page-content'>
+		<div class="page-content--full">
+
 	<h3>	{{flatpage.title}} </h3>
 
-	{{flatpage.content}}
-
+	{{flatpage.content |linebreaks }}
+	</div>
 </div>
+
+<aside>
+	<ul>
+		<li><a href="/pages/about/">About</a></li>
+		<li><a href="/pages/contact/">Contact</a></li>
+		<li>Terms & Conditions</li>
+	</ul>
+</aside>
+
+
+
 {% endblock content %}

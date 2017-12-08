@@ -5,12 +5,15 @@
 <title>{% block head_title %}Basketball Is Fun{% endblock head_title %}</title>
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400" rel="stylesheet">
 {% include "meta/meta.html" %}
+<meta property="og:image" value="{% block meta-image %}{% endblock meta-image %}">
+<meta name="twitter:image" value="{% block twitter-image %}{% endblock twitter-image %}">
 <link rel="shortcut icon" href='{% static "images/favi.png" %}'>
 <link rel='stylesheet' href='{% static "css/base.css" %}' />
 <style>
 {% block style %}{% endblock style %}
 </style>
 {% block head_extra %} {% endblock head_extra %}
+
 </head>
 <body class="{% block body_class %}default{% endblock %}">
 <header>
@@ -29,15 +32,18 @@
  </div>
 <ul class="nav-list">
 	<li ><a href='/'>Home</a></li>
-	<li ><a href='{% url "posts:list" %}'>Posts</a></li>
-	<li><a href='{% url "about" %}'>About</a></li>
-	<li><a href='https://nba.basketball-is.fun'>NBA</a></li>
+	<li ><a href='{% url "posts:list" %}'>Editorial</a></li>
+	<li><a href='{% url "forum:list" %}'>Courts</a></li>
 	{% if not request.user.is_authenticated %}
 	<li><a href='/accounts/signup'>Signup</a></li>
 	<li ><a href='{% url "login" %}'>Login</a></li>
 	{% else %}
+
+
 	<li><a class="things">Account</a>
 		<ul class="nav-dropdown">
+				<li><a >@{{request.user }} </a></li>
+
 			<li><a href='{% url "forum:create" %}'>Write Forum</a></li>
 	{% if  request.user.is_staff %}
 			<li><a href='{% url "posts:create" %}'>Write Post</a></li>

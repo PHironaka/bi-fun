@@ -6,6 +6,7 @@ from .models import Post
 from taggit.forms import *
 
 
+
 class PostForm(forms.ModelForm):
     content = forms.CharField(widget=PagedownWidget(show_preview=False))
     publish = forms.DateField(widget=forms.SelectDateWidget)

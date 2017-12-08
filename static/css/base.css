@@ -17,7 +17,7 @@ body {
     font-feature-settings: "kern" 1;
     font-kerning: normal;
     background-color: #fbfbfb;
-    line-height: 1.2;
+    line-height: 1.4;
     font-size: .9em;
 }
 .body-posts {
@@ -145,11 +145,22 @@ h1 {
     margin: 2em 0;
     line-height: 1.5;
 }
+
+.post-tags {
+    display: inline-block;
+    background: #f5f5f5;
+    padding: 3px 15px;
+    margin: 1em 10px 1em 0;
+}
+
+
+
 .container {
     max-width: 62em;
     display: grid;
     grid-template-columns: repeat(4, auto);
     margin: 0 auto;
+    padding: 0 2.55555em;
      min-height: 100%;
 }
 
@@ -165,24 +176,53 @@ header  .container {
 
 }
 
+.like-btn { 
+  background: #fbfbfb;
+  padding: 5px;
+  margin: 5px 11px 10px 0px;
+  text-align: center;
+
+}
+
+.page-container {
+  margin: 0 -.625rem;
+}
+
+
 .forum {
     background: white;
 
     padding: 15px;
-    margin: 4em 0;
+    margin: 2em 0;
 }
-.forum-content {
+.forum-content, .page-content {
     background: white;
 
     margin: 1em 0 0;
     padding: 0em 0 1em;
         border-bottom: 1px solid #eee;
 }
-.forum-content--post {
+
+
+.forum-post-content {
+    background: white;
+    margin: 1em 0 3em;
+    padding: 0em 0 1em;
+        border-bottom: 1px solid #eee;
+}
+
+
+.forum-content--post , .page-content--full {
     background: white;
     padding: 7px 30px;
     margin: 0;
 }
+
+.page-content--full h3 { font-size: 1.4em; margin-bottom: 2em; }
+.page-content--full p { margin-bottom: 2em; }
+
+
+
 .forum-content--comments {
     margin: 2em 0;
     padding: 1em 0 0 0;
@@ -197,6 +237,11 @@ header  .container {
 .post-content {
     max-width: 80%;
     margin-bottom: 2em;
+}
+
+.post-credits {
+  line-height: 1;
+  margin: 20px 0;
 }
 
 .post-date { font-size: .8em; }
@@ -219,7 +264,7 @@ textarea {
 }
 .caption {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr .6fr 1fr 1fr;
 }
 .caption h3 {
     width: 100%;
@@ -230,6 +275,13 @@ textarea {
 .pagination {
     margin: 15px;
     text-align: left;
+}
+
+/* pages */
+
+.page-content {
+      max-width: 45em;
+
 }
 
 /* Social */
@@ -436,3 +488,25 @@ footer .intro svg {
       margin-bottom: 16px;
       margin-left: 15em;
 }
+
+.social-icon {
+  display: grid;
+  grid-template-columns: 50px 50px;
+      margin: 0;
+}
+
+
+/* messages */
+
+.messages {
+    position: absolute;
+    background: #f58324;
+    color: white;
+    width: 100%;
+    height: 7%;
+    top: 10em;
+    font-weight: 700;
+    z-index: 1000;
+}
+
+.messages a {color: white;}

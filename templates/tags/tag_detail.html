@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="forum-content ">
+
+	<h2>{{ object.title }}</h2>
+
+{% for post_obj in object.posts.all %}
+	<img src="{{post_obj.image.url}}">
+	<h3><a href="{{post_obj.get_absolute_url}}">{{ post_obj.title }}</a> </h3>
+	<p>{{ post_obj.content }}</p>
+{% endfor %}
+
+
+</div>
+
+
+{% endblock content %}

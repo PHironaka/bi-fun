@@ -21,7 +21,8 @@ from comments.forms import CommentForm
 from comments.models import Comment
 from .forms import PostForm
 from .models import Post
-
+from django.views import generic
+from taggit.models import Tag
 
 def post_create(request):
 	if not request.user.is_staff or not request.user.is_superuser:
@@ -134,11 +135,8 @@ def post_update(request, slug=None):
 	instance = get_object_or_404(Post, slug=slug)
 	form = PostForm(request.POST or None, request.FILES or None, instance=instance)
 	if form.is_valid():
-		p_tags = form.cleaned_data['p_tags']
 		instance = form.save(commit=False)
 		instance.save()
-		for p_tag in p_tags:
-			instance.tags.add(p_tag)
 		messages.success(request, "<a href='#'>Item</a> Saved", extra_tags='html_safe')
 		return HttpResponseRedirect(instance.get_absolute_url())
 
@@ -147,6 +145,8 @@ def post_update(request, slug=None):
 		"instance": instance,
 		"form":form,
 	}
+	
+
 	return render(request, "post_form.html", context)
 
 
@@ -168,6 +168,33 @@ def post_delete(request, slug=None):
 	instance.delete()
 	messages.success(request, "Successfully deleted")
 	return redirect("posts:list")
+
+# def TagIndexView(request, slug=None):
+# 	instance = get_object_or_404(Post, slug=slug)
+# 	context = {
+# 		"title": instance.title,
+# 		"instance": instance,
+# 	}
+# 	return render(request, "tag-index.html", context)
+
+class TagDetails(generic.ListView):
+    template_name = 'tags/tag_detail.html'
+    context_object_name = 'entries'
+
+    def get_queryset(self):
+        tag = get_object_or_404(Tag, slug= self.kwargs['tag_slug'])
+        self.kwargs['tag'] = tag
+        tagged_entries = BlogEntry.objects.filter(is_published=True, tags__in=[tag])
+        return tagged_entries
+
+    def get_paginate_by(self, queryset):
+        paginate_by = Blog.objects.get_blog().entries_per_page
+        return paginate_by
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(TagDetails, self).get_context_data(**kwargs)
+        context['tag'] = self.kwargs['tag']
+        return context
 
 
 

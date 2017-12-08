@@ -25,7 +25,7 @@
               console.log(data)
               var newLikes;
               if (data.liked){
-                  updateText(this_, addLike, "Like")
+                  updateText(this_, addLike, "Upvote")
               } 
             }, error: function(error){
               console.log(error)

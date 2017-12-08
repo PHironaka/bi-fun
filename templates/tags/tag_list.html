@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="forum-content ">
+
+<!-- <form method='GET' action='' >
+<input type='text' name='q' class="search-field" placeholder='Search Forum content' value='{{ request.GET.q }}'/>
+<input type='submit' class="search-button"  value='Search' />
+</form> -->
+<ul>
+{% for obj in object_list %}
+
+	<li><a href="{{obj.get_absolute_url}}">{{ obj.title }}</a> {{obj.posts.count }}</li>
+	{{obj.posts.all }}
+	{% empty %}
+	<li>No Tags yet.</li>
+{% endfor %}
+</ul>
+
+
+</div>
+
+
+{% endblock content %}
+
+
+
+
+
+

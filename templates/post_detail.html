@@ -5,10 +5,13 @@
 {% load crispy_forms_tags %}
 
 
+
 {% block head_title %}
 {{ instance.title }} | {{ block.super }}
 {% endblock head_title %}
 
+{% block meta-image %} {{ instance.image }}{% endblock meta-image %}
+{% block twitter-image %} {{ instance.image }}{% endblock twitter-image %}
 {% block body_class %}body-posts{% endblock %}
 
 {% block post_detail_link %}
@@ -24,17 +27,15 @@
 
 
 {% block content %}
-<!-- <div class="forum-content">
-  <ol class="breadcrumb">
-        <li ><a href='{% url "forum:list" %}'>Home</a></li>
-
-<li><a href='{{ instance.get_absolute_url }}'> {{instance.title}} </a></li>
-    </ol> -->
-   
+<!-- <div class="forum-content"
     {% if instance.image %}
+    <!-- <img src="{{ instance.image.url }}"> -->
+
     <div class="header-img" style="background-image:url({{ instance.image.url }});"></div>
     {% endif %}
-<h1>{{ title }} <small>{% if instance.draft %}<span style='color:red;'>Draft</span> {% endif %}{{ instance.publish }}</small></h1>
+
+    <div class="post-credits">
+<h2>{{ title }} <small>{% if instance.draft %}<span style='color:red;'>Draft</span> {% endif %}</small></h2>
 
 <!-- {% if instance.read_time|time:"i" <= "01" %} < 1 minute {% else %}{{ instance.read_time|time:"i" }} minutes {% endif %} -->
 
@@ -42,7 +43,7 @@
 {% if instance.user %}
 <p>Author: <a href="/profiles/{{ instance.user }}">{{ instance.user }}</a></p>
 {% endif %}
-
+<p>{{ instance.publish }}</p>
 
 
 
@@ -58,14 +59,17 @@ Twitter
 </a>
 <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">Reddit</a>
 </p>
-        
-<div class='row'>
-<div class='col-sm-12 '>
 
-   <div class='post-detail-item'>{{ instance.get_markdown }}</div>
-    {% for tag in instance.tags.all %}
-            <li> <a href="/tags/{{ tag }}">{{ tag }}</a></li>
-            {% endfor %}
+</div>
+
+   <div class='post-detail-item'>
+    {{ instance.get_markdown }}
+    </div>
+
+
+{% for tag_obj in instance.tags.all %}
+    <li class="post-tags"> <a >{{ tag_obj}}</a></li>
+    {% endfor %}
     <hr/>
     <br/>
 
@@ -116,8 +120,6 @@ Twitter
 
 
 
-</div>
-</div>
 </div>
 
 
