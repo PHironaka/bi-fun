@@ -9,7 +9,8 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from django.contrib.contenttypes.models import ContentType
 from taggit.managers import TaggableManager
-
+from markdownx.models import MarkdownxField # <---
+from markdownx.utils import markdownify # <---
 from markdown_deux import markdown
 from comments.models import Comment
 
@@ -51,10 +52,10 @@ class Post(models.Model):
             height_field="height_field")
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
-    content = models.TextField()
+    content = MarkdownxField()
     draft = models.BooleanField(default=False)
-    publish = models.DateField(auto_now=False, auto_now_add=False)
-    tags = TaggableManager()
+    publish = models.DateField(auto_now=True, auto_now_add=False)
+    tags = TaggableManager(blank=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     objects = PostManager()
@@ -71,10 +72,15 @@ class Post(models.Model):
     class Meta:
         ordering = ["-timestamp", "-updated"]
 
-    def get_markdown(self):
-        content = self.content
-        markdown_text = markdown(content)
-        return mark_safe(markdown_text)
+    @property 
+    def formatted_markdown(self):  # <--- We'll need this for views.py later
+        return markdownify(self.content)
+
+
+    # def get_markdown(self):
+    #     content = self.content
+    #     markdown_text = MarkdownxField(content)
+    #     return mark_safe(markdown_text)
 
     @property
     def comments(self):

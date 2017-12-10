@@ -11,12 +11,16 @@
 
 
 {% block content %}
-<div class='col-sm-6 col-sm-offset-3'>
-	<h1>{{object.username}} </h1>
+<div class='forum'>
+
+	<h2>{{object.username}} </h2>
 
 {% for forum in object.forum_set.all %}
-<a href="{{forum.get_absolute_url}}"><h1>{{ forum.title }}</h1></a>
+<div class='page-content'>
+
+<h3><a href="{{forum.get_absolute_url}}">{{ forum.title }}</a></h3>
 {{forum.get_markdown }}
+</div>
 
 {% endfor %}
 

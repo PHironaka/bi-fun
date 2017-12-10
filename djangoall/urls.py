@@ -21,7 +21,7 @@ from django.contrib import admin
 from accounts.views import (login_view, register_view, logout_view )
 from posts.views import (page_about, page_landing,)
 from django.contrib import admin
-
+from markdownx import urls as markdownx
 
 
 urlpatterns = [
@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^login/', login_view, name='login'),
     url(r'^logout/', logout_view, name='logout'),
     url(r'^posts/', include("posts.urls", namespace='posts')),    
+    url(r'^courts/', include("courts.urls", namespace='courts')),    
     url(r'^about/$', page_about, name='about'),
     # url(r'^$', page_landing, name='landing'),
     url(r'^', include("forum.urls", namespace='forum')),
@@ -36,7 +37,7 @@ urlpatterns = [
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^comments/', include("comments.urls", namespace='comments')),
     url(r'^profiles/', include('accounts.urls', namespace='accounts')),
-
+    url(r'^markdownx/', include(markdownx)),
     #url(r'^posts/$', "<appname>.views.<function_name>"),
 ]
 

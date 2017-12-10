@@ -20,6 +20,15 @@ body {
     line-height: 1.4;
     font-size: .9em;
 }
+
+#instagram-embed-0 {width: 100%;}
+
+input {
+      outline: none;
+      border: 1px solid #eee;
+}
+
+
 .body-posts {
     background-color: #fff !important;
 }
@@ -97,7 +106,7 @@ blockquote p {
 }
 nav ul {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 nav ul li {
     margin: 0;
@@ -141,6 +150,13 @@ h1 {
 .lead {
     font-weight: 400;
 }
+
+.post-detail-item {
+  max-width: 80%;
+  padding: 10px 0;
+border-top: 1px solid #eee;
+}
+
 .post-detail-item p {
     margin: 2em 0;
     line-height: 1.5;
@@ -167,8 +183,13 @@ h1 {
 .form {
     display: grid;
 
- grid-template-columns: 1fr 1fr;
+ grid-template-columns:  1fr 1.3fr;
 }
+
+.form form {
+  margin-left: 30px; 
+}
+
 
 header  .container {
     grid-template-columns: 5fr 5fr ;
@@ -185,7 +206,7 @@ header  .container {
 }
 
 .page-container {
-  margin: 0 -.625rem;
+  margin: 0 -1.625rem;
 }
 
 
@@ -195,7 +216,7 @@ header  .container {
     padding: 15px;
     margin: 2em 0;
 }
-.forum-content, .page-content {
+.forum-content, .page-content, aside {
     background: white;
 
     margin: 1em 0 0;
@@ -203,6 +224,7 @@ header  .container {
         border-bottom: 1px solid #eee;
 }
 
+aside { max-height: 500px; }
 
 .forum-post-content {
     background: white;
@@ -235,14 +257,20 @@ header  .container {
     display: grid;
 }
 .post-content {
-    max-width: 80%;
+    padding: 20px;
     margin-bottom: 2em;
 }
 
 .post-credits {
   line-height: 1;
   margin: 20px 0;
+  grid-template-columns: .8fr 1fr 1fr;
+  display: grid;
 }
+
+.post-credits h2:before {width: 10px; height: 1px; background: black; }
+
+.post-credits p { margin: 3px 0; }
 
 .post-date { font-size: .8em; }
 textarea {
@@ -274,8 +302,21 @@ textarea {
 }
 .pagination {
     margin: 15px;
-    text-align: left;
+    text-align: center;
 }
+
+.pagination a {
+
+  font-weight: 700;
+  font-size: 1.3em;
+color: #f58323;
+padding: 10px 13px;
+}
+
+.author-color {
+  color: #f58323;
+}
+
 
 /* pages */
 
@@ -463,7 +504,7 @@ footer h3 {
 }
 
 footer .container {
-  grid-template-columns: 1fr .5fr 1fr 1fr 2fr;
+  grid-template-columns: .71fr 1.3fr 1fr 1fr 2fr;
 
 }
 
