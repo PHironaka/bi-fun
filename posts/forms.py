@@ -9,7 +9,6 @@ from taggit.forms import *
 
 class PostForm(forms.ModelForm):
     content = MarkdownxFormField()
-    publish = forms.DateField(widget=forms.SelectDateWidget)
 
     class Meta:
         model = Post
@@ -18,7 +17,6 @@ class PostForm(forms.ModelForm):
             "content",
             "image",
             "draft",
-            "publish",
             "tags",
         ]
 

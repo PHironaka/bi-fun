@@ -7,9 +7,9 @@
 
 {% block content %}
 
-<form method='POST' class="forum" action='' enctype='multipart/form-data'>{% csrf_token %}
+<form method='POST' class="post-item" action='' enctype='multipart/form-data'>{% csrf_token %}
 {{ form | crispy }}
 
-<input type='submit' class="search-button"  value='Create Post' />
+<input type='submit' class="search-button"  value='Submit' />
 </form>
 {% endblock content %}

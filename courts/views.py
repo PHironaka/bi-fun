@@ -19,9 +19,8 @@ from django.utils import timezone
 from django.views.generic import RedirectView
 from comments.forms import CommentForm
 from comments.models import Comment
+from .forms import CourtForm
 from .models import Court
-
-
 
 def court_create(request):
 	if not request.user:
@@ -41,10 +40,8 @@ def court_create(request):
 	return render(request, "form.html", context)
 
 def court_detail(request, slug=None):
-	instance = get_object_or_404(Forum, slug=slug)
-	if instance.publish > timezone.now().date() or instance.draft:
-		if not request.user:
-			raise Http404
+	instance = get_object_or_404(Court, slug=slug)
+
 	share_string = quote_plus(instance.content)
 
 	initial_data = {
@@ -79,34 +76,31 @@ def court_detail(request, slug=None):
 		return HttpResponseRedirect(new_comment.content_object.get_absolute_url())
 
 
-	comments = instance.comments
 	context = {
 		"title": instance.title,
 		"instance": instance,
 		"share_string": share_string,
-		"comments": comments,
 		"comment_form":form,
 	}
-	return render(request, "forum_detail.html", context)
-
+	return render(request, "court_detail.html", context)
 
 
 
 def court_list(request):
 	today = timezone.now().date()
-	queryset_list = Court.objects.all() #.order_by("-timestamp")
+	obj = Court.objects.all() #.order_by("-timestamp")
 	if request.user:
-		queryset_list = Court.objects.all()
+		obj = Court.objects.all()
 	
 	query = request.GET.get("q")
 	if query:
-		queryset_list = queryset_list.filter(
+		obj = obj.filter(
 				Q(title__icontains=query)|
 				Q(content__icontains=query)|
 				Q(user__first_name__icontains=query) |
 				Q(user__last_name__icontains=query)
 				).distinct()
-	paginator = Paginator(queryset_list, 10) # Show 25 contacts per page
+	paginator = Paginator(obj, 10) # Show 25 contacts per page
 	page_request_var = "page"
 	page = request.GET.get(page_request_var)
 	try:
@@ -125,8 +119,7 @@ def court_list(request):
 		"page_request_var": page_request_var,
 		"today": today,
 	}
-	return render(request, "forum_list.html", context)
-
+	return render(request, "court_list.html", context)
 
 
 
@@ -148,7 +141,6 @@ def court_update(request, slug=None):
 		"form":form,
 	}
 	return render(request, "form.html", context)
-
 
 
 def court_delete(request, slug=None):

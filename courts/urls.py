@@ -11,8 +11,8 @@ from .views import (
 
 urlpatterns = [
 	url(r'^$', court_list, name='list'),
-	url(r'^courts/create/$', court_create, name='create'),
-	url(r'^courts/(?P<slug>[\w-]+)/$', court_detail, name='detail'),
+	url(r'^create/$', court_create, name='create'),
+	url(r'^(?P<slug>[\w-]+)/$', court_detail, name='detail'),
 
     #url(r'^posts/$', "<appname>.views.<function_name>"),
 ]

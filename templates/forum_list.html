@@ -7,9 +7,8 @@
 
 {% block content %}
 
-<div class="forum">
 
-<form method='GET' action='' >
+<form method='GET' action='' class="forum-content " >
 <input type='text' name='q' class="search-field" placeholder='Search Forum content' value='{{ request.GET.q }}'/>
 <input type='submit' class="search-button"  value='Search' />
 </form>

@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+{% load urlify %}
+{% load crispy_forms_tags %}
+
+
+
+{% block head_title %}
+Courts | {{ block.super }}
+{% endblock head_title %}
+
+{% block meta-image %} https://bif-ball.s3.amazonaws.com/media/2/Logov3.png{% endblock meta-image %}
+{% block twitter-image %} https://bif-ball.s3.amazonaws.com/media/2/Logov3.png{% endblock twitter-image %}
+
+{% block body_class %}body-posts{% endblock %}
+
+
+
+{% block post_detail_link %}
+    <ol class="court-listing breadcrumb">
+        <li ><a href='{% url "forum:list" %}'>Home /</a> </li>
+        <li ><a href='{% url "courts:list" %}'>Courts /</a> </li>
+    </ol>
+
+{% endblock  %}
+
+
+{% block content %}
+
+
+
+ 
+	 
+        <div class="court-listing" id="map-canvas"></div>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0EOxSaLaNa3JUb9-Y-a8g_8E71RFWUXQ&sensor=false&callback=initialize"></script>
+
+        <script>
+            function initialize() {
+                var map = new google.maps.Map(document.getElementById('map-canvas'), {
+          center: {lat: 40.674, lng: -73.945},
+          zoom: 12,
+          styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+        });
+
+                var bounds = new google.maps.LatLngBounds();
+                function addMarker(lat, lng, title) {
+                    var location = new google.maps.LatLng(lat, lng);
+                    var marker = new google.maps.Marker({
+                        position: location,
+                        map: map,
+                        title: title
+                    });
+
+                var infowindow = new google.maps.InfoWindow({
+
+          content: '<a href="' + marker.getTitle() + '">' + marker.getTitle() + '</a>'
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map, marker);
+        });
+                    bounds.extend(location);
+
+                }
+                 {% for obj in object_list %}
+                     addMarker({{ obj.location.latitude }}, {{ obj.location.longitude }}, "{{ obj.title }}");
+                 
+
+
+                {% endfor %}
+
+      
+
+                map.fitBounds(bounds);
+
+  
+
+
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+
+        {% for obj in object_list %}
+<div class="court-listing court-post">
+
+
+    
+        {% if obj.image %}
+                 <img src='{{ obj.image.url }}' class='img-court' />
+        {% endif %}
+             {% if obj.draft %}<h3>Staff only: Draft</h3>{% endif %} {% if obj.publish > today %}<h3>Staff Only: Future Post</h3>{% endif %}
+        <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> </h3>
+        	<p>{{ obj.address }}</p> 
+      <div class="caption">
+
+  {% if obj.user %}<p>By: <a href='/profiles/{{ obj.user }}'>{{ obj.user }}</p></a>{% endif %}
+    
+      <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View  ↳</a></p>
+
+ <p>{{ obj.timestamp|timesince }}</p>
+
+
+      
+      </div>
+      </div>
+
+{% endfor %}
+
+{% endblock content %}
+
+

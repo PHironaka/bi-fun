@@ -15,7 +15,7 @@
 {% block body_class %}body-posts{% endblock %}
 
 {% block post_detail_link %}
-<div class="post-content">
+<div class="post-item">
     <ol class="breadcrumb">
         <li ><a href='{% url "forum:list" %}'>Home /</a> </li>
         <li ><a href='{% url "posts:list" %}'>Posts /</a> </li>
@@ -82,24 +82,30 @@ Twitter
         {% endif %}
 
 
-        {% for comment in comments %}
+       {% for comment in comments %}
 
-        <blockquote>
+        <div class="forum-content--comments">
+          <p> {{ comment.user }} | {{ comment.timestamp|timesince }} ago  </p>  
+
           <p>{{ comment.content }}</p>
-          <footer>via {{ comment.user }} | {{ comment.timestamp|timesince }} ago | {% if comment.children.count > 0 %}{{ comment.children.count }} Comment{% if comment.children.count > 1 %}s{% endif %} | {% endif %} <a class='comment-reply-btn' href='#'>Reply</a> | <a class='' href='{{ comment.get_absolute_url }}'>Thread</a></footer>
-          <div class='comment-reply'>
-              {% for child_comment in comment.children %}
+
+           {% for child_comment in comment.children %}
                 <blockquote>
                 <p>{{ child_comment.content }}</p>
-                <footer>via {{ child_comment.user }} | {{ child_comment.timestamp|timesince }} ago</footer>
+                <div> | {{ child_comment.timestamp|timesince }} ago</div>
                 </blockquote>
              {% endfor %}
+             
+          <div> {% if comment.children.count > 0 %}{{ comment.children.count }} Comment{% if comment.children.count > 1 %}s{% endif %} | {% endif %} <a class='comment-reply-btn' href='#'>Reply</a> | <a class='' href='{{ comment.get_absolute_url }}'>Thread</a></div>
+
+          <div class='comment-reply'>
+            
         {% if request.user.is_authenticated %}
 
             <form method="POST" action="."> {% csrf_token %}
                 {{ comment_form|crispy }}
                 <input type='hidden' name='parent_id' value='{{ comment.id }}'>
-                <input type='submit' value='Reply' class='btn btn-default'>
+                <input type='submit' value='Reply' class='search-button'>
             </form>
             {% else %}
         <p>You must log in to comment.</p>
@@ -107,7 +113,7 @@ Twitter
 
         </div>
 
-        </blockquote>
+        </div>
 
         {% endfor %}
     </div>

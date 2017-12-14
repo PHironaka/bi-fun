@@ -5,24 +5,18 @@
 {{ object.username }} | {{ block.super }}
 {% endblock head_title %}
 
-<!-- {% block post_detail_link %}
-<li><a href='{{ object.get_absolute_url }}'> {{object.title}} </a></li>
-{% endblock  %} -->
 
 
 {% block content %}
-<div class='forum'>
-
-	<h2>{{object.username}} </h2>
-
+<div class="author">
+<h2>@{{object.username}} </h2>
+<p>Contributions:</p>
+</div>
 {% for forum in object.forum_set.all %}
-<div class='page-content'>
-
+<div class='account-page--content'>
 <h3><a href="{{forum.get_absolute_url}}">{{ forum.title }}</a></h3>
-{{forum.get_markdown }}
 </div>
 
 {% endfor %}
 
-</div>
 {% endblock content %}
