@@ -5,9 +5,17 @@
 About | {{ block.super }}
 {% endblock head_title %}
 
+{% block post_detail_link %}
+    <ol class="court-listing breadcrumb">
+        <li ><a href='{% url "forum:list" %}'>Home /</a> </li>
+        <li ><a href='{% url "courts:list" %}'>Pages /</a> </li>
+    </ol>
+
+{% endblock  %}
+
 
 {% block content %}
-<div class='page-content'>
+<div class='page-content--static'>
 		<div class="page-content--full">
 
 	<h3>	{{flatpage.title}} </h3>

@@ -75,6 +75,8 @@ INSTALLED_APPS = [
     'posts',
     'storages',
     'taggit',
+    'geoposition',
+    'turbolinks',
 
 
 

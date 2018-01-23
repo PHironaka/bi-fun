@@ -26,7 +26,7 @@ Courts | {{ block.super }}
 
 
 {% block content %}
-
+</div>
 
 
  
@@ -124,17 +124,22 @@ Courts | {{ block.super }}
                 var bounds = new google.maps.LatLngBounds();
                 function addMarker(lat, lng, title) {
                     var location = new google.maps.LatLng(lat, lng);
+
+                      {% for obj in object_list %}
                     var marker = new google.maps.Marker({
                         position: location,
                         map: map,
+                        location: '{{ obj.get_absolute_url }}',
                         title: title
+
                     });
+                  
 
                 var infowindow = new google.maps.InfoWindow({
 
-          content: '<a href="' + marker.getTitle() + '">' + marker.getTitle() + '</a>'
+          content: '<a href="' + '{{ obj.get_absolute_url }}' + '">' + marker.getTitle() + '</a>' + '<img src="' + '{{obj.image.url}}' + '">'
         });
-
+  {% endfor %}
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.open(map, marker);
         });
@@ -159,7 +164,7 @@ Courts | {{ block.super }}
 
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>
-
+<div class="container">
         {% for obj in object_list %}
 <div class="court-listing court-post">
 
@@ -185,7 +190,7 @@ Courts | {{ block.super }}
       </div>
 
 {% endfor %}
-
+</div>
 {% endblock content %}
 
 

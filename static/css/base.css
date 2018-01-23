@@ -1,6 +1,6 @@
 
 html, body {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
 }
 
@@ -19,6 +19,7 @@ body {
     background-color: #fbfbfb;
     line-height: 1.4;
     font-size: .9em;
+    overflow-x: hidden;
 }
 
  #map-canvas {
@@ -62,6 +63,21 @@ form {
     padding: 20px;
 }
 
+.homepage-landing {
+  grid-column: 1 / 4;
+    position: relative;
+}
+
+.homepage-landing svg {
+max-width: 400px;
+}
+
+.page-content--static {
+      grid-column: 1 / 4;
+
+    position: relative;
+}
+
 blockquote {
   border-left: 2px solid #ccc;
   margin: 1.5em 10px;
@@ -85,6 +101,15 @@ blockquote p {
     padding: 10px 10px 12px;
     font-family: 'Fira Sans', sans-serif;
 }
+
+#id_password {
+  text-align: center;
+     width: 50%;
+    padding: 10px 10px 12px;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+
 .search-button {
     width: 109px;
     -webkit-transition: all .2s;
@@ -106,6 +131,7 @@ blockquote p {
     background: white;
     padding: 15px 0px;
     margin: 3px 0;
+
 }
 
 .breadcrumb li {display: inline;}
@@ -177,16 +203,51 @@ border-top: 1px solid #eee;
 
 
 .container {
+      margin: 0 auto;
+    width: 90%;
+    max-width: 1600px;
        display: grid;
     grid-column-gap: 2rem;
-    grid-template-columns: 2fr 2fr 2fr 2fr;
-    margin: 0 auto;
-    padding: 0 2.55555em;
-    min-height: 100%;
+   margin: 0 auto;
+padding: 0 2.55555em;
+grid-column-gap: 2rem;
+grid-template-columns: 2fr 2fr 2fr 2fr;
 }
 
 .court-listing, .forum-content {
     grid-column: auto / span 4;
+    position: relative;
+
+}
+
+.forum-content h3 {
+      padding: 10px 1em;
+
+}
+
+#lockdown {
+grid-column: auto / span 4;
+text-align: center;
+padding: 1em 0;
+}
+
+#lockdown label {
+  margin-right: 10px;
+}
+
+#password {
+  max-width: 100%;
+  padding: 2em;
+}
+
+/*#lockdown form {
+  background:#fbfbfb; 
+}*/
+
+
+.forum-content--icon {
+  border: 1px solid #eee;
+  padding: 10px 1em 0;
 }
 
 .court-post, .post-content {
@@ -213,6 +274,24 @@ header  .container {
      min-height: auto;
 
 }
+
+header  .container-landing {
+
+      margin:  0 auto;
+    width: 90%;
+    max-width: 400px;
+    display: grid;
+    grid-column-gap: 2rem;
+    padding: 3em 2.55555em;
+    grid-column-gap: 2rem;
+    height: 100%
+    grid-template-rows:    70px;
+grid-template-columns: repeat(2, 1fr);
+
+}
+
+
+
 
 .like-btn { 
   background: #fbfbfb;
@@ -241,7 +320,15 @@ header  .container {
         border-bottom: 1px solid #eee;
 }
 
-aside { max-height: 500px; }
+.password-form{
+    background: white;
+
+    margin: 1em 0 0;
+    padding: 0em 0 1em;
+}
+
+
+aside { grid-column: auto / span 1; }
 
 .forum-post-content {
     background: white;
@@ -308,13 +395,18 @@ textarea {
 }
 .caption {
     display: grid;
-    grid-template-columns: 1fr .6fr 1fr 1fr;
+    grid-template-columns: 1fr .6fr 1fr .4fr .4fr ;
+    padding: 0 1em;
 }
 .caption h3 {
     width: 100%;
 }
 .caption p {
     height: auto;
+}
+
+.caption a svg {
+  margin-right: 10px;
 }
 .pagination {
     margin: 15px;
@@ -373,6 +465,10 @@ padding: 30px;
 header {
     background: #fff;
     min-height: 90px;
+}
+
+header.land {
+  min-height: 428px;
 }
 
 .logo {
