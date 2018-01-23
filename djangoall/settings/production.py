@@ -32,12 +32,29 @@ ALLOWED_HOSTS = [
     'WWW.basketball-is.fun'
 ]
 
+# GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyA0EOxSaLaNa3JUb9-Y-a8g_8E71RFWUXQ'
+
+GEOPOSITION_MAP_OPTIONS = {
+    'minZoom': 3,
+    'maxZoom': 11,
+    'clickableIcons': True,
+}
+
+GEOPOSITION_MARKER_OPTIONS = {
+    'cursor': 'move',
+}
+
+
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_MAIN = os.environ.get('EMAIL_MAIN')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
@@ -54,18 +71,17 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.flatpages',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',    
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.instagram',
     'allauth.socialaccount.providers.twitter',
     'rest_framework',
-
     'accounts',
     'comments',
     'crispy_forms',
@@ -74,27 +90,38 @@ INSTALLED_APPS = [
     'pagedown',
     'posts',
     'storages',
+    'courts',
     'taggit',
     'geoposition',
     'turbolinks',
-
-
+    'lockdown',
+    # 'taggit_templatetags',
 
 ]
 
 SITE_ID = 1
 
 
+LOCKDOWN_ENABLED = True
+
+
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'turbolinks.middleware.TurbolinksMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'lockdown.middleware.LockdownMiddleware',
+
 ]
+
+LOCKDOWN_PASSWORDS = ('biffy',)
+
 
 ROOT_URLCONF = 'djangoall.urls'
 
@@ -115,6 +142,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
