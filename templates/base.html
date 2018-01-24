@@ -1,10 +1,16 @@
 {% load staticfiles %}
-<!-- DOCTYPE html  -->
-<html>
+<!-- Doctype HTML5 -->
+<!DOCTYPE html>
 <head>
-<title>{% block head_title %}Basketball Is Fun{% endblock head_title %}</title>
+
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400" rel="stylesheet">
 {% include "meta/meta.html" %}
+<title>{% block head_title %}Basketball Is Fun{% endblock head_title %}</title>
+<meta charset="utf-8">
+<!-- Instruct Internet Explorer to use its latest rendering engine -->
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<!-- Viewport for responsive web design -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:image" value="{% block meta-image %}{% endblock meta-image %}">
 <meta name="twitter:image" value="{% block twitter-image %}{% endblock twitter-image %}">
 <link rel="shortcut icon" href='{% static "images/favi.png" %}'>
@@ -18,7 +24,7 @@
 {% block head_extra %} {% endblock head_extra %}
 
 </head>
-<body class="{% block body_class %}default{% endblock body_class %}">
+<body lang="en" class="{% block body_class %}default{% endblock body_class %}">
 <header>
 {% include "messages_display.html" %}
 <div class="container">
