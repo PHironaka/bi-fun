@@ -137,7 +137,8 @@ blockquote p {
 .breadcrumb li {display: inline;}
 nav ul {
     display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+text-align: right;
 }
 nav ul li {
     margin: 0;
@@ -637,7 +638,7 @@ footer h3 {
 }
 
 footer .container {
-  grid-template-columns: 2fr 1fr 1fr 2fr ;
+  grid-template-columns: 1fr 1fr 1fr 2fr ;
 
 }
 
@@ -701,5 +702,22 @@ footer li {
     display: inline-block;
     padding: 0 2em 0 0px;
 }
+
+footer .intro svg {
+    margin-bottom: 16px;
+    margin-top: 2em;
+    margin-left: 0;
+}
+
+aside {
+    grid-column: 1;
+}
+
+.container {
+
+    grid-column-gap: 0;
+    grid-template-columns: 1fr;
+}
+
 
 }
