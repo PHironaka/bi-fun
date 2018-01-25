@@ -34,11 +34,12 @@
 </a>
 </div>
 <nav class="navigation">
- <div class="mobile-hamburger-icon" id="icon">
+<!--  <div class="mobile-hamburger-icon" id="icon">
     <div class="icon-1" id="a"></div>
     <div class="icon-2" id="b"></div>
     <div class="icon-3" id="c"></div>
- </div>
+ </div> -->
+ 
 <ul class="nav-list">
 	<li ><a href='{% url "forum:list" %}'>Home</a></li>
 	<li ><a href='{% url "posts:list" %}'>Editorial</a></li>
@@ -63,7 +64,7 @@
 	{% else %}
 
 
-	<li><a class="things">Account</a>
+	<li><a class="things">Account <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
 		<ul class="nav-dropdown">
 				<li><a >@{{request.user }} </a></li>
 
