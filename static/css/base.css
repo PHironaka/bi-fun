@@ -26,6 +26,13 @@ body {
                 height: 500px;
             }
 
+.gmnoprint a, .gmnoprint span {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+
 #instagram-embed-0 {width: 100%;}
 
 input {
@@ -203,7 +210,7 @@ border-top: 1px solid #eee;
 .container {
       margin: 0 auto;
     width: 90%;
-    max-width: 1600px;
+    max-width: 68em;
        display: grid;
     grid-column-gap: 2rem;
    margin: 0 auto;
@@ -222,6 +229,15 @@ grid-template-columns: 2fr 2fr 2fr 2fr;
 
 }
 
+.forum-content--detail {
+  grid-column: 1 /  4;
+  margin:1em 0 0;
+}
+
+.forum-content--detail .breadcrumb {
+  padding-left: 30px;
+}
+
 .forum-search {
     grid-column: auto / span 3;
     position: relative;
@@ -229,10 +245,6 @@ grid-template-columns: 2fr 2fr 2fr 2fr;
 }
 
 
-.forum-content h3 {
-      padding: 10px 1em;
-
-}
 
 #lockdown {
 grid-column: auto / span 4;
@@ -405,7 +417,7 @@ textarea {
 .caption {
     display: grid;
     grid-template-columns: 1fr .6fr 1fr .4fr .4fr ;
-    padding: 0 1em;
+    padding: 0;
 }
 .caption h3 {
     width: 100%;
@@ -460,6 +472,7 @@ min-height: 28px;
 
 .social {
     max-width: 20px;
+    margin-left: 20px;
 }
 
 /* Court */

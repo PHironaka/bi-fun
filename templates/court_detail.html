@@ -24,7 +24,11 @@
 
 <div class="court-images">
      <img src="{{ instance.image.url }}">
-   <img src="https://maps.googleapis.com/maps/api/staticmap?size=1700x1700&key=AIzaSyCxJInoQGs969DcTm5qw6tE9Blds8iYbiU&zoom=15&markers={{instance.location}}">  
+
+<!--      <a href="https://www.google.com/maps/?q=({{instance.location}})">
+         <div style="background-image: url("https://api.mapbox.com/v4/classpass.nd2n37ek/url-https%3A%2F%2Fd342jfhztpgus0.cloudfront.net%2F2.1.0%2Fimg%2Ficon-map-marker-mapbox-api.png({{instance.location}})/{{instance.location}}/570x270@2x.png?access_token=pk.eyJ1IjoiY2xhc3NwYXNzIiwiYSI6ImRxQWVNMWcifQ.HyK-gVf0sMT_1K9PNYe9fA");"></div>
+     </a> -->
+   <img src="https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&size=1700x1700&key=AIzaSyCxJInoQGs969DcTm5qw6tE9Blds8iYbiU&zoom=18&markers={{instance.location}}">  
 
 </div>
 

@@ -21,7 +21,8 @@
 {% block style %}{% endblock style %}
 </style>
 {% block head_extra %} {% endblock head_extra %}
-
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body lang="en" class="{% block body_class %}default{% endblock body_class %}">
 <header>
@@ -83,6 +84,14 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
 <script src='{% static "js/main.js" %}'></script>
 <script src='{% static "turbolinks/turbolinks.js" %}'></script>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicGV0ZXJoaXJvbmFrYSIsImEiOiJjamN3cjZ6YXQwNWUyMnd0YjUwYmdzM2JtIn0.CC8A1GuAmYpVz6bjwN3KmQ';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v10'
+});
+</script>
 
 <script>
       {% block jquery %}{% endblock %}
