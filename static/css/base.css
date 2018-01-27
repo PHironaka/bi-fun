@@ -756,5 +756,9 @@ aside {
     padding: 0;
 }
 
+.container.courts {
+    grid-template-columns: 1fr;
+}
+
 
 }
