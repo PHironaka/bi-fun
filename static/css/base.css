@@ -760,5 +760,9 @@ aside {
     grid-template-columns: 1fr;
 }
 
+.caption {
+  grid-template-columns: 1fr;
+}
+
 
 }
