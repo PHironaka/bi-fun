@@ -47,7 +47,7 @@ class Court(models.Model):
         height_field="height_field")
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
-    content = models.CharField(max_length=140, default='SOME STRING')
+    content = models.CharField(max_length=140, default='')
     address = models.CharField(max_length=255)
     location = GeopositionField(blank=True)
 

@@ -19,4 +19,11 @@
 
 {% endfor %}
 
+{% for court in object.court_set.all %}
+<div class='account-page--content'>
+<h3><a href="{{forum.get_absolute_url}}">{{ court.title }}</a></h3>
+</div>
+
+{% endfor %}
+
 {% endblock content %}

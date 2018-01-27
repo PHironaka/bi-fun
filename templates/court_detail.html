@@ -14,27 +14,22 @@
 {% block twitter-image %} {{ instance.image }}{% endblock twitter-image %}
 {% block body_class %}body-posts{% endblock %}
 
-{% block post_detail_link %}
-<div class="post-item">
-    <ol class="breadcrumb">
-        <li ><a href='{% url "forum:list" %}'>Home /</a> </li>
-        <li ><a href='{% url "courts:list" %}'>Courts /</a> </li>
-        <li><a href='{{ instance.get_absolute_url }}'> {{instance.title}} </a></li>
-    </ol>
+{% block container-page %} courts {% endblock  %}
 
-{% endblock  %}
+
 
 
 
 {% block content %}
-<!-- <div class="forum-content"
-    {% if instance.image %}
-    <!-- <img src="{{ instance.image.url }}"> -->
 
-    <div class="header-img" style="background-image:url({{ instance.image.url }});"></div>
-    {% endif %}
+<div class="court-images">
+     <img src="{{ instance.image.url }}">
+   <img src="https://maps.googleapis.com/maps/api/staticmap?size=1700x1700&key=AIzaSyCxJInoQGs969DcTm5qw6tE9Blds8iYbiU&zoom=15&markers={{instance.location}}">  
 
-    <div class="post-credits">
+</div>
+
+
+    <div class="court-list">
 <h2>{{ title }} {% if instance.draft %}<small><span style='color:red;'>Draft</span> </small>{% endif %}</h2>
 
 <!-- {% if instance.read_time|time:"i" <= "01" %} < 1 minute {% else %}{{ instance.read_time|time:"i" }} minutes {% endif %} -->
@@ -44,13 +39,13 @@
 <p>by: <a href="/profiles/{{ instance.user }}" class="author-color">{{ instance.user }}</a></p>
 {% endif %}
 <p>{{ instance.publish }}</p>
+    <p>{{ instance.location }}</p>
+    <p>{{ instance.address }}</p>
+{{instance.content }}
 
-
-</div>
 
    <div class='post-detail-item'>
-    {{ instance.formatted_markdown|safe  }}
-    {{ instance.address }}
+
 
 <p>
     Share:
@@ -65,8 +60,6 @@ Twitter
 {% for tag_obj in instance.tags.all %}
     <li class="post-tags"> <a >{{ tag_obj}}</a></li>
     {% endfor %}
-    <hr/>
-    <br/>
     </div>
 
     <div>
@@ -118,8 +111,6 @@ Twitter
 
         {% endfor %}
     </div>
-
-
 
 
 </div>

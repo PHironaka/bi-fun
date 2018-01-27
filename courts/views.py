@@ -127,8 +127,8 @@ def court_list(request):
 def court_update(request, slug=None):
 	if not request.user:
 		raise Http404
-	instance = get_object_or_404(Forum, slug=slug)
-	form = ForumForm(request.POST or None, request.FILES or None, instance=instance)
+	instance = get_object_or_404(Court, slug=slug)
+	form = CourtForm(request.POST or None, request.FILES or None, instance=instance)
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
@@ -137,6 +137,7 @@ def court_update(request, slug=None):
 
 	context = {
 		"title": instance.title,
+		"content": instance.content,
 		"instance": instance,
 		"form":form,
 	}

@@ -10,6 +10,7 @@ class CourtForm(forms.ModelForm):
             "title",
             "location",
             "image",
+            "content",
 
         ]
 
