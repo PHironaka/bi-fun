@@ -16,29 +16,26 @@ Courts | {{ block.super }}
 
 
 
-{% block post_detail_link %}
-    <ol class="court-listing breadcrumb">
-        <li ><a href='{% url "forum:list" %}'>Home /</a> </li>
-        <li ><a href='{% url "courts:list" %}'>Courts /</a> </li>
-    </ol>
-
-{% endblock  %}
 
 
 {% block content %}
 </div>
 
-
+<div class="court-intro">
+  <h2>Court Lust</h2>
+</div>
  
-	 
-        <div class="court-listing" id="map-canvas"></div>
+	 <div class="court-map">
+     
+
+        <div class="court-listing" id="map-canvas"></div>    </div>
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0EOxSaLaNa3JUb9-Y-a8g_8E71RFWUXQ&sensor=false&callback=initialize"></script>
 
         <script>
             function initialize() {
                 var map = new google.maps.Map(document.getElementById('map-canvas'), {
           center: {lat: 40.674, lng: -73.945},
-          zoom: 12,
+          zoom: 19,
           styles: [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -137,7 +134,7 @@ Courts | {{ block.super }}
 
                 var infowindow = new google.maps.InfoWindow({
 
-          content: '<a href="' + '{{ obj.get_absolute_url }}' + '">' + marker.getTitle() + '</a>' + '<img src="' + '{{obj.image.url}}' + '">'
+          content: '<h3 class="court-title"><a href="' + '{{ obj.get_absolute_url }}' + '">' + marker.getTitle() + '</a></h3>' + '<img class="court-pic" src="' + '{{obj.image.url}}' + '">'
         });
   {% endfor %}
         google.maps.event.addListener(marker, 'click', function() {

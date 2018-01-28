@@ -22,8 +22,22 @@ body {
     overflow-x: hidden;
 }
 
+.court-intro {
+  margin: 2em 0;
+  text-align: center;
+}
+
+.court-title {
+  font-weight: 300;
+  margin-bottom: 1em;
+}
+
+.court-pic {
+    max-width: 200px !important;
+}
+
  #map-canvas {
-                height: 500px;
+                height: 400px;
             }
 
 .gmnoprint a, .gmnoprint span {
@@ -333,11 +347,19 @@ grid-template-columns: repeat(2, 1fr);
     padding: 15px;
     margin: 2em 0;
 }
-.forum-content, .page-content, aside {
+ .page-content, aside {
     background: white;
 
     margin: 1em 0 0;
     padding: 0em 0 1em;
+        border-bottom: 1px solid #eee;
+}
+
+.forum-content {
+     background: white;
+
+    margin: 1em 0 0;
+    padding: 7px 30px;
         border-bottom: 1px solid #eee;
 }
 
