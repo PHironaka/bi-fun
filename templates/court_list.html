@@ -19,11 +19,18 @@ Courts | {{ block.super }}
 
 
 {% block content %}
+<div class="court-intro">
+  <h2>Court Lust.</h2>
+  <p>Got a favorite basketball court? Tag your court's location and upload a photo. This is our community. </p>
+  {% if not request.user.is_authenticated %}
+
+  {% else %}
+    <a class="courts-button" href='{% url "courts:create" %}'>Get started</a>
+    {% endif %}
+</div>
 </div>
 
-<div class="court-intro">
-  <h2>Court Lust</h2>
-</div>
+
  
 	 <div class="court-map">
      

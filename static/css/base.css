@@ -25,6 +25,7 @@ body {
 .court-intro {
   margin: 2em 0;
   text-align: center;
+  grid-column: 2 / 4;
 }
 
 .court-title {
@@ -116,9 +117,11 @@ blockquote p {
 }
 
 .search-field {
-    width: 76%;
-    padding: 10px 10px 12px;
-    font-family: 'Fira Sans', sans-serif;
+    width: 81%;
+padding: 14px 10px 12px;
+font-family: 'Fira Sans', sans-serif;
+color: #b0b0b0;
+font-weight: 300;
 }
 
 #id_password {
@@ -130,12 +133,11 @@ blockquote p {
 
 
 .search-button {
-    width: 109px;
     -webkit-transition: all .2s;
     transition: all .2s;
     background-color: #55acee;
     color: white;
-    padding: 10px 20px 9px;
+    padding: 14px 20px 9px;
     box-shadow: 0px 5px 0px 0px #3C93D5;
     border: none;
     font-family: 'Fira Sans', sans-serif;
@@ -246,6 +248,9 @@ grid-template-columns: 2fr 2fr 2fr 2fr;
 .forum-content--detail {
   grid-column: 1 /  4;
   margin:1em 0 0;
+  background: white;
+      max-width: 100%;
+
 }
 
 .forum-content--detail .breadcrumb {
@@ -281,7 +286,6 @@ padding: 1em 0;
 
 
 .forum-content--icon {
-  border: 1px solid #eee;
   padding: 10px 1em 0;
 }
 
@@ -325,11 +329,17 @@ grid-template-columns: repeat(2, 1fr);
 
 }
 
-
+.courts-button {
+  margin: 1.8em auto;
+  display: block;
+  background: #eee;
+  max-width: 120px;
+  padding:6px;
+  border-radius:4px;
+}
 
 
 .like-btn { 
-  background: #fbfbfb;
   padding: 5px;
   margin: 5px 11px 10px 0px;
   text-align: center;
@@ -360,7 +370,7 @@ grid-template-columns: repeat(2, 1fr);
 
     margin: 1em 0 0;
     padding: 7px 30px;
-        border-bottom: 1px solid #eee;
+        box-shadow: 1px 1px 3px 1px #eeeeee;
 }
 
 .password-form{
@@ -421,6 +431,10 @@ aside { grid-column: auto / span 1; }
 .post-date { font-size: .8em; }
 textarea {
     resize: none;
+    border: 1px solid #eee;
+outline: none;
+font-family: 'Fira Sans', sans-serif;
+font-weight: 300;
 }
 .form-control {
     background-color: #fcfcfc;
@@ -451,9 +465,33 @@ textarea {
 .caption a svg {
   margin-right: 10px;
 }
+
+.caption-stats {
+  font-size: .9em;
+  color: #505050;
+}
+
 .pagination {
-    margin: 15px;
-    text-align: center;
+   margin: 15px;
+position: relative;
+display: grid;
+grid-template-rows: 10px 10px;
+-ms-grid-columns: 1fr 1fr;
+grid-template-columns: 1fr 1fr;
+grid-template-areas: "content content"
+                       "content content";
+}
+
+.step-links {
+  grid-area: content;
+}
+
+.pagination .page-next {
+  justify-items: end;
+}
+
+.pagination .page-prev {
+  justify-items: start;
 }
 
 .pagination a {
@@ -566,7 +604,7 @@ nav {
     z-index: 1;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
     width: 200px;
-    right: 84px;
+    right: 14px;
     padding: 2em 0px;
     text-align: center;
     background: white;
@@ -786,5 +824,8 @@ aside {
   grid-template-columns: 1fr;
 }
 
+header .container {
+  grid-template-columns: 5fr 18fr;
+}
 
 }
