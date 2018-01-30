@@ -58,7 +58,7 @@
         {% if request.user.is_authenticated %}
         <form method="POST" action="."> {% csrf_token %}
             {{ comment_form|crispy }}
-            <input type='submit' value='Post comment' class='search-button'>
+            <input type='submit' value='Post comment' class='search-button '>
         </form>
         {% else %}
         <p>You must log in to comment.</p>

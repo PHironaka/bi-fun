@@ -2,17 +2,17 @@
 <!-- Doctype HTML5 -->
 <!DOCTYPE html>
 <head>
-
-<link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400" rel="stylesheet">
-{% include "meta/meta.html" %}
 <title>{% block head_title %}Basketball Is Fun{% endblock head_title %}</title>
 <meta charset="utf-8">
 <!-- Instruct Internet Explorer to use its latest rendering engine -->
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <!-- Viewport for responsive web design -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include "meta/meta.html" %}
 <meta property="og:image" value="{% block meta-image %}{% endblock meta-image %}">
 <meta name="twitter:image" value="{% block twitter-image %}{% endblock twitter-image %}">
+
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400" rel="stylesheet">
 <link rel="shortcut icon" href='{% static "images/favi.png" %}'>
 <link rel='stylesheet' href='{% static "css/base.css" %}' />
 

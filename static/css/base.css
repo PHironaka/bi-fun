@@ -148,6 +148,10 @@ font-weight: 300;
     box-shadow: 0px 1px 0px 0px;
 }
 
+#div_id_content {
+  margin-bottom: 10px;
+}
+
 .breadcrumb {
     background: white;
     padding: 15px 0px;
@@ -253,7 +257,7 @@ grid-template-columns: 2fr 2fr 2fr 2fr;
 
 }
 
-.forum-content--detail .breadcrumb {
+.forum-content--detail .breadcrumb, .court-listing.breadcrumb {
   padding-left: 30px;
 }
 
