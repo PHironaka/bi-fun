@@ -22,7 +22,6 @@ django-crispy-forms==1.7.0
 django-filter==1.1.0
 django-geoposition==0.3.0
 django-lockdown==1.5.0
--e git://github.com/comoga/django-locpick@830702b5fbc9ae488257a30f07b6ec6b02710dce#egg=django_locpick
 django-markdown-deux==1.0.5
 django-markdownx==2.0.21
 django-pagedown==0.1.3

@@ -59,6 +59,12 @@ class Court(models.Model):
         return reverse("courts:detail", kwargs={"slug": self.slug})
 
 
+    # def get_image_filename(instance, filename):
+    #     title = instance.post.title
+    #     slug = slugify(title)
+    #     return "post_images/%s-%s" % (slug, filename) 
+
+
 
     @property
     def get_content_type(self):
@@ -82,6 +88,10 @@ def pre_save_court_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = create_slug(instance)
 
+# class Images(models.Model):
+#     court = models.ForeignKey(Court, default=None)
+#     image = models.ImageField(upload_to=get_image_filename,
+#                               verbose_name='Image', )
 
 
 pre_save.connect(pre_save_court_receiver, sender=Court)        
