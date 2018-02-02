@@ -51,7 +51,6 @@ class Court(models.Model):
     content = models.CharField(max_length=140, default='')
     address = models.CharField(max_length=255)
     location = GeopositionField(blank=True)
-    updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
 
@@ -63,7 +62,7 @@ class Court(models.Model):
         return reverse("courts:detail", kwargs={"slug": self.slug})
 
     class Meta:
-        ordering = ["-timestamp", "-updated"]
+        ordering = ["-timestamp"]
 
     def get_markdown(self):
         content = self.content
