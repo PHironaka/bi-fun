@@ -51,7 +51,6 @@ class Court(models.Model):
     content = models.CharField(max_length=140, default='')
     address = models.CharField(max_length=255)
     location = GeopositionField(blank=True)
-    timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
 
     # Returns the string representation of the model.
@@ -61,8 +60,6 @@ class Court(models.Model):
     def get_absolute_url(self):
         return reverse("courts:detail", kwargs={"slug": self.slug})
 
-    class Meta:
-        ordering = ["-timestamp"]
 
     def get_markdown(self):
         content = self.content
