@@ -10,8 +10,8 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from django.contrib.contenttypes.models import ContentType
 from geoposition.fields import GeopositionField
-from comments.models import Comment
 from markdown_deux import markdown
+from comments.models import Comment
 
 class CourtManager(models.Manager):
     def active(self, *args, **kwargs):
@@ -53,8 +53,6 @@ class Court(models.Model):
     location = GeopositionField(blank=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
-    draft = models.BooleanField(blank=True)
-    publish = models.DateField(auto_now=False, auto_now_add=False,blank=True, null=True)
 
 
     # Returns the string representation of the model.

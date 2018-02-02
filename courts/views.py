@@ -41,9 +41,6 @@ def court_create(request):
 
 def court_detail(request, slug=None):
 	instance = get_object_or_404(Court, slug=slug)
-	if instance.publish > timezone.now().date() or instance.draft:
-		if not request.user:
-			raise Http404
 	share_string = quote_plus(instance.content)
 
 	initial_data = {
