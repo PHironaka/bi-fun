@@ -50,11 +50,11 @@ class Court(models.Model):
     width_field = models.IntegerField(default=0)
     content = models.CharField(max_length=140, default='')
     address = models.CharField(max_length=255)
-    draft = models.BooleanField(default=False)
-    publish = models.DateField(auto_now=False, auto_now_add=False)
     location = GeopositionField(blank=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
+    draft = models.BooleanField(blank=True)
+    publish = models.DateField(auto_now=False, auto_now_add=False,blank=True, null=True)
 
 
     # Returns the string representation of the model.
