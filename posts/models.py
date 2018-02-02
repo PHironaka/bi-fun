@@ -70,7 +70,7 @@ class Post(models.Model):
         return reverse("posts:detail", kwargs={"slug": self.slug})
 
     class Meta:
-        ordering = ["-timestamp", "-updated"]
+        ordering = ['-timestamp', '-updated']
 
     @property 
     def formatted_markdown(self):  # <--- We'll need this for views.py later

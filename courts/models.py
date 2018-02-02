@@ -10,7 +10,8 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from django.contrib.contenttypes.models import ContentType
 from geoposition.fields import GeopositionField
-
+from comments.models import Comment
+from markdown_deux import markdown
 
 class CourtManager(models.Manager):
     def active(self, *args, **kwargs):
@@ -49,7 +50,12 @@ class Court(models.Model):
     width_field = models.IntegerField(default=0)
     content = models.CharField(max_length=140, default='')
     address = models.CharField(max_length=255)
+    draft = models.BooleanField(default=False)
+    publish = models.DateField(auto_now=False, auto_now_add=False)
     location = GeopositionField(blank=True)
+    updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+    timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
+
 
     # Returns the string representation of the model.
     def __str__(self):
@@ -57,6 +63,20 @@ class Court(models.Model):
 
     def get_absolute_url(self):
         return reverse("courts:detail", kwargs={"slug": self.slug})
+
+    class Meta:
+        ordering = ["-timestamp", "-updated"]
+
+    def get_markdown(self):
+        content = self.content
+        markdown_text = markdown(content)
+        return mark_safe(markdown_text)
+
+    @property
+    def comments(self):
+        instance = self
+        qs = Comment.objects.filter_by_instance(instance)
+        return qs
 
 
     # def get_image_filename(instance, filename):
