@@ -25,19 +25,21 @@ from .models import Court
 def court_create(request):
 	if not request.user:
 		raise Http404
-		
+	title="Courts | Create"	
 	form = CourtForm(request.POST or None, request.FILES or None)
 	if form.is_valid() and request.user.is_authenticated():
 		instance = form.save(commit=False)
+
 		instance.user = request.user
 		instance.save()
 		# message success
 		messages.success(request, "Successfully Created")
 		return HttpResponseRedirect(instance.get_absolute_url())
 	context = {
+		"title": title,
 		"form": form,
 	}
-	return render(request, "form.html", context)
+	return render(request, "court_form.html", context)
 
 def court_detail(request, slug=None):
 	instance = get_object_or_404(Court, slug=slug)

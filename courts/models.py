@@ -51,7 +51,11 @@ class Court(models.Model):
     content = models.CharField(max_length=140, default='')
     address = models.CharField(max_length=255)
     location = GeopositionField(blank=True)
-
+    draft = models.BooleanField(default=False)
+    publish = models.DateField(auto_now=False, auto_now_add=False)
+    updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+    timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
+    objects = CourtManager()
 
     # Returns the string representation of the model.
     def __str__(self):
@@ -60,6 +64,8 @@ class Court(models.Model):
     def get_absolute_url(self):
         return reverse("courts:detail", kwargs={"slug": self.slug})
 
+    class Meta:
+        ordering = ["-timestamp", "-updated"]
 
     def get_markdown(self):
         content = self.content

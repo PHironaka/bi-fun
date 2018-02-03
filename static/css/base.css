@@ -258,6 +258,28 @@ padding: 0 0em 10em;
 margin:2em 0;
 }
 
+/*.form-item .control-label {
+  display: none;
+}*/
+
+#id_image {
+  padding: 10px;
+  margin:10px 0;
+}
+
+#id_title {
+  background-color: #fcfcfc;
+border: none;
+border-radius: 4px;
+box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
+color: #555f77;
+font-family: inherit;
+font-size: 14px;
+outline: none;
+margin: 1em 0;
+min-height: 28px;
+}
+
 .form-item #id_content value {
   vertical-align: top;
 }
@@ -741,6 +763,10 @@ footer {
     bottom:0;
     line-height: 1.5;
         margin-top: 3em;
+}
+
+.logo-footer {
+  margin-top: 1.5em;
 }
 
 footer h3 {
