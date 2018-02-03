@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 {% block head_extra %} 
 
 {% endblock head_extra %}
@@ -18,8 +17,9 @@
 
 
 
-<form method='POST' class="post-item" action='' enctype='multipart/form-data'>{% csrf_token %}
-{{ form | crispy }}
+<form method='POST' class="form-item" action='' enctype='multipart/form-data'>
+{% csrf_token %}
+{{ form }}
 
 <input type='submit' class="search-button"  value='Submit' />
 </form>

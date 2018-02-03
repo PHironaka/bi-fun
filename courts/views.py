@@ -148,7 +148,7 @@ def court_update(request, slug=None):
 def court_delete(request, slug=None):
 	if not request.user:
 		raise Http404
-	instance = get_object_or_404(Forum, slug=slug)
+	instance = get_object_or_404(Court, slug=slug)
 	instance.delete()
 	messages.success(request, "Successfully deleted")
-	return redirect("posts:list")
+	return redirect("forum:list")

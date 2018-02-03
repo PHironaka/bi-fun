@@ -152,6 +152,10 @@ font-weight: 300;
   margin-bottom: 10px;
 }
 
+#id_content {
+  width: 100%;
+}
+
 .breadcrumb {
     background: white;
     padding: 15px 0px;
@@ -248,6 +252,16 @@ grid-template-columns: 2fr 2fr 2fr 2fr;
     position: relative;
 
 }
+
+.form-item #id_content {
+padding: 0 0em 10em;
+margin:2em 0;
+}
+
+.form-item #id_content value {
+  vertical-align: top;
+}
+
 
 .forum-content--detail {
   grid-column: 1 /  4;

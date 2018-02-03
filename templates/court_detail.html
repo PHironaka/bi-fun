@@ -60,6 +60,12 @@ Twitter
 </a> /
 <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">Reddit</a>
 </p>
+
+{% if  request.user.is_authenticated %}
+<li><a href='{{ instance.get_absolute_url }}edit'>Edit Court</a></li>
+<li><a href='{{ instance.get_absolute_url }}delete'>Delete Court</a></li>
+{% endif %}
+
 {% for tag_obj in instance.tags.all %}
     <li class="post-tags"> <a >{{ tag_obj}}</a></li>
     {% endfor %}
