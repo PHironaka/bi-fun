@@ -46,7 +46,7 @@ GEOPOSITION_MARKER_OPTIONS = {
 }
 
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.sendgrid.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_MAIN = os.environ.get('EMAIL_MAIN')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
