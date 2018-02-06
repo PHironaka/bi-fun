@@ -10,20 +10,33 @@
 {% block content %}
 <div class="author">
 <h2>@{{object.username}} </h2>
-<p>Contributions:</p>
 </div>
+<div class='account-page'>
+
+<h3>Forum Posts</h3>
 {% for forum in object.forum_set.all %}
 <div class='account-page--content'>
 <h3><a href="{{forum.get_absolute_url}}">{{ forum.title }}</a></h3>
 </div>
 
 {% endfor %}
+</div>
+
+<div class='account-page'>
+
+<h3>Court Posts</h3>
 
 {% for court in object.court_set.all %}
 <div class='account-page--content'>
-<h3><a href="{{forum.get_absolute_url}}">{{ court.title }}</a></h3>
+
+<h3><a href="{{court.get_absolute_url}}">{{ court.title }}</a></h3>
+<p>{{ court.address }}</p>
+<p>{{ court.location }}</p>
+     <img src="{{ court.image.url }}">
+
 </div>
 
 {% endfor %}
+</div>
 
 {% endblock content %}

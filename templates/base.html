@@ -52,13 +52,13 @@
 
 	<li><a class="user-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a>
 		<ul class="nav-dropdown">
-				<li><a >@{{request.user }} </a></li>
-
-			<li><a href='{% url "forum:create" %}'>Write Forum</a></li>
-			<li><a href='{% url "courts:create" %}'>Add Court</a></li>
+			<li><a >@{{request.user }} </a></li>
 			{% if  request.user.is_staff %}
 			<li><a  href='{% url "posts:create" %}'>Write Post</a></li>
-{% endif %}
+			{% endif %}
+			<li><a href='{% url "forum:create" %}'>Write Forum</a></li>
+			<li><a href='{% url "courts:create" %}'><span>Create Court</span> <svg width="47" height="46" xmlns="http://www.w3.org/2000/svg"><g stroke="#005BE7" fill="none" fill-rule="evenodd"><rect stroke-width="2" x="1" y="1" width="45" height="29" rx="4"/><path d="M13 9.16v15.68c0 .08.08.16.2.16h21.6c.12 0 .2-.08.2-.16V9.16c0-.08-.08-.16-.2-.16H13.2c-.12 0-.2.08-.2.16z" stroke-width="2"/><rect stroke-width="2" x="10" y="25" width="27" height="4" rx="2"/><path d="M20.5 31.5V44" stroke-width="1.8" stroke-linecap="square"/><path d="M24.08 45s5.47-.09 7.15-2.14C32.9 40.8 34 30 34 30H13s2.23 10.77 3.94 12.86c1.7 2.08 7.14 2.14 7.14 2.14z" stroke-width="1.9"/><path d="M27.75 31.14L27 44M15 34.5h18.25M16 38.5h16.47" stroke-width="1.9" stroke-linecap="square"/></g></svg></a></li>
+	
 
 			<li><a href='{% url "logout" %}'>Logout</a></li>
 		</ul>
@@ -70,7 +70,7 @@
 </ul>	
 </nav>
 </header>
-<div class='container {% block container-page %} {% endblock  %}	'>
+<div class="container {% block container-page %} {% endblock container-page %}">
 {% block post_detail_link %}{% endblock  %}	
 
 {% block content %}{% endblock content %}

@@ -117,7 +117,7 @@ blockquote p {
 }
 
 .search-field {
-    width: 81%;
+    width:450px;
 padding: 14px 10px 12px;
 font-family: 'Fira Sans', sans-serif;
 color: #b0b0b0;
@@ -141,6 +141,7 @@ font-weight: 300;
     box-shadow: 0px 5px 0px 0px #3C93D5;
     border: none;
     font-family: 'Fira Sans', sans-serif;
+    min-width: 100px;
 }
 .search-button:active {
     transform: translate(0px, 5px);
@@ -243,6 +244,10 @@ grid-column-gap: 2rem;
 grid-template-columns: 2fr 2fr 2fr 2fr;
 }
 
+.container.editorial-posts {
+  margin-top: 2em;
+}
+
 .container.courts {
   grid-template-columns: 2fr 2fr;
 }
@@ -284,6 +289,12 @@ min-height: 28px;
   vertical-align: top;
 }
 
+.forum-intro {
+  grid-column: 1 / 4;
+  background-color: white;
+  margin-top: 2em;
+padding: 20px;
+}
 
 .forum-content--detail {
   grid-column: 1 /  4;
@@ -300,7 +311,7 @@ min-height: 28px;
 .forum-search {
     grid-column: auto / span 3;
     position: relative;
-
+    background: transparent;
 }
 
 
@@ -371,11 +382,12 @@ grid-template-columns: repeat(2, 1fr);
 
 .courts-button {
   margin: 1.8em auto;
-  display: block;
-  background: #eee;
-  max-width: 120px;
-  padding:6px;
-  border-radius:4px;
+display: block;
+max-width: 104px;
+padding: 10px 0px;
+font-weight: bold;
+border-bottom: 1px solid;
+text-align: center;
 }
 
 
@@ -422,6 +434,20 @@ grid-template-columns: repeat(2, 1fr);
 
 
 aside { grid-column: auto / span 1; }
+
+.static-page--aside {
+  background: transparent;
+  max-height: 250px;
+}
+
+.static-page--aside ul {
+  margin: 0;
+  padding: 0;
+}
+
+.static-page li{
+  margin: 1em 0;
+}
 
 .forum-post-content {
     background: white;
@@ -489,6 +515,12 @@ font-weight: 300;
     width: 80%;
     margin-bottom: 2em;
     max-height: 111px;
+}
+
+.court-caption {
+  display: grid;
+  grid-template-columns: 1fr .6fr 1fr ;
+  padding: 0;
 }
 .caption {
     display: grid;
@@ -583,8 +615,12 @@ min-height: 28px;
 
 /* account */
 
+.account-page {
+         grid-column: auto / span 2;
+
+}
+
 .account-page--content {
-       grid-column: auto / span 2;
 margin: 1em 0;
 background: white;
 padding: 30px;
@@ -608,7 +644,7 @@ header.land {
 }
 
 .logo {
-    max-width: 75px;
+    max-width: 90px;
     padding: 9px 0;
 }
 nav {
@@ -811,18 +847,18 @@ footer .intro svg {
 
 /* messages */
 
-.messages {
+.messages a {
     position: absolute;
-    background: #f58324;
-    color: white;
-    width: 100%;
-    height: 7%;
-    top: 10em;
-    font-weight: 700;
-    z-index: 1000;
+color: black;
+width: 100%;
+height: 7%;
+top: 2em;
+font-weight: 700;
+z-index: 1000;
+text-align: center;
+font-size: 7em;
 }
 
-.messages a {color: white;}
 
 .editorial {
   position: fixed;
@@ -849,9 +885,13 @@ footer .intro svg {
     margin-left: 0;
 }
 
+
+
 aside {
     grid-column: 1;
 }
+
+
 
 .container {
 

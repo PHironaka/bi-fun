@@ -25,27 +25,24 @@ from .models import Court
 def court_create(request):
 	if not request.user:
 		raise Http404
-	title="Courts | Create"	
+		
 	form = CourtForm(request.POST or None, request.FILES or None)
+	title = "Create Court"
 	if form.is_valid() and request.user.is_authenticated():
 		instance = form.save(commit=False)
-
 		instance.user = request.user
 		instance.save()
 		# message success
 		messages.success(request, "Successfully Created")
 		return HttpResponseRedirect(instance.get_absolute_url())
 	context = {
-		"title": title,
 		"form": form,
+		"title": title,
 	}
 	return render(request, "court_form.html", context)
 
 def court_detail(request, slug=None):
 	instance = get_object_or_404(Court, slug=slug)
-	if instance.publish > timezone.now().date() or instance.draft:
-		if not request.user:
-			raise Http404
 	share_string = quote_plus(instance.content)
 
 	initial_data = {
@@ -94,7 +91,7 @@ def court_detail(request, slug=None):
 
 def court_list(request):
 	today = timezone.now().date()
-	obj = Court.objects.all() #.order_by("-timestamp")
+	obj = Court.objects.active() #.order_by("-timestamp")
 	if request.user:
 		obj = Court.objects.all()
 	
@@ -129,7 +126,6 @@ def court_list(request):
 
 
 
-
 def court_update(request, slug=None):
 	if not request.user:
 		raise Http404
@@ -138,16 +134,16 @@ def court_update(request, slug=None):
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
-		messages.success(request, "<a href='#'>Item</a> Saved", extra_tags='html_safe')
+		messages.success(request, "<a href='#'> Saved</a> ", extra_tags='html_safe')
 		return HttpResponseRedirect(instance.get_absolute_url())
 
 	context = {
 		"title": instance.title,
-		"content": instance.content,
 		"instance": instance,
 		"form":form,
 	}
 	return render(request, "form.html", context)
+
 
 
 def court_delete(request, slug=None):

@@ -17,7 +17,6 @@ Courts | {{ block.super }}
 
 
 
-
 {% block content %}
 <div class="court-intro">
   <h2>Court Lust.</h2>
@@ -25,7 +24,7 @@ Courts | {{ block.super }}
   {% if not request.user.is_authenticated %}
 
   {% else %}
-    <a class="courts-button" href='{% url "courts:create" %}'>Get started</a>
+    <a class="courts-button" href='{% url "courts:create" %}'>Get started <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
     {% endif %}
 </div>
 </div>
@@ -177,10 +176,10 @@ Courts | {{ block.super }}
         {% if obj.image %}
                  <img src='{{ obj.image.url }}' class='img-court' />
         {% endif %}
-             {% if obj.draft %}<h3>Staff only: Draft</h3>{% endif %} {% if obj.publish > today %}<h3>Staff Only: Future Post</h3>{% endif %}
+
         <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> </h3>
         	<p>{{ obj.address }}</p> 
-      <div class="caption">
+      <div class="court-caption">
 
   {% if obj.user %}<p>By: <a href='/profiles/{{ obj.user }}'>{{ obj.user }}</p></a>{% endif %}
     

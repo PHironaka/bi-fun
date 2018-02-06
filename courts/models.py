@@ -1,10 +1,10 @@
 from __future__ import unicode_literals
 
 
-from django.db import models
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.db.models.signals import pre_save, post_save
+from django.db import models
+from django.db.models.signals import pre_save
 from django.utils import timezone
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
@@ -16,7 +16,7 @@ from comments.models import Comment
 class CourtManager(models.Manager):
     def active(self, *args, **kwargs):
         # Post.objects.all() = super(PostManager, self).all()
-        return super(CourtManager, self).filter(draft=False).filter(publish__lte=timezone.now())
+        return super(CourtManager, self)
 
 
 def upload_location(instance, filename):
@@ -51,8 +51,6 @@ class Court(models.Model):
     content = models.CharField(max_length=140, default='')
     address = models.CharField(max_length=255)
     location = GeopositionField(blank=True)
-    draft = models.BooleanField(default=False)
-    publish = models.DateField(auto_now=False, auto_now_add=False)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     objects = CourtManager()
