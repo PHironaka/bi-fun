@@ -28,8 +28,10 @@
 </p>
 
 <form method='POST' class="form-item" action='' enctype='multipart/form-data'>
-
 {% csrf_token %}
+
+{{ form.media }}
+
 {{ form | crispy }}
 
 <input type='submit' class="search-button"  value='Submit' />
@@ -37,3 +39,5 @@
 </div>	
 </div>
 {% endblock content %}
+
+

@@ -19,12 +19,12 @@
 {% block content %}
 
 <div class="court-images">
-     <img src="{{ instance.image.url }}">
+                 <img src='{{ instance.image.url }}' class='img-court' />
 
 
-   <!-- <img src="https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&size=1700x1700&key=AIzaSyCxJInoQGs969DcTm5qw6tE9Blds8iYbiU&zoom=19&markers={{instance.location}}">  
- -->
- <div class="court-map">
+   <img src="https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&size=1700x1700&key=AIzaSyCxJInoQGs969DcTm5qw6tE9Blds8iYbiU&zoom=19&markers={{instance.location}}">  
+
+ <!-- <div class="court-map">
      
 
         <div class="court-listing" id="map-canvas"></div>    </div>
@@ -147,7 +147,7 @@
             }
 
             google.maps.event.addDomListener(window, 'load', initialize);
-        </script> 
+        </script>  -->
 </div>
 
 
