@@ -55,6 +55,16 @@ input {
       border: 1px solid #eee;
 }
 
+.forum-intro a.search-button {
+display: inline-grid;
+margin: 1.5em 0 0;
+display: table;
+padding: 10px;
+font-family: 'Fira Sans', sans-serif;
+font-size: 14px;
+text-align: center;
+}
+
 
 .body-posts {
     background-color: #fff !important;
@@ -296,6 +306,8 @@ min-height: 28px;
 padding: 20px;
 }
 
+
+
 .forum-content--detail {
   grid-column: 1 /  4;
   margin:1em 0 0;
@@ -336,9 +348,7 @@ padding: 1em 0;
 }*/
 
 
-.forum-content--icon {
-  padding: 10px 1em 0;
-}
+
 
 .court-post, .post-content {
       grid-column: auto / span 2;
@@ -380,6 +390,16 @@ grid-template-columns: repeat(2, 1fr);
 
 }
 
+.forum-button {
+margin: 1em auto 1em;
+max-width: 104px;
+padding: 10px 0px;
+font-weight: bold;
+border-bottom: 1px solid;
+text-align: left;
+display: inline-table;
+}
+
 .courts-button {
   margin: 1.8em auto;
 display: block;
@@ -391,11 +411,11 @@ text-align: center;
 }
 
 
-.like-btn { 
+.like-btn, .forum-content--icon { 
   padding: 5px;
   margin: 5px 11px 10px 0px;
   text-align: center;
-
+  border: 1px solid #eee;
 }
 
 .page-container {
@@ -535,7 +555,7 @@ font-weight: 300;
 }
 
 .caption a svg {
-  margin-right: 10px;
+  margin-right: 7px;
 }
 
 .caption-stats {
