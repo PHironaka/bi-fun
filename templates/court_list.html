@@ -12,6 +12,7 @@ Courts | {{ block.super }}
 {% block meta-image %} bif-ball.s3.amazonaws.com/media/2/Logov3.png{% endblock meta-image %}
 {% block twitter-image %} bif-ball.s3.amazonaws.com/media/2/Logov3.png{% endblock twitter-image %}
 
+{% block container-page %} court-lust{% endblock container-page %}
 {% block body_class %}body-posts{% endblock %}
 {% block content %}
 <div class="court-intro">
@@ -30,110 +31,176 @@ Courts | {{ block.super }}
     function initialize() {
        var map = new google.maps.Map(document.getElementById('map-canvas'), {
           center: {lat: 40.674, lng: -73.945},
-          zoom: 19,
+          scrollwheel: false,
+          navigationControl: false,
+          zoom: 13,
           styles: [
-            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-            {
-              featureType: 'administrative.locality',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'geometry',
-              stylers: [{color: '#263c3f'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#6b9a76'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry',
-              stylers: [{color: '#38414e'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#212a37'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#9ca5b3'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry',
-              stylers: [{color: '#746855'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#1f2835'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#f3d19c'}]
-            },
-            {
-              featureType: 'transit',
-              elementType: 'geometry',
-              stylers: [{color: '#2f3948'}]
-            },
-            {
-              featureType: 'transit.station',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'geometry',
-              stylers: [{color: '#17263c'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#515c6d'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.stroke',
-              stylers: [{color: '#17263c'}]
-            }
-          ]
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#2db0e9"
+      },
+      {
+        "lightness": "64"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#00548f"
+      },
+      {
+        "lightness": 20
+      },
+      {
+        "gamma": 0.01
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "saturation": -31
+      },
+      {
+        "lightness": -33
+      },
+      {
+        "gamma": 0.8
+      },
+      {
+        "visibility": "off"
+      },
+      {
+        "weight": 2
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "saturation": 30
+      },
+      {
+        "lightness": 30
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#ede9f3"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "saturation": 20
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "saturation": -20
+      },
+      {
+        "lightness": 20
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "saturation": -30
+      },
+      {
+        "lightness": "71"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "saturation": 25
+      },
+      {
+        "lightness": 25
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "stylers": [
+      {
+        "lightness": -20
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#80c6fe"
+      },
+      {
+        "weight": 3.5
+      }
+    ]
+  }
+]
         });
-
                 var bounds = new google.maps.LatLngBounds();
                 function addMarker(lat, lng, title) {
                     var location = new google.maps.LatLng(lat, lng);
-
-                      {% for obj in object_list %}
                     var marker = new google.maps.Marker({
                         position: location,
                         map: map,
-                        title: title
+                        title: title,
+                        icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
                     });
-                var infowindow = new google.maps.InfoWindow({
-          content: '<h3 class="court-title"><a href="' + '{{ obj.get_absolute_url }}' + '">' + marker.getTitle() + '</a></h3>' 
+                        
+{% for obj in object_list %}
+         var infowindow = new google.maps.InfoWindow({
+          content: '<h3 class="court-title"><a href="{{ obj.get_absolute_url }}">' + marker.getTitle() + '</a></h3>' + '<img class="court-pic" src="' + '{{obj.image.url}}' + '">'
         });
-  {% endfor %}
+
+     {% endfor %}
+ 
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.open(map, marker);
         });
+
                     bounds.extend(location);
                 }
                  {% for obj in object_list %}
-                     addMarker({{ obj.location.latitude }}, {{ obj.location.longitude }}, "{{ obj.title }}", "{{obj.get_absolute_url}}");
+                     addMarker({{ obj.location.latitude }}, {{ obj.location.longitude }}, "{{ obj.title }}",  );
                 {% endfor %}
                 map.fitBounds(bounds);
             }
@@ -160,7 +227,32 @@ Courts | {{ block.super }}
       </div>
 
 {% endfor %}
+
+
 </div>
+
+{% if object_list.has_other_pages %}
+  <ul class="pagination">
+    {% if object_list.has_previous %}
+      <li><a href="?page={{ object_list.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in object_list.paginator.page_range %}
+      {% if object_list.number == i %}
+        <li class="page active"><span>{{ i }} <span class="sr-only"></span></span></li>
+      {% else %}
+        <li class="page number"><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if object_list.has_next %}
+      <li >><a href="?page={{ object_list.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
 {% endblock content %}
 
 

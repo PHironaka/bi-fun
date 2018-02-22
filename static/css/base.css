@@ -22,10 +22,24 @@ body {
     overflow-x: hidden;
 }
 
+.container {
+    margin: 0 auto;
+width: 85%;
+display: grid;
+grid-column-gap: 2rem;
+margin: 0 auto;
+padding: 0 2.55555em;
+grid-column-gap: 2rem;
+grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+
 .court-intro {
-  margin: 2em 0;
-  text-align: center;
-  grid-column: 2 / 4;
+ margin: 2em auto;
+text-align: center;
+
+position: relative;
+max-width: 400px;
 }
 
 .court-title {
@@ -38,7 +52,8 @@ body {
 }
 
  #map-canvas {
-                height: 400px;
+                height: 500px;
+                margin-bottom: 3em;
             }
 
 .gmnoprint a, .gmnoprint span {
@@ -242,17 +257,6 @@ border-top: 1px solid #eee;
 
 
 
-.container {
-      margin: 0 auto;
-    width: 90%;
-    max-width: 68em;
-       display: grid;
-    grid-column-gap: 2rem;
-   margin: 0 auto;
-padding: 0 2.55555em;
-grid-column-gap: 2rem;
-grid-template-columns: 2fr 2fr 2fr 2fr;
-}
 
 .container.editorial-posts {
   margin-top: 2em;
@@ -351,7 +355,7 @@ padding: 1em 0;
 
 
 .court-post, .post-content {
-      grid-column: auto / span 2;
+      grid-column: auto / span 1;
 }
 
 .post-item {
@@ -564,14 +568,25 @@ font-weight: 300;
 }
 
 .pagination {
-   margin: 15px;
+  margin: 3em 0;
 position: relative;
 display: grid;
-grid-template-rows: 10px 10px;
--ms-grid-columns: 1fr 1fr;
-grid-template-columns: 1fr 1fr;
-grid-template-areas: "content content"
-                       "content content";
+text-align: center;
+display: grid;
+grid-column-gap: 2rem;
+grid-template-columns: repeat(auto-fit, minmax(29px, .01fr));
+justify-content: center;
+}
+
+.pagination li.page {
+  border: 1px solid;
+padding: 3px;
+border-radius: 50%;
+}
+
+.pagination li.page.active {
+  background: black;
+  color: white;
 }
 
 .step-links {
@@ -586,13 +601,7 @@ grid-template-areas: "content content"
   justify-items: start;
 }
 
-.pagination a {
 
-  font-weight: 700;
-  font-size: 1.3em;
-color: #f58323;
-padding: 10px 13px;
-}
 
 .author-color {
   color: #f58323;
@@ -634,9 +643,6 @@ float: none !important;
 
 /* Court */
 
-.img-court {
-   margin: 2em 0;
-}
 
 /* account */
 
@@ -698,6 +704,12 @@ nav {
   }
 
 }
+
+
+.previous, .next {
+  margin: 0 2em;
+}
+
 
 .nav-dropdown {
     position: absolute;
@@ -936,5 +948,5 @@ aside {
 header .container {
   grid-template-columns: 5fr 18fr;
 }
-
 }
+

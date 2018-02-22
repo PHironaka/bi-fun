@@ -6,7 +6,6 @@
 
 
 {% block content %}
-  {% if not request.user.is_authenticated %}
 
 <div class="forum-intro">
   <h3>Welcome to Basketball Is Fun</h3>
@@ -14,7 +13,6 @@
   <a class="forum-button" href='{% url "forum:create" %}'>Get started <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
 </div>
 
-{% endif %}
 
 <form method='GET' action='' class="forum-search">
 <input type='text' name='q' class="search-field" placeholder='Search Forum content' value='{{ request.GET.q }}'/>
@@ -57,21 +55,7 @@
       </div>
 </div>
 {% endfor %}
-<div class="pagination">
-    <span class="step-links">
-        {% if object_list.has_previous %}
-            <a  class="page-prev" href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
-        {% endif %}
 
-      <!--   <span class="current">
-            <a href="">{{ object_list.number }}</a> {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
-        </span> -->
-
-        {% if object_list.has_next %}
-            <a class="page-next" href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
-        {% endif %}
-    </span>
-</div>
 
 </div>
 
@@ -79,6 +63,26 @@
 
 
 </div>
+
+{% if object_list.has_other_pages %}
+  <ul class="pagination">
+    {% if object_list.has_previous %}
+      <li class="previous"><a href="?page={{ object_list.previous_page_number }}"><</a></li>
+    {% else %}
+    {% endif %}
+    {% for i in object_list.paginator.page_range %}
+      {% if object_list.number == i %}
+        <li class="page active"><span>{{ i }} <span class="sr-only"></span></span></li>
+      {% else %}
+        <li class="page number"><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if object_list.has_next %}
+      <li class="next"><a href="?page={{ object_list.next_page_number }}">> </a></li>
+    {% else %}
+    {% endif %}
+  </ul>
+{% endif %}
 
 
 
