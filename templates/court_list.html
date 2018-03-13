@@ -234,9 +234,9 @@ Courts | {{ block.super }}
 {% if object_list.has_other_pages %}
   <ul class="pagination">
     {% if object_list.has_previous %}
-      <li><a href="?page={{ object_list.previous_page_number }}">&laquo;</a></li>
+      <li><a href="?page={{ object_list.previous_page_number }}"><</a></li>
     {% else %}
-      <li class="disabled"><span>&laquo;</span></li>
+      <li class="disabled"><span></span></li>
     {% endif %}
     {% for i in object_list.paginator.page_range %}
       {% if object_list.number == i %}
@@ -246,9 +246,9 @@ Courts | {{ block.super }}
       {% endif %}
     {% endfor %}
     {% if object_list.has_next %}
-      <li >><a href="?page={{ object_list.next_page_number }}">&raquo;</a></li>
+      <li ><a href="?page={{ object_list.next_page_number }}">></a></li>
     {% else %}
-      <li class="disabled"><span>&raquo;</span></li>
+      <li class="disabled"><span></span></li>
     {% endif %}
   </ul>
 {% endif %}

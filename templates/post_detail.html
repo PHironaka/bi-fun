@@ -27,14 +27,8 @@
 
 
 {% block content %}
-<!-- <div class="forum-content"
-    {% if instance.image %}
-    <!-- <img src="{{ instance.image.url }}"> -->
-
-    <div class="header-img" style="background-image:url({{ instance.image.url }});"></div>
-    {% endif %}
-
-    <div class="post-credits">
+<div class="post-detail--content">
+     <div class="post-detail--credits">
 <h2>{{ title }} {% if instance.draft %}<small><span style='color:red;'>Draft</span> </small>{% endif %}</h2>
 
 <!-- {% if instance.read_time|time:"i" <= "01" %} < 1 minute {% else %}{{ instance.read_time|time:"i" }} minutes {% endif %} -->
@@ -47,6 +41,13 @@
 
 
 </div>
+
+    {% if instance.image %}
+   <img src="{{ instance.image.url }}">
+
+    {% endif %}
+</div>
+   
 
    <div class='post-detail-item'>
     {{ instance.formatted_markdown|safe  }}

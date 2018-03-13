@@ -35,20 +35,25 @@ Posts | {{ block.super }}
   </div>
 
 {% endfor %}
-<div class="post-content pagination">
-    <span class="step-links">
-        {% if object_list.has_previous %}
-            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">< Previous</a>
-        {% endif %}
 
-     <!--    <span class="current">
-            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
-        </span> -->
-
-        {% if object_list.has_next %}
-            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><!-- Next --> <svg viewBox="0 0 24 24" width="26" height="26" class="Icon u-spaceLeft06" role="presentation"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 5 22 12 15 19"></polyline><line x1="20" y1="12" x2="2" y2="12"></line></g></svg></a>
-        {% endif %}
-    </span>
-</div>
+{% if object_list.has_other_pages %}
+  <ul class="pagination">
+    {% if object_list.has_previous %}
+      <li class="previous"><a href="?page={{ object_list.previous_page_number }}"><</a></li>
+    {% else %}
+    {% endif %}
+    {% for i in object_list.paginator.page_range %}
+      {% if object_list.number == i %}
+        <li class="page active"><span>{{ i }} <span class="sr-only"></span></span></li>
+      {% else %}
+        <li class="page number"><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if object_list.has_next %}
+      <li class="next"><a href="?page={{ object_list.next_page_number }}">> </a></li>
+    {% else %}
+    {% endif %}
+  </ul>
+{% endif %}
 
 {% endblock content %}

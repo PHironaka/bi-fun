@@ -3,6 +3,7 @@
 {% block meta-image %} bif-ball.s3.amazonaws.com/media/2/Logov3.png{% endblock meta-image %}
 {% block twitter-image %} bif-ball.s3.amazonaws.com/media/2/Logov3.png{% endblock twitter-image %}
 
+ {% block container-page %}forum-detail{% endblock container-page %}
 
 
 {% block content %}
@@ -13,11 +14,11 @@
   <a class="forum-button" href='{% url "forum:create" %}'>Get started <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
 </div>
 
-
+<!-- 
 <form method='GET' action='' class="forum-search">
 <input type='text' name='q' class="search-field" placeholder='Search Forum content' value='{{ request.GET.q }}'/>
 <input type='submit' class="search-button"  value='Search' />
-</form>
+</form> -->
 
 <div class="page-content--static">
 {% for obj in object_list %}

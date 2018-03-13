@@ -18,10 +18,9 @@
 {% block style %}{% endblock style %}
 </style>
 {% block head_extra %} {% endblock head_extra %}
-<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
-<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
-<script src='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+<!-- <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script> -->
+
 </head>
 <body lang="en" class="{% block body_class %}default{% endblock body_class %}">
 <header>
@@ -32,12 +31,19 @@
 {% include "section/logo.html" %}
 </a>
 </div>
+
+<form class="search-court--form" method='GET' action='/courts' >
+<input type='text' name='q' class="search-court" placeholder='Search for Courts!' value='{{ request.GET.q }}'/>
+<input type='submit' class="search-btn"  value='Search' />
+</form>
+
 <nav class="navigation">
 <!--  <div class="mobile-hamburger-icon" id="icon">
     <div class="icon-1" id="a"></div>
     <div class="icon-2" id="b"></div>
     <div class="icon-3" id="c"></div>
  </div> -->
+
 
 <ul class="nav-list">
 	<li ><a href='{% url "forum:list" %}'>Home</a></li>
@@ -49,14 +55,22 @@
 	{% else %}
 
 
-	<li><a class="user-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a>
+	<li><a class="user-avatar"><svg width="18" height="20" xmlns="http://www.w3.org/2000/svg">
+  <g id="Page-1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+    <g id="user-(3)" transform="translate(1 1)" fill="#000" stroke="#000" stroke-width="2">
+      <path d="M16 18v-2a4 4 0 0 0-4-4H4a4 4 0 0 0-4 4v2h16z" id="Shape"/>
+      <circle id="Oval" cx="8" cy="4" r="4"/>
+    </g>
+  </g>
+</svg>
+</a>
 		<ul class="nav-dropdown">
-			<li><a >@{{request.user }} </a></li>
+			<li><a >Welcome, @{{request.user }} </a></li>
 			{% if  request.user.is_staff %}
 			<li><a  href='{% url "posts:create" %}'>Write Post</a></li>
 			{% endif %}
 			<li><a href='{% url "forum:create" %}'>Write Forum</a></li>
-			<li><a href='{% url "courts:create" %}'><span>Create Court</span> <svg width="47" height="46" xmlns="http://www.w3.org/2000/svg"><g stroke="#005BE7" fill="none" fill-rule="evenodd"><rect stroke-width="2" x="1" y="1" width="45" height="29" rx="4"/><path d="M13 9.16v15.68c0 .08.08.16.2.16h21.6c.12 0 .2-.08.2-.16V9.16c0-.08-.08-.16-.2-.16H13.2c-.12 0-.2.08-.2.16z" stroke-width="2"/><rect stroke-width="2" x="10" y="25" width="27" height="4" rx="2"/><path d="M20.5 31.5V44" stroke-width="1.8" stroke-linecap="square"/><path d="M24.08 45s5.47-.09 7.15-2.14C32.9 40.8 34 30 34 30H13s2.23 10.77 3.94 12.86c1.7 2.08 7.14 2.14 7.14 2.14z" stroke-width="1.9"/><path d="M27.75 31.14L27 44M15 34.5h18.25M16 38.5h16.47" stroke-width="1.9" stroke-linecap="square"/></g></svg></a></li>
+			<li><a href='{% url "courts:create" %}'>Create Court</a></li>
 	
 
 			<li><a href='{% url "logout" %}'>Logout</a></li>
@@ -84,13 +98,6 @@
 <script src='{% static "js/main.js" %}'></script>
 <script src='{% static "turbolinks/turbolinks.js" %}'></script>
 
-<script>
-mapboxgl.accessToken = 'pk.eyJ1IjoicGV0ZXJoaXJvbmFrYSIsImEiOiJjamN3cjZ6YXQwNWUyMnd0YjUwYmdzM2JtIn0.CC8A1GuAmYpVz6bjwN3KmQ';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v10'
-});
-</script>
 
 <script>
       {% block jquery %}{% endblock %}

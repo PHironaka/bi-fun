@@ -4,6 +4,8 @@
 {% block head_title %}
 {{flatpage.title}} | {{ block.super }}
 {% endblock head_title %}
+ {% block container-page %}forum-detail{% endblock container-page %}
+
 
 {% block post_detail_link %}
     <ol class="court-listing breadcrumb">
@@ -16,12 +18,12 @@
 
 
 {% block content %}
-<div class='page-content--static'>
+<div class="page-content--static">
 		<div class="page-content--full">
 
 	<h3>	{{flatpage.title}} </h3>
 
-	{{flatpage.content |linebreaks }}
+	{{flatpage.content  }}
 	</div>
 </div>
 
