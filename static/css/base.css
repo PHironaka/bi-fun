@@ -142,6 +142,7 @@ blockquote:before {
 }
 blockquote p {
   display: inline;
+  font-size: 1.5em;
 }
 
 .search-court--form {
@@ -234,7 +235,7 @@ font-weight: 300;
 .breadcrumb {
     background: white;
     padding: 15px 0px;
-    margin: 3px 0;
+    margin: 14px 0 0;
 
 }
 
