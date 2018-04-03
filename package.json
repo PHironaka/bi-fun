@@ -21,11 +21,23 @@
   "homepage": "https://github.com/PHironaka/bif-basketball#readme",
   "dependencies": {
     "gulp-imagemin": "^3.4.0",
-    "gulp-typescript": "^3.2.3",
+    "gulp-typescript": "^3.2.4",
+    "gulp-util": "^3.0.8",
     "gulpfile-django": "0.0.12",
-    "typescript": "^2.6.1"
+    "typescript": "^2.7.2"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "babel": "^6.23.0",
+    "babel-loader": "^7.1.4",
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sass": "^3.2.1",
+    "gulp-sass-import": "^1.0.0",
+    "react": "^16.3.0",
+    "sass-modules-importer": "^1.2.1",
+    "webpack": "^4.4.1",
+    "webpack-bundle-tracker": "^0.3.0"
   }
 }
