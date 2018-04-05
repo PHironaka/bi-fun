@@ -7,8 +7,8 @@
 
 
   $(document).ready(function(){
-          function updateText(btn, newCount, verb){
-          btn.text(newCount + " " + verb)
+          function updateText(btn, newCount){
+          btn.text(newCount )
       }
       $(".like-btn").click(function(e){
         e.preventDefault()
@@ -26,7 +26,7 @@
               console.log(data)
               var newLikes;
               if (data.liked){
-                  updateText(this_, addLike, "Upvote")
+                  updateText(this_, addLike)
               } 
             }, error: function(error){
               console.log(error)

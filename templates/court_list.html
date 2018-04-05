@@ -1,10 +1,6 @@
 {% extends "base.html" %}
-
 {% load urlify %}
 {% load crispy_forms_tags %}
-
-
-
 {% block head_title %}
 Courts | {{ block.super }}
 {% endblock head_title %}
@@ -30,10 +26,8 @@ Courts | {{ block.super }}
   <script>
     function initialize() {
        var map = new google.maps.Map(document.getElementById('map-canvas'), {
-          center: {lat: 40.674, lng: -73.945},
-          scrollwheel: false,
-          navigationControl: false,
-          zoom: 13,
+          center: {lat: 40.674, lng: -73.945}, 
+          zoom: 15,
           styles: [
   {
     "elementType": "geometry",
@@ -215,14 +209,17 @@ Courts | {{ block.super }}
         {% endif %}
 
         <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> </h3>
-        	<p>{{ obj.address }}</p> 
+    <p>{{ obj.location }}</p>
+ <p>{{ obj.get_markdown }}</p>
+
+
       <div class="court-caption">
 
   {% if obj.user %}<p>By: <a href='/profiles/{{ obj.user }}'>{{ obj.user }}</p></a>{% endif %}
     
       <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View  ↳</a></p>
 
- <p>{{ obj.timestamp|timesince }}</p>
+ <p>{{ obj.timestamp|timesince }} ago</p>
       </div>
       </div>
 

@@ -105,6 +105,27 @@ max-width: 400px;
       grid-column: 1 / 4;
       margin: 1em 0 0;
     position: relative;
+
+    .forum-item {
+    display: grid;
+  background: white;
+grid-template-columns: 30px 1fr;
+grid-gap:19px;
+
+padding: 7px 30px;
+
+box-shadow: 1px 1px 3px 1px #eee;
+
+.forum-likes {
+  margin:1.5em 0;
+  p {
+  max-width: 20px;
+margin: 3px 0;
+  color:blue;
+  font-weight:400;
+  }
+}
+    }
 }
 
 blockquote {
@@ -310,7 +331,7 @@ h1 {
   grid-template-columns: 2fr 2fr;
 }
 
-.court-listing, .forum-content {
+.court-listing {
     grid-column: auto / span 4;
     position: relative;
 
@@ -359,7 +380,6 @@ padding: 20px;
 .forum-content--detail {
   grid-column: 1 /  4;
   margin:1em 0 0;
-  background: white;
       max-width: 100%;
 
 }
@@ -463,14 +483,13 @@ text-align: center;
   padding: 5px;
   margin: 5px 11px 10px 0px;
   text-align: center;
-  border: 1px solid #eee;
       -webkit-transition: all 0.1s ease 0s;
     -moz-transition: all 0.1s ease 0s;
     -o-transition: all 0.1s ease 0s;
     transition: all 0.1s ease 0s;
 }
 
-.like-btn:hover, .forum-content--icon:hover { 
+ .forum-content--icon:hover { 
  fill:white;
  background-color: #eee;
 }
@@ -498,8 +517,6 @@ text-align: center;
      background: white;
 
     margin: 1em 0 0;
-    padding: 7px 30px;
-        box-shadow: 1px 1px 3px 1px #eeeeee;
 }
 
 .password-form{
@@ -609,7 +626,7 @@ font-weight: 300;
 
 .court-caption {
   display: grid;
-  grid-template-columns: 1fr .6fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr ;
   padding: 0;
 }
 .caption {
