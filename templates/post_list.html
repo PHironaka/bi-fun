@@ -32,6 +32,10 @@ Posts | {{ block.super }}
         <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> </h3>
         <p class="post-date">{{ obj.publish }}</p>
         <p>{{ obj.content|truncatewords:40 }}</p>
+
+        <a class="read-more" href="{{ obj.get_absolute_url }}">
+          Read More
+        </a>
       <!--   <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p> -->
   </div>
 

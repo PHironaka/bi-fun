@@ -105,6 +105,10 @@ max-width: 400px;
       grid-column: 1 / 4;
       margin: 1em 0 0;
     position: relative;
+  @media screen and (max-width: 800px) {
+    grid-column: 1 / 5;
+}
+
 
     .forum-item {
     display: grid;
@@ -306,6 +310,9 @@ h1 {
 .post-detail-item {
   max-width: 80%;
   padding: 10px 0;
+  @media screen and (max-width: 800px) {
+    max-width: 100%;
+}
 }
 
 .post-detail-item p {
@@ -373,6 +380,10 @@ min-height: 28px;
   background-color: white;
   margin-top: 2em;
 padding: 20px;
+  @media screen and (max-width: 800px) {
+    grid-column: 1 / 5;
+}
+
 }
 
 
@@ -381,7 +392,9 @@ padding: 20px;
   grid-column: 1 /  4;
   margin:1em 0 0;
       max-width: 100%;
-
+  @media screen and (max-width: 800px) {
+    grid-column: 1 / 5;
+}
 }
 
 .forum-content--detail .breadcrumb, .court-listing.breadcrumb {
@@ -470,7 +483,6 @@ display: inline-table;
 
 .courts-button {
   margin: 1.8em auto;
-display: block;
 max-width: 104px;
 padding: 10px 0px;
 font-weight: bold;
@@ -487,7 +499,18 @@ text-align: center;
     -moz-transition: all 0.1s ease 0s;
     -o-transition: all 0.1s ease 0s;
     transition: all 0.1s ease 0s;
+
+
 }
+
+   .like-btn.forum-detail {
+    border: 1px solid #eee;
+      &:hover {
+       fill:white;
+ background-color: #eee;
+      }
+
+    }
 
  .forum-content--icon:hover { 
  fill:white;
@@ -575,12 +598,29 @@ aside { grid-column: auto / span 1; }
 }
 .post-content {
     margin-bottom: 2em;
+    padding: 1.5em;
+border: 1px solid #eee;
+border-radius: 13px;
 }
 
 .post-detail--content {
  grid-template-columns: 1fr 1fr;
     display: grid; 
     grid-gap: 20px;
+}
+
+.read-more {
+  border: 1px solid #eee;
+  font-size: .8em;
+    padding: 8px;
+    margin: 2em 0;
+    display: inline-block;
+    grid-gap: 20px;
+    display: grid;
+    max-width: 71px;
+    letter-spacing: 1px;
+    text-align: center;
+
 }
 
 .post-detail--credits {
