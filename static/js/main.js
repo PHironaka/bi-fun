@@ -8,7 +8,7 @@
 
   $(document).ready(function(){
           function updateText(btn, newCount){
-          btn.html( "<p>" + newCount + "</p>")
+          btn.html( "<img src='https://s3-us-west-2.amazonaws.com/bif-ball/static/images/arrow.svg'/><p>" + newCount + "</p>")
       }
       $(".like-btn").click(function(e){
         e.preventDefault()
