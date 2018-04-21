@@ -22,6 +22,7 @@ from comments.models import Comment
 from .forms import PostForm
 from .models import Post
 from django.views import generic
+from django.views.generic import DetailView, ListView
 from taggit.models import Tag
 
 def post_create(request):
@@ -177,24 +178,25 @@ def post_delete(request, slug=None):
 # 	}
 # 	return render(request, "tag-index.html", context)
 
-class TagDetails(generic.ListView):
+class TagIndexView(ListView):
     template_name = 'tags/tag_detail.html'
-    context_object_name = 'entries'
+    model = Post
+    paginate_by = '10'
+    context_object_name = 'posts'
+  
 
     def get_queryset(self):
-        tag = get_object_or_404(Tag, slug= self.kwargs['tag_slug'])
-        self.kwargs['tag'] = tag
-        tagged_entries = BlogEntry.objects.filter(is_published=True, tags__in=[tag])
-        return tagged_entries
+        return Post.objects.filter(tags__slug=self.kwargs.get('slug'))
 
-    def get_paginate_by(self, queryset):
-        paginate_by = Blog.objects.get_blog().entries_per_page
-        return paginate_by
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(TagDetails, self).get_context_data(**kwargs)
-        context['tag'] = self.kwargs['tag']
-        return context
+    # def get_paginate_by(self, queryset):
+    #     paginate_by = Blog.objects.get_blog().entries_per_page
+    #     return paginate_by
+
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super(TagDetails, self).get_context_data(**kwargs)
+    #     context['tag'] = self.kwargs['tag']
+    #     return context
 
 
 

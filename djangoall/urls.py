@@ -19,7 +19,7 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from accounts.views import (login_view, register_view, logout_view )
-from posts.views import (page_about, page_landing,)
+from posts.views import (page_about, page_landing ) 
 from django.contrib import admin
 from markdownx import urls as markdownx
 

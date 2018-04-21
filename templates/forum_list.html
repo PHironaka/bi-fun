@@ -14,12 +14,6 @@
   <a class="forum-button" href='{% url "forum:create" %}'>Get started <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
 </div>
 
-<!-- 
-<form method='GET' action='' class="forum-search">
-<input type='text' name='q' class="search-field" placeholder='Search Forum content' value='{{ request.GET.q }}'/>
-<input type='submit' class="search-button"  value='Search' />
-</form> -->
-
 <div class="page-content--static">
 {% for obj in object_list %}
 
@@ -51,13 +45,6 @@
       <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View  ↳</a></p>
 
  <p class="caption-stats">{{ obj.timestamp|timesince }}</p>
-<!-- 
-<a class='like-btn caption-stats' data-href='{{ obj.get_api_like_url }}' data-likes='{{ obj.likes.count }}'  href='{{ obj.get_like_url }}' class="forum-content--icon"><svg width="9px" height="9px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Icons---Social-media,-nav-etc" transform="translate(-53.000000, -60.000000)" fill="#b6b6b6">
-            <polygon id="Triangle-2" points="61.5 60 70 77 53 77"></polygon>
-        </g>
-    </g>
-</svg>{{ obj.likes.count }} </a>  -->
 
 <a  data-href='{{ obj.get_api_comment_url }}' class="forum-content--icon caption-stats" data-likes='{{ obj.comments.count }}'>{{ obj.comments.count }} 
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" version="1.1" width="15px" height="15px">

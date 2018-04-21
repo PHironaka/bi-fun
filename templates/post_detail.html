@@ -16,11 +16,7 @@
 
 <!-- {% block post_detail_link %}
 <div class="post-item">
-    <ol class="breadcrumb">
-        <li ><a href='{% url "forum:list" %}'>Home /</a> </li>
-        <li ><a href='{% url "posts:list" %}'>Posts /</a> </li>
-        <li><a href='{{ instance.get_absolute_url }}'> {{instance.title}} </a></li>
-    </ol>
+
 
 {% endblock  %} -->
 
@@ -63,7 +59,7 @@ Twitter
 <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">Reddit</a>
 </p>
 {% for tag_obj in instance.tags.all %}
-    <li class="post-tags"> <a >{{ tag_obj}}</a></li>
+    <li class="post-tags"> <a >x {{ tag_obj}}</a></li>
     {% endfor %}
     <hr/>
     <br/>

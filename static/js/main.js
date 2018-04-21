@@ -8,7 +8,7 @@
 
   $(document).ready(function(){
           function updateText(btn, newCount){
-          btn.text(newCount )
+          btn.html( "<p>" + newCount + "</p>")
       }
       $(".like-btn").click(function(e){
         e.preventDefault()

@@ -105,7 +105,7 @@ max-width: 400px;
       grid-column: 1 / 4;
       margin: 1em 0 0;
     position: relative;
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     grid-column: 1 / 5;
 }
 
@@ -245,6 +245,12 @@ font-weight: 300;
 
 }
 
+.navigation {
+   @media screen and (max-width: 900px) {
+    display:none;
+}
+}
+
 .breadcrumb li {display: inline;}
 nav ul {
     display: grid;
@@ -380,7 +386,7 @@ min-height: 28px;
   background-color: white;
   margin-top: 2em;
 padding: 20px;
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     grid-column: 1 / 5;
 }
 
@@ -392,7 +398,7 @@ padding: 20px;
   grid-column: 1 /  4;
   margin:1em 0 0;
       max-width: 100%;
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     grid-column: 1 / 5;
 }
 }
@@ -618,9 +624,16 @@ border-radius: 13px;
     grid-gap: 20px;
     display: grid;
     max-width: 71px;
-    letter-spacing: 1px;
     text-align: center;
+     -webkit-transition: all 0.1s ease 0s;
+    -moz-transition: all 0.1s ease 0s;
+    -o-transition: all 0.1s ease 0s;
+    transition: all 0.1s ease 0s;
 
+   &:hover {
+    color:white;
+    background:blue;
+    }
 }
 
 .post-detail--credits {
@@ -898,7 +911,12 @@ nav {
 }
 
 .mobile-hamburger-icon {
+
+@media screen and (min-width: 900px) {
     display: none;
+
+}
+
     position: absolute;
     height: 60px;
     width: 60px;

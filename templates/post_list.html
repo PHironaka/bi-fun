@@ -36,6 +36,11 @@ Posts | {{ block.super }}
         <a class="read-more" href="{{ obj.get_absolute_url }}">
           Read More
         </a>
+
+        {% for tag_obj in obj.tags.all %}
+    <li class="post-tags"> <a href="{{ tag_obj.get_absolute_url }}">x {{ tag_obj}}</a></li>
+    {% endfor %}
+
       <!--   <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p> -->
   </div>
 

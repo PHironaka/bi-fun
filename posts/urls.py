@@ -8,7 +8,7 @@ from .views import (
 	post_update,
 	post_delete,
 	page_about,
-	# TagIndexView,
+	TagIndexView,
 	)
 
 urlpatterns = [
@@ -18,7 +18,6 @@ urlpatterns = [
     url(r'^(?P<slug>[\w-]+)/$', post_detail, name='detail'),
     url(r'^(?P<slug>[\w-]+)/edit/$', post_update, name='update'),
     url(r'^(?P<slug>[\w-]+)/delete/$', post_delete),
-    # url(r'^tag/(?P<slug>[\w-]+)/$', TagIndexView, name='tagged'),
-
+    url(r'^tags/(?P<slug>[\w-]+)/$', TagIndexView.as_view(), name='tagged'),
     #url(r'^posts/$', "<appname>.views.<function_name>"),
 ]
