@@ -153,3 +153,45 @@ def court_delete(request, slug=None):
 	instance.delete()
 	messages.success(request, "Successfully deleted")
 	return redirect("forum:list")
+
+class courtLikeToggle(RedirectView):
+	def get_redirect_url(self, *args, **kwargs):
+		slug = self.kwargs.get("slug")
+		print(slug)
+		obj = get_object_or_404(Court, slug=slug)
+		url_ = obj.get_absolute_url()
+		user = self.request.user
+		if user.is_authenticated():
+			if user in obj.likes.all():	
+				obj.likes.remove(user)
+			else:	
+				obj.likes.add(user)
+		return url_
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import authentication, permissions
+
+class courtLikeAPIToggle(APIView):
+    authentication_classes = (authentication.SessionAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get(self, request, slug=None, format=None):
+        obj = get_object_or_404(Court, slug=slug)
+        url_ = obj.get_absolute_url()
+        user = self.request.user
+        updated = False
+        liked = False
+        if user.is_authenticated():
+            if user in obj.likes.all():
+                liked = False
+                obj.likes.remove(user)
+            else:
+                liked = True
+                obj.likes.add(user)
+            updated = True
+        data = {
+            "updated": updated,
+            "liked": liked
+        }
+        return Response(data)

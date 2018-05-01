@@ -119,9 +119,11 @@ grid-gap:19px;
 padding: 7px 30px;
 
 box-shadow: 1px 1px 3px 1px #eee;
+margin: 1em 0;
+border-radius: 6px;
 
 .forum-likes {
-  margin:1.5em 0;
+  margin:0;
   p {
   max-width: 20px;
 margin: 3px 0;
@@ -159,7 +161,7 @@ blockquote p {
 .search-court--form:before {
   content: "";
   position: absolute;
-  left: 20px;
+  margin-left: 16px;
   top: 0;
   bottom: 0;
   width: 20px;
@@ -254,9 +256,9 @@ font-weight: 300;
 .breadcrumb li {display: inline;}
 nav ul {
     display: grid;
-     grid-area: nav;
-   grid-template-columns: 1fr 1fr 1fr;
+grid-template-columns: 1fr 1fr 1fr;
 padding: 0;
+grid-gap: 15px;
 }
 nav ul li a {
     margin: 0;
@@ -314,7 +316,7 @@ h1 {
 }
 
 .post-detail-item {
-  max-width: 80%;
+  max-width: 66%;
   padding: 10px 0;
   @media screen and (max-width: 800px) {
     max-width: 100%;
@@ -457,7 +459,7 @@ padding: 1em 0;
 
 
 header  .container {
-    grid-template-columns:1.8fr 2.8fr 1.9fr;
+    grid-template-columns: 250px 2fr;
      min-height: auto;
 
 }
@@ -479,7 +481,7 @@ grid-template-columns: repeat(2, 1fr);
 
 .forum-button {
 margin: 1em auto 1em;
-max-width: 104px;
+max-width: 116px;
 padding: 10px 0px;
 font-weight: bold;
 border-bottom: 1px solid;
@@ -489,7 +491,7 @@ display: inline-table;
 
 .courts-button {
   margin: 1.8em auto;
-max-width: 104px;
+max-width: 116px;
 padding: 10px 0px;
 font-weight: bold;
 border-bottom: 1px solid;
@@ -545,7 +547,7 @@ text-align: center;
 .forum-content {
      background: white;
 
-    margin: 1em 0 0;
+    margin:0;
 }
 
 .password-form{
@@ -684,8 +686,16 @@ font-weight: 300;
 }
 .caption {
     display: grid;
-    grid-template-columns: 1fr .6fr 1fr .4fr .4fr ;
+      grid-template-columns: minmax(max-content, 80px) minmax(100px, 100px) 130px minmax(max-content, 80px);
+
+    grid-column-gap: 2rem;
+    grid-gap:15px;
+    font-size:.9em;
+    
     padding: 0;
+    a {
+    margin:10px 0;
+    }
 }
 .caption h3 {
     width: 100%;
@@ -831,11 +841,15 @@ header.land {
 }
 
 nav {
-  
-    padding: 1em 0;
-
-    transition: all 600ms cubic-bezier(.62,.04,.3,1.56);
-   transition-delay: 100ms;
+  padding: 1em 0;
+transition: all .6s cubic-bezier(.62,.04,.3,1.56);
+    transition-delay: 0s;
+transition-delay: .1s;
+    grid-template-columns: 2fr 1fr;
+display:grid;
+  form {
+margin: 18px 0;
+  }
   ul {
   
     li {

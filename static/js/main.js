@@ -48,7 +48,7 @@ function curvedText(time) {
   };
 
   var to = {
-    rotation: 360,
+    rotation: 560,
     ease: Linear.easeInOut
   };
 

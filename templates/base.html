@@ -40,16 +40,17 @@
 </a>
 </div>
 
+
+
+<nav class="navigation">
+
 <form class="search-court--form" method='GET' action='/courts' >
 <input type='text' name='q' class="search-court" placeholder='Search for Courts!' value='{{ request.GET.q }}'/>
 <input type='submit' class="search-btn"  value='Search' />
 </form>
 
-<nav class="navigation">
-
-
-
 <ul class="nav-list">
+
 	<li ><a href='{% url "posts:list" %}'>Editorial</a></li>
 	<li><a href='{% url "courts:list" %}'>Courts</a></li>
 		

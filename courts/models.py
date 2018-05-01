@@ -51,6 +51,7 @@ class Court(models.Model):
     content = models.CharField(max_length=140, default='')
     address = models.CharField(max_length=255)
     location = GeopositionField(blank=True)
+    likes = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='court_likes')
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     objects = CourtManager()
@@ -61,6 +62,12 @@ class Court(models.Model):
 
     def get_absolute_url(self):
         return reverse("courts:detail", kwargs={"slug": self.slug})
+
+    def get_like_url(self):
+        return reverse("courts:like-toggle", kwargs={"slug": self.slug})
+
+    def get_api_like_url(self):
+        return reverse("courts:like-api-toggle", kwargs={"slug": self.slug})        
 
     class Meta:
         ordering = ["-timestamp", "-updated"]
