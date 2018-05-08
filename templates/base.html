@@ -50,9 +50,9 @@
 </form>
 
 <ul class="nav-list">
+	<li><a href='{% url "courts:list" %}'>Courts</a></li>
 
 	<li ><a href='{% url "posts:list" %}'>Editorial</a></li>
-	<li><a href='{% url "courts:list" %}'>Courts</a></li>
 		
 	{% if not request.user.is_authenticated %}
 	<li class="signup"><a href='/login'>Sign in</a></li>
