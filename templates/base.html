@@ -1,22 +1,16 @@
 {% load staticfiles %}
-<!-- Doctype HTML5 -->
 <!DOCTYPE html>
 <head>
 <title>{% block head_title %}Basketball Is Fun{% endblock head_title %}</title>
 <meta charset="utf-8">
-<!-- Instruct Internet Explorer to use its latest rendering engine -->
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<!-- Viewport for responsive web design -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {% include "meta/meta.html" %}
 <meta property="og:image" content="{% block meta-image %}{% endblock meta-image %}">
 <meta name="twitter:image" value="{% block twitter-image %}{% endblock twitter-image %}">
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400" rel="stylesheet">
 <link rel="shortcut icon" href='{% static "images/favi.png" %}'>
-
-        <link rel="stylesheet" href='{% static "css/main.css" %}'  />
-
-
+<link rel="stylesheet" href='{% static "css/main.css" %}'  />
 <style>
 {% block style %}{% endblock style %}
 </style>
@@ -33,6 +27,38 @@
     <div class="icon-2" id="b"></div>
     <div class="icon-3" id="c"></div>
  </div>
+
+ <div class="mobile-hamburger--menu">
+ 	<form class="search-court--form" method='GET' action='/' >
+<input type='text' name='q' class="search-court" placeholder='Search for Courts!' value='{{ request.GET.q }}'/>
+<input type='submit' class="search-btn"  value='Search' />
+</form>
+
+<ul class="nav-list">
+		<li><a > @{{request.user }} </a></li>
+
+	<li><a href='{% url "forum:list" %}'>Forum</a></li>
+
+	<li ><a href='{% url "posts:list" %}'>Editorial</a></li>
+		
+	{% if not request.user.is_authenticated %}
+	<li class="signup"><a href='/login'>Sign in</a></li>
+	{% else %}
+
+			{% if  request.user.is_staff %}
+			<li><a  href='{% url "posts:create" %}'>Write Post</a></li>
+			{% endif %}
+			<li><a href='{% url "forum:create" %}'>Write Forum</a></li>
+			<li><a href='{% url "courts:create" %}'>Create Court</a></li>
+	
+
+			<li><a href='{% url "logout" %}'>Logout</a></li>
+	{% endif %}			
+</ul>
+
+
+
+ </div>	
 <div class="container">
 <div class="logo">
 <a href="/">
@@ -44,13 +70,13 @@
 
 <nav class="navigation">
 
-<form class="search-court--form" method='GET' action='/courts' >
+<form class="search-court--form" method='GET' action='/' >
 <input type='text' name='q' class="search-court" placeholder='Search for Courts!' value='{{ request.GET.q }}'/>
 <input type='submit' class="search-btn"  value='Search' />
 </form>
 
 <ul class="nav-list">
-	<li><a href='{% url "courts:list" %}'>Courts</a></li>
+	<li><a href='{% url "forum:list" %}'>Forum</a></li>
 
 	<li ><a href='{% url "posts:list" %}'>Editorial</a></li>
 		
@@ -69,7 +95,9 @@
 </svg>
 </a>
 		<ul class="nav-dropdown">
-			<li><a >Welcome, @{{request.user }} </a></li>
+{% include "section/logo.html" %}
+			
+			<li><a href="/profiles/{{request.user}}"> @{{request.user }} </a></li>
 			{% if  request.user.is_staff %}
 			<li><a  href='{% url "posts:create" %}'>Write Post</a></li>
 			{% endif %}

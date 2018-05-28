@@ -38,6 +38,19 @@
       })
   })
 
+   $('.mobile-hamburger-icon').click(function(e) {
+      $('.mobile-hamburger--menu').toggleClass('open');
+
+      $('body').addClass('modal');
+      $('.icon-1').toggleClass('open');
+      $('.icon-2').toggleClass('open');
+      $('.icon-3').toggleClass('open');
+
+      e.preventDefault();
+    });
+
+
+
 function curvedText(time) {
   var tl   = new TimelineMax({ repeat: -1 });
   var text = document.querySelector('.text-animate');
