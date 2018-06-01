@@ -84,6 +84,7 @@ def forum_detail(request, slug=None):
 	context = {
 		"title": instance.title,
 		"instance": instance,
+		"link": instance.link,
 		"share_string": share_string,
 		"comments": comments,
 		"comment_form":form,
@@ -199,4 +200,4 @@ def forum_delete(request, slug=None):
 	instance = get_object_or_404(Forum, slug=slug)
 	instance.delete()
 	messages.success(request, "Successfully deleted")
-	return redirect("posts:list")
+	return redirect("forum:list")

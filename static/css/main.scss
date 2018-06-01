@@ -21,6 +21,11 @@ grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
 }
 
 
+.container.court-listings {
+grid-template-rows: auto 1fr;
+
+}
+
 .court-intro {
  margin: 2em 0 4em;
 
@@ -218,20 +223,19 @@ font-weight: 300;
 }
 
 .search-button {
-    -webkit-transition: all .2s;
+    padding: 10px;
+min-width: 81px;
+background: white;
+margin-left: 10px;
+cursor: pointer;
+color:black;
+ -webkit-transition: all .2s;
     transition: all .2s;
-    background-color: #55acee;
-    color: white;
-    padding: 14px 20px 9px;
-    box-shadow: 0px 5px 0px 0px #3C93D5;
-    border: none;
-    font-family: 'Fira Sans', sans-serif;
-    min-width: 100px;
 }
-.search-button:active {
-    transform: translate(0px, 5px);
-    -webkit-transform: translate(0px, 5px);
-    box-shadow: 0px 1px 0px 0px;
+
+.search-button:hover {
+background: blue;
+color:white;
 }
 
 #div_id_content {
@@ -387,7 +391,6 @@ margin:2em 0;
   background-color: #fcfcfc;
 border: none;
 border-radius: 4px;
-box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
 color: #555f77;
 font-family: inherit;
 font-size: 14px;
@@ -667,6 +670,15 @@ margin-top: 32%;
   grid-template-columns: .8fr 1fr 1fr;
   display: grid;
 }
+.forum-content--title {
+  display:grid;
+ grid-template-columns: minmax(max-content,100px) 20px ;
+grid-column-gap: 1em;
+
+svg {
+  padding: 8px 0 0;
+}
+}
 
 .post-credits h2:before {width: 10px; height: 1px; background: black; }
 
@@ -684,7 +696,6 @@ font-weight: 300;
         background-color: #fcfcfc;
     border: none;
     border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
     color: #555f77;
     font-family: inherit;
     font-size: 14px;
@@ -771,10 +782,7 @@ border-radius: 50%;
 }
 
 .geoposition, .geoposition-search{
-  background-color: #fcfcfc;
-border: none;
 border-radius: 4px;
-box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
 color: #555f77;
 font-family: inherit;
 font-size: 14px;
@@ -785,8 +793,9 @@ float: none !important;
  }
 
 .geoposition-search input{
-  background: transparent;
+  background-color: #fcfcfc !important;
   border: none;
+  padding: 1em !important;
 }
 
 
@@ -983,7 +992,7 @@ margin: 18px 0;
     position: absolute;
     height: 40px;
     width: 40px;
-    top: 6%;
+    top: 5%;
     right: 3%;
   z-index: 1000;
   cursor: pointer;
@@ -1093,6 +1102,8 @@ aside {
 .container.courts {
     grid-template-columns: 1fr;
 }
+
+
 
 .caption {
   grid-template-columns: 1fr;

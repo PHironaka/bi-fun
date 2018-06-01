@@ -215,7 +215,7 @@ Twitter
                 </blockquote>
              {% endfor %}
              
-          <div> {% if comment.children.count > 0 %}{{ comment.children.count }} Comment{% if comment.children.count > 1 %}s{% endif %} | {% endif %} <a class='comment-reply-btn' href='#'>Reply</a> | <a class='' href='{{ comment.get_absolute_url }}'>Thread</a></div>
+          <div> {% if comment.children.count > 0 %}{{ comment.children.count }} Comment{% if comment.children.count > 1 %}s{% endif %} | {% endif %} <a class='comment-reply-btn' href='#'><small>Reply</small></a> | <a class='' href='{{ comment.get_absolute_url }}'> <small>Thread</small></a></div>
 
           <div class='comment-reply'>
             

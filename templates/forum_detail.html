@@ -24,7 +24,14 @@
 <div class="forum-content--post">    {% if instance.image %}
     <img src='{{ instance.image.url }}' class='img-responsive' />
     {% endif %}
-<h3>{{ title }} <small>{% if instance.draft %}<span style='color:red;'>Draft</span> {% endif %}</small></h3>
+
+  <div class="forum-content--title">
+      <h3>{{ title }} <small>{% if instance.draft %}<span style='color:red;'>Draft</span> {% endif %}</small></h3>
+
+{% if instance.link %} <a href="{{ instance.link }}" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> {% endif %}
+
+
+  </div>  
 
 <div class="caption">
 
@@ -50,6 +57,12 @@
 
 
    <div class='post-detail-item'>{{ instance.get_markdown }}</div>
+
+{% if  request.user.is_authenticated %}
+   
+<li><a href='{{ instance.get_absolute_url }}edit/'>Edit Post</a></li>
+<li><a href='{{ instance.get_absolute_url }}delete/'>Delete Post</a></li>
+{% endif %}
 
 <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}={{ share_string }}">
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="icon"><path fill="#3b5998" d="M18.05.811q.439 0 .744.305t.305.744v16.637q0 .439-.305.744t-.744.305h-4.732v-7.221h2.415l.342-2.854h-2.757v-1.83q0-.659.293-1t1.073-.342h1.488V3.762q-.976-.098-2.171-.098-1.634 0-2.635.964t-1 2.72V9.47H7.951v2.854h2.415v7.221H1.413q-.439 0-.744-.305t-.305-.744V1.859q0-.439.305-.744T1.413.81H18.05z"/></svg>

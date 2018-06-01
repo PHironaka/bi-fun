@@ -13,6 +13,7 @@ class ForumForm(forms.ModelForm):
         fields = [
             "title",
             "content",
+            "link",
             "draft",
             "publish",
         ]

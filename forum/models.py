@@ -47,6 +47,7 @@ class Forum(models.Model):
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     content = models.TextField()
+    link = models.URLField(blank=True)
     likes = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='forum_likes')
     draft = models.BooleanField(default=False)
     publish = models.DateField(auto_now=False, auto_now_add=False)

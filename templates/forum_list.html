@@ -38,6 +38,7 @@
  
         {% if obj.draft %}<h3>Staff only: Draft</h3>{% endif %} {% if obj.publish > today %}<h3>Staff Only: Future Post</h3>{% endif %}
         <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> </h3>
+       {% if obj.link %} <a href="{{ obj.link }}" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> {% endif %}
     <div class="caption">
       <a  data-href='{{ obj.get_api_comment_url }}' class=" caption-stats" data-likes='{{ obj.comments.count }}'>{{ obj.comments.count }} comments</a>
     {% if obj.user %}<p><a href='/profiles/{{ obj.user }}'>@{{ obj.user }}</p></a>{% endif %}
