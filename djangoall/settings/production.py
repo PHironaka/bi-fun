@@ -94,7 +94,7 @@ INSTALLED_APPS = [
     'taggit',
     'geoposition',
     'turbolinks',
-    # 'lockdown',
+    'lockdown',
     # 'taggit_templatetags',
 
 ]
@@ -102,7 +102,7 @@ INSTALLED_APPS = [
 SITE_ID = 3
 
 
-# LOCKDOWN_ENABLED = True
+LOCKDOWN_ENABLED = False
 
 
 MIDDLEWARE_CLASSES = [
@@ -120,7 +120,7 @@ MIDDLEWARE_CLASSES = [
 
 ]
 
-# LOCKDOWN_PASSWORDS = ('biffy',)
+LOCKDOWN_PASSWORDS = ('biffy',)
 
 
 ROOT_URLCONF = 'djangoall.urls'
