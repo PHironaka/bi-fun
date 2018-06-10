@@ -20,14 +20,8 @@
 <div class="forum-item">
   
   <div class="forum-likes">
-    <a class='like-btn caption-stats' data-href='{{ obj.get_api_like_url }}' data-likes='{{ obj.likes.count }}'  href='{{ obj.get_like_url }}' class="forum-content--icon"><svg width="12" height="6" viewBox="0 0 12 6" xmlns="http://www.w3.org/2000/svg">
-  <g id="Page-1" fill="none" fill-rule="evenodd">
-    <g id="arrow" transform="translate(0 -1)" fill="#00F" fill-rule="nonzero">
-      <path d="M6.34 1.13l5.4 5a.5.5 0 0 1-.34.87H.6a.5.5 0 0 1-.34-.87l5.4-5a.5.5 0 0 1 .68 0z" id="Triangle-2"/>
-    </g>
-  </g>
-</svg>
-
+    <a class='like-btn caption-stats' data-href='{{ obj.get_api_like_url }}' data-likes='{{ obj.likes.count }}'  href='{{ obj.get_like_url }}' class="forum-content--icon">
+      <img src='https://s3-us-west-2.amazonaws.com/bif-ball/static/images/arrow.svg'/>
 <p>{{ obj.likes.count }}</p> </a> 
 
   </div>
@@ -35,10 +29,15 @@
 
 <div class="forum-content ">
  
+
+
+   <div class="forum-content--title">
  
         {% if obj.draft %}<h3>Staff only: Draft</h3>{% endif %} {% if obj.publish > today %}<h3>Staff Only: Future Post</h3>{% endif %}
         <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> </h3>
-       {% if obj.link %} <a href="{{ obj.link }}" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> {% endif %}
+       {% if obj.link %} <a href="{{ obj.link }}" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> {% endif %}
+  </div>  
+
     <div class="caption">
       <a  data-href='{{ obj.get_api_comment_url }}' class=" caption-stats" data-likes='{{ obj.comments.count }}'>{{ obj.comments.count }} comments</a>
     {% if obj.user %}<p><a href='/profiles/{{ obj.user }}'>@{{ obj.user }}</p></a>{% endif %}

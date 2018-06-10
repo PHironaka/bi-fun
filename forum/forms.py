@@ -12,8 +12,8 @@ class ForumForm(forms.ModelForm):
         model = Forum
         fields = [
             "title",
-            "content",
             "link",
+            "content",
             "draft",
             "publish",
         ]

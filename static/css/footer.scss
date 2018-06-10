@@ -6,35 +6,57 @@ footer {
     clear: both;
     width: 100%;
     min-height: 131px;
-    padding: 3em 0;
+    padding: 1em 0;
     bottom:0;
     line-height: 1.5;
         margin-top: 3em;
 }
 
+footer h3 {
+  font-weight:600;
+  font-size: 1.1em;
+  margin-bottom:6px;
+}
+
 .logo-footer {
   margin-top: 1.5em;
+
+  @media screen and (max-width: 800px) {
+
+text-align: center;
 }
 
-footer h3 {
-    font-weight: 300;
-    width: 154px;
-    font-size: 1em;
-    padding: 1.5em 0 0;
-    line-height: 1.2;
 }
+
 
 footer .container {
-  grid-template-columns: 1fr 1fr 1fr 2fr ;
+  grid-template-columns: 1fr 1fr;
+
+  .links-footer {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: right;
+text-align: right;
+
+@media screen and (max-width: 800px) {
+  grid-template-columns: 1fr ;
+      justify-items: center;
+text-align: center;
+}
+
+
+  }
 
 }
 
 footer ul {
-  padding: 0 10px;
+  padding: 0 1px;
 }
 
+
+
 footer li {
-  margin: 0 0 10px;
+  margin: 0 0 3px;
 }
 
 footer li a, footer p {

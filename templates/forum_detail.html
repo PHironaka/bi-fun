@@ -12,7 +12,8 @@
 <div class="forum-content--detail">
 
     <ol class="breadcrumb">
-        <li ><a href='{% url "forum:list" %}'>Home /</a> </li>
+        <li ><a href='/'>Home /</a> </li>
+        <li ><a href='{% url "forum:list" %}'>Forum /</a> </li>
         <li><a href='{{ instance.get_absolute_url }}'> {{instance.title}} </a></li>
     </ol>
 
@@ -99,7 +100,7 @@
                 </blockquote>
              {% endfor %}
              
-          <div> {% if comment.children.count > 0 %}{{ comment.children.count }} Comment{% if comment.children.count > 1 %}s{% endif %} | {% endif %} <a class='comment-reply-btn' href='#'>Reply</a> | <a class='' href='{{ comment.get_absolute_url }}'>Thread</a></div>
+          <div> {% if comment.children.count > 0 %}{{ comment.children.count }} Comment{% if comment.children.count > 1 %}s{% endif %} | {% endif %}<small> <a class='comment-reply-btn' href='#'>Reply</a></small> | <small><a class='' href='{{ comment.get_absolute_url }}'>Thread</a></small></div>
 
           <div class='comment-reply'>
             

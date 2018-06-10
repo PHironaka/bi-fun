@@ -5,7 +5,9 @@
 {% block head_title %}{% trans "Account" %}{% endblock %}
 
 {% block content %}
-    <h1>{% trans "E-mail Addresses" %}</h1>
+<div class="signup-form">
+
+    <h3>{% trans "E-mail Addresses" %}</h3>
 {% if user.emailaddress_set.all %}
 <p>{% trans 'The following e-mail addresses are associated with your account:' %}</p>
 
@@ -53,6 +55,7 @@
         <button name="action_add" type="submit">{% trans "Add E-mail" %}</button>
     </form>
 
+</div>
 {% endblock %}
 
 
