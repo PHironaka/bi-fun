@@ -60,9 +60,12 @@
    <div class='post-detail-item'>{{ instance.get_markdown }}</div>
 
 {% if  request.user.is_authenticated %}
-   
-<li><a href='{{ instance.get_absolute_url }}edit/'>Edit Post</a></li>
+   <div class="edit-links">
+       <li><a href='{{ instance.get_absolute_url }}edit/'>Edit Post</a></li>
 <li><a href='{{ instance.get_absolute_url }}delete/'>Delete Post</a></li>
+       
+   </div>
+
 {% endif %}
 
 <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}={{ share_string }}">
