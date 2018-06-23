@@ -21,7 +21,13 @@ from comments.forms import CommentForm
 from comments.models import Comment
 from .forms import CourtForm
 from .models import Court
+from django.views.generic import DetailView, ListView
+from taggit.models import Tag
 
+
+  
+
+   	
 def court_create(request):
 	if not request.user:
 		raise Http404
@@ -32,12 +38,12 @@ def court_create(request):
 		instance = form.save(commit=False)
 		instance.user = request.user
 		instance.save()
+		instance.tags.save()
 		# message success
 		messages.success(request, "Successfully Created")
 		return HttpResponseRedirect(instance.get_absolute_url())
 	context = {
 		"form": form,
-		"title": title,
 	}
 	return render(request, "court_form.html", context)
 
@@ -134,6 +140,7 @@ def court_update(request, slug=None):
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
+		form.save_m2m()
 		messages.success(request, "<a href='#'> Saved</a> ", extra_tags='html_safe')
 		return HttpResponseRedirect(instance.get_absolute_url())
 
@@ -142,7 +149,7 @@ def court_update(request, slug=None):
 		"instance": instance,
 		"form":form,
 	}
-	return render(request, "form.html", context)
+	return render(request, "court_form.html", context)
 
 
 
@@ -172,6 +179,16 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import authentication, permissions
 
+class TagIndexView(ListView):
+    template_name = 'tags/tag_detail.html'
+    model = Court
+    paginate_by = '10'
+    context_object_name = 'courts'
+
+    def get_queryset(self):
+        return Court.objects.filter(tags__slug=self.kwargs.get('slug'))
+
+
 class courtLikeAPIToggle(APIView):
     authentication_classes = (authentication.SessionAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
@@ -195,3 +212,18 @@ class courtLikeAPIToggle(APIView):
             "liked": liked
         }
         return Response(data)
+
+
+
+
+
+    # def get_paginate_by(self, queryset):
+    #     paginate_by = Blog.objects.get_blog().entries_per_page
+    #     return paginate_by
+
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super(TagDetails, self).get_context_data(**kwargs)
+    #     context['tag'] = self.kwargs['tag']
+    #     return context
+
+

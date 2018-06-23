@@ -11,6 +11,7 @@ from django.utils.text import slugify
 from django.contrib.contenttypes.models import ContentType
 from geoposition.fields import GeopositionField
 from markdown_deux import markdown
+from taggit.managers import TaggableManager
 from comments.models import Comment
 
 class CourtManager(models.Manager):
@@ -51,6 +52,7 @@ class Court(models.Model):
     content = models.CharField(max_length=140, default='')
     address = models.CharField(max_length=255)
     location = GeopositionField(blank=True)
+    tags = TaggableManager(blank=True)
     likes = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='court_likes')
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)

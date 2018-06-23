@@ -20,7 +20,7 @@
 
 </head>
 <body lang="en" class="{% block body_class %}default{% endblock body_class %}">
-
+<div id="loading"></div>
 <header>
 {% include "messages_display.html" %}
  <div class="mobile-hamburger-icon" id="icon">
@@ -51,7 +51,7 @@
 			<li><a href='{% url "courts:create" %}'>Create Court</a></li>
 	
 	{% if not request.user.is_authenticated %}
-	<li ><a href='/login' class="signup">Sign in</a></li>
+	<li ><a href='{% url "login" %}' class="signup">Sign in</a></li>
 	{% else %}
 		<li><a href="/profiles/{{request.user}}"> @{{request.user }} </a></li>
 
@@ -84,7 +84,7 @@
 	<li ><a href='{% url "posts:list" %}'>Editorial</a></li>
 		
 	{% if not request.user.is_authenticated %}
-	<li class="signup"><a href='/login'>Sign in</a></li>
+	<li ><a href='{% url "login" %}' class="signup">Sign in</a></li>
 	{% else %}
 
 

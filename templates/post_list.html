@@ -38,7 +38,7 @@ Posts | {{ block.super }}
         </a>
 
         {% for tag_obj in obj.tags.all %}
-    <li class="post-tags"> <a href="{{ tag_obj.get_absolute_url }}">x {{ tag_obj}}</a></li>
+    <li class="post-tags"> <a href="/posts/tags/{{tag_obj}}/" >x {{ tag_obj}}</a></li>
     {% endfor %}
 
       <!--   <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p> -->

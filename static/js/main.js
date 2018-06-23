@@ -49,7 +49,10 @@
       e.preventDefault();
     });
 
-
+$(document).ready(function() 
+  {
+    $("#loading").hide();
+  });
 
 function curvedText(time) {
   var tl   = new TimelineMax({ repeat: -1 });

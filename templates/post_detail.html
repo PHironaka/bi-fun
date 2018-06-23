@@ -59,7 +59,7 @@ Twitter
 <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">Reddit</a>
 </p>
 {% for tag_obj in instance.tags.all %}
-    <li class="post-tags"> <a >x {{ tag_obj}}</a></li>
+    <li class="post-tags"> <a href="/posts/tags/{{tag_obj}}/" >x {{ tag_obj}}</a></li>
     {% endfor %}
     <hr/>
     <br/>

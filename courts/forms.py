@@ -1,11 +1,14 @@
 from django import forms
-from pagedown.widgets import PagedownWidget
 from django.forms import ModelForm
+from markdownx.fields import MarkdownxFormField
+from pagedown.widgets import PagedownWidget
 from .models import Court
+from taggit.forms import *
 
 
 class CourtForm(forms.ModelForm):
-    content = forms.CharField(widget=PagedownWidget(show_preview=False))
+    content = MarkdownxFormField()
+  
     class Meta:
         model = Court
         fields = [
@@ -13,5 +16,6 @@ class CourtForm(forms.ModelForm):
             "location",
             "image",
             "content",
+            "tags",
         ]
 

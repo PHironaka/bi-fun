@@ -6,6 +6,7 @@
 {% endblock head_title %}
 
 {% block head_extra %} 
+{{ form.media }}
 
 {% endblock head_extra %}
 
@@ -26,6 +27,8 @@
 <p>
 	Each field below is required to be filled out. For Latitude and Longitude, there's a pretty simple process you can follow:
 </p>
+
+
 
 <form method='POST' class="form-item" action='' enctype='multipart/form-data'>
 {% csrf_token %}
