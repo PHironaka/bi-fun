@@ -98,6 +98,7 @@ def court_detail(request, slug=None):
 def court_list(request):
 	today = timezone.now().date()
 	obj = Court.objects.active() #.order_by("-timestamp")
+
 	if request.user:
 		obj = Court.objects.all()
 	
@@ -185,14 +186,19 @@ class TagIndexView(ListView):
     paginate_by = '10'
     context_object_name = 'courts'
 
+   
+
     def get_queryset(self):
         return Court.objects.filter(tags__slug=self.kwargs.get('slug'))
+
 
 
 class courtLikeAPIToggle(APIView):
     authentication_classes = (authentication.SessionAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
 
+
+   
     def get(self, request, slug=None, format=None):
         obj = get_object_or_404(Court, slug=slug)
         url_ = obj.get_absolute_url()
@@ -212,6 +218,7 @@ class courtLikeAPIToggle(APIView):
             "liked": liked
         }
         return Response(data)
+
 
 
 

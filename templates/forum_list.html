@@ -8,11 +8,6 @@
 
 {% block content %}
 
-<div class="forum-intro">
-  <h3>Welcome to Basketball Is Fun</h3>
-  <p>A Basketball community built around the game's news, culture and art. No limits Let's roll the balls out and have some fun! </p>
-  <a class="forum-button" href='{% url "forum:create" %}'>Get started <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
-</div>
 
 <div class="page-content--static">
 {% for obj in object_list %}

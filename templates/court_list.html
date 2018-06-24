@@ -22,8 +22,12 @@
 </div>
 </div>
 
+{{court_tags}}
 <div class="container court-listings">
+
+
         {% for obj in object_list %}
+
 <div class="court-listing court-post">
         {% if obj.image %}
         <div class="court-post--image">
@@ -40,7 +44,9 @@
  <p>{{ obj.get_markdown }}</p>
 
   {% if obj.user %}<p>By: <a href='/profiles/{{ obj.user }}'>{{ obj.user }}</p></a>{% endif %}
-    
+        {% for tag_obj in obj.tags.all %}
+    <li class="post-tags"> <a href="/courts/tags/{{tag_obj}}/" > {{ tag_obj}}</a></li>
+    {% endfor %}
 
 <!--  <p>{{ obj.timestamp|timesince }} ago</p>
  -->        </div>

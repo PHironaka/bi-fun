@@ -40,6 +40,7 @@ grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
 
 .container.court-listings {
 grid-template-rows: auto 1fr;
+grid-template-columns:  1fr;
 
 }
 
@@ -367,8 +368,9 @@ h1 {
 .post-tags {
     display: inline-block;
     background: #f5f5f5;
-    padding: 3px 15px;
+    padding: 6px 15px;
     margin: 1em 10px 1em 0;
+    border-radius: 9px
 }
 
 

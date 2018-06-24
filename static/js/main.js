@@ -1,5 +1,4 @@
 
-
   $(".comment-reply-btn").click(function(event){
     event.preventDefault();
     $(this).parent().next(".comment-reply").toggle();
@@ -72,12 +71,7 @@ function curvedText(time) {
 
   return tl;
 }
-
 curvedText(15);
-
-
-
-
 
 (function($) { // Begin jQuery
   $(function() { // DOM ready
