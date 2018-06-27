@@ -103,6 +103,8 @@ INSTALLED_APPS = [
 
 SITE_ID = 3
 
+STAR_RATINGS_STAR_SPRITE = "/static/images/bball.svg"
+
 
 LOCKDOWN_ENABLED = False
 
