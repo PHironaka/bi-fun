@@ -15,12 +15,9 @@
 {% block style %}{% endblock style %}
 </style>
 {% block head_extra %} {% endblock head_extra %}
-<!-- <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
-<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script> -->
 
 </head>
 <body lang="en" class="{% block body_class %}default{% endblock body_class %}">
-<div id="loading"></div>
 <header>
 {% include "messages_display.html" %}
  <div class="mobile-hamburger-icon" id="icon">
@@ -131,6 +128,8 @@
 {% load static %}
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+
 <script src='{% static "js/main.js" %}'></script>
 <script src='{% static "turbolinks/turbolinks.js" %}'></script>
 

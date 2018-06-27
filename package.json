@@ -24,6 +24,7 @@
     "gulp-typescript": "^3.2.4",
     "gulp-util": "^3.0.8",
     "gulpfile-django": "0.0.12",
+    "mapbox-gl": "^0.46.0",
     "typescript": "^2.7.2"
   },
   "devDependencies": {

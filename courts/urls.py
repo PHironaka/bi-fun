@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^courts/(?P<slug>[\w-]+)/like/$', courtLikeToggle.as_view(), name='like-toggle'),
     url(r'^courts/(?P<slug>[\w-]+)/api/like/$', courtLikeAPIToggle.as_view(), name='like-api-toggle'),
 	url(r'^courts/(?P<slug>[\w-]+)/$', court_detail, name='detail'),
-    url(r'^courts/tags/(?P<slug>[\w-]+)/$', TagIndexView.as_view(), name='tagged'),
+    url(r'^courts/tags/(?P<slug>[\w-]+)/$', TagIndexView.as_view(), name='tag'),
 
 
     #url(r'^posts/$', "<appname>.views.<function_name>"),

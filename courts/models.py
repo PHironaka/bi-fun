@@ -65,6 +65,9 @@ class Court(models.Model):
     def get_absolute_url(self):
         return reverse("courts:detail", kwargs={"slug": self.slug})
 
+    def get_tag_url(self):
+        return reverse("courts:tag", kwargs={"slug": self.slug})    
+
     def get_like_url(self):
         return reverse("courts:like-toggle", kwargs={"slug": self.slug})
 

@@ -20,6 +20,7 @@ from django.contrib import admin
 from accounts.views import (login_view, register_view, logout_view )
 from posts.views import (page_about, page_landing ) 
 from django.contrib import admin
+from django.conf.urls import handler404, handler500
 from markdownx import urls as markdownx
 
 
@@ -36,9 +37,12 @@ urlpatterns = [
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^comments/', include("comments.urls", namespace='comments')),
     url(r'^profiles/', include('accounts.urls', namespace='accounts')),
+    url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
     url(r'^markdownx/', include(markdownx)),
     #url(r'^posts/$', "<appname>.views.<function_name>"),
 ]
+
+# handler404 = myapp_viewss.error_404
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
