@@ -8,17 +8,6 @@
 
 
 {% block content %}
-<div class="author">
-<h2>@{{object.username}} </h2>
-</div>
-
-<h3 class="author-subtitle">Forum Posts</h3>
-{% for forum in object.forum_set.all %}
-<div class='account-page--content'>
-<h3><a href="{{forum.get_absolute_url}}">{{ forum.title }}</a></h3>
-</div>
-
-{% endfor %}
 
 <h3 class="author-subtitle">Court Posts</h3>
 
@@ -34,5 +23,20 @@
 </div>
 
 {% endfor %}
+
+
+<div class="author">
+<h2>@{{object.username}} </h2>
+</div>
+
+<h3 class="author-subtitle">Forum Posts</h3>
+{% for forum in object.forum_set.all %}
+<div class='account-page--content'>
+<h3><a href="{{forum.get_absolute_url}}">{{ forum.title }}</a></h3>
+</div>
+
+{% endfor %}
+
+
 
 {% endblock content %}

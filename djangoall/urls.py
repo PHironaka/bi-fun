@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
+from django.contrib.sitemaps import Sitemap
 from django.contrib import admin
 from accounts.views import (login_view, register_view, logout_view )
 from posts.views import (page_about, page_landing ) 
@@ -24,8 +25,13 @@ from django.conf.urls import handler404, handler500
 from markdownx import urls as markdownx
 import notifications.urls
 
+sitemaps = {
+  'site': Sitemap,
+}
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^sitemap\.xml$','django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),    
     url(r'^login/', login_view, name='login'),
     url(r'^logout/', logout_view, name='logout'),
     url(r'^posts/', include("posts.urls", namespace='posts')),  
@@ -40,6 +46,7 @@ urlpatterns = [
     url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
     url(r'^markdownx/', include(markdownx)),
     url('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
+    
 
     #url(r'^posts/$', "<appname>.views.<function_name>"),
 ]

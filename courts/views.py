@@ -24,6 +24,7 @@ from .forms import CourtForm
 from .models import Court
 from django.views.generic import DetailView, ListView
 from taggit.models import Tag
+from django.contrib.sitemaps import Sitemap
 
 
   
@@ -227,7 +228,15 @@ class courtLikeAPIToggle(APIView):
         return Response(data)
 
 
+class CourtSitemap(Sitemap):
+    changefreq = "never"
+    priority = 0.5
 
+    def items(self):
+        return Entry.objects.filter(is_draft=False)
+
+    def lastmod(self, obj):
+        return obj.pub_date
 
 
 
