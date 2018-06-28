@@ -22,7 +22,7 @@ from posts.views import (page_about, page_landing )
 from django.contrib import admin
 from django.conf.urls import handler404, handler500
 from markdownx import urls as markdownx
-
+import notifications.urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -39,6 +39,8 @@ urlpatterns = [
     url(r'^profiles/', include('accounts.urls', namespace='accounts')),
     url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
     url(r'^markdownx/', include(markdownx)),
+    url('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
+
     #url(r'^posts/$', "<appname>.views.<function_name>"),
 ]
 

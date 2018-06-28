@@ -96,6 +96,7 @@ INSTALLED_APPS = [
     'turbolinks',
     'lockdown',
     'star_ratings',
+    'notifications',
     
     # 'taggit_templatetags',
 
@@ -103,7 +104,8 @@ INSTALLED_APPS = [
 
 SITE_ID = 3
 
-STAR_RATINGS_STAR_SPRITE = "/static/images/bball.svg"
+
+STAR_RATINGS_STAR_SPRITE = "https://bif-ball.s3.amazonaws.com:443/static/images/bball.svg"
 
 
 LOCKDOWN_ENABLED = False

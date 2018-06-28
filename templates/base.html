@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% load notifications_tags %}
+
 <!DOCTYPE html>
 <head>
 <title>{% block head_title %}Basketball Is Fun{% endblock head_title %}</title>
@@ -19,6 +21,10 @@
 </head>
 <body lang="en" class="{% block body_class %}default{% endblock body_class %}">
 <header>
+{% notifications_unread as unread_count %}
+{% if unread_count %}
+    You have <strong>{{ unread_count }}</strong> unread notifications.
+{% endif %}
 {% include "messages_display.html" %}
  <div class="mobile-hamburger-icon" id="icon">
     <div class="icon-1" id="a"></div>

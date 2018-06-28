@@ -11,7 +11,8 @@ except:
 from django.contrib import messages
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.db.models.signals import post_save
+from notifications.signals import notify
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404, redirect
@@ -38,7 +39,7 @@ def court_create(request):
 		instance = form.save(commit=False)
 		instance.user = request.user
 		instance.save()
-		instance.tags.save()
+		form.save_m2m()
 		# message success
 		messages.success(request, "Successfully Created")
 		return HttpResponseRedirect(instance.get_absolute_url())
@@ -72,6 +73,7 @@ def court_detail(request, slug=None):
 			if parent_qs.exists() and parent_qs.count() == 1:
 				parent_obj = parent_qs.first()
 
+		
 
 		new_comment, created = Comment.objects.get_or_create(
 							user = request.user,
@@ -79,7 +81,12 @@ def court_detail(request, slug=None):
 							object_id = obj_id,
 							content = content_data,
 							parent = parent_obj,
+
 						)
+		# notify.send(request.user, verb='new comment!')
+# 		notify.send(, recipient=request.user, verb='replied', action_object=comment,
+# description=comment.comment, target=comment.content_object)
+
 		return HttpResponseRedirect(new_comment.content_object.get_absolute_url())
 
 
@@ -91,7 +98,7 @@ def court_detail(request, slug=None):
 		"comments": comments,
 		"comment_form":form,
 	}
-	return render(request, "court_detail.html", context)
+	return render(request, "court_detail.html",  context)
 
 
 
