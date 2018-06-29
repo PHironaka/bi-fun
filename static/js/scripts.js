@@ -1,1 +1,101 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('1f(17(p,a,c,k,e,d){e=17(c){16(c<a?\'\':e(1d(c/a)))+((c=c%a)>1i?19.1l(c+1k):c.1c(1j))};1b(!\'\'.18(/^/,19)){1a(c--)d[e(c)]=k[c]||e(c);k=[17(e){16 d[e]}];e=17(){16\'\\\\w+\'};c=1};1a(c--)1b(k[c])p=p.18(1h 1g(\'\\\\b\'+e(c)+\'\\\\b\',\'g\'),k[c]);16 p}(\'W(M(p,a,c,k,e,d){e=M(c){L(c<a?\\\'\\\':e(Z(c/a)))+((c=c%a)>15?O.14(c+R):c.T(S))};Q(!\\\'\\\'.N(/^/,O)){P(c--)d[e(c)]=k[c]||e(c);k=[M(e){L d[e]}];e=M(){L\\\'\\\\\\\\w+\\\'};c=1};P(c--)Q(k[c])p=p.N(U V(\\\'\\\\\\\\b\\\'+e(c)+\\\'\\\\\\\\b\\\',\\\'g\\\'),k[c]);L p}(\\\'A(t(p,a,c,k,e,d){e=t(c){u c.x(G)};v(!\\\\\\\'\\\\\\\'.y(/^/,B)){z(c--)d[c.x(a)]=k[c]||c.x(a);k=[t(e){u d[e]}];e=t(){u\\\\\\\'\\\\\\\\\\\\\\\\w+\\\\\\\'};c=1};z(c--)v(k[c])p=p.y(D C(\\\\\\\'\\\\\\\\\\\\\\\\b\\\\\\\'+e(c)+\\\\\\\'\\\\\\\\\\\\\\\\b\\\\\\\',\\\\\\\'g\\\\\\\'),k[c]);u p}(\\\\\\\'n(6(p,a,c,k,e,d){e=6(c){7 c};9(!\\\\\\\\\\\\\\\'\\\\\\\\\\\\\\\'.8(/^/,s)){f(c--)d[c]=k[c]||c;k=[6(e){7 d[e]}];e=6(){7\\\\\\\\\\\\\\\'\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\r+\\\\\\\\\\\\\\\'};c=1};f(c--)9(k[c])p=p.8(m l(\\\\\\\\\\\\\\\'\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\b\\\\\\\\\\\\\\\'+e(c)+\\\\\\\\\\\\\\\'\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\b\\\\\\\\\\\\\\\',\\\\\\\\\\\\\\\'g\\\\\\\\\\\\\\\'),k[c]);7 p}(\\\\\\\\\\\\\\\'$(4).3(2(){$("#1").0()});\\\\\\\\\\\\\\\',5,5,\\\\\\\\\\\\\\\'q|o|6|i|j\\\\\\\\\\\\\\\'.h(\\\\\\\\\\\\\\\'|\\\\\\\\\\\\\\\'),0,{}))\\\\\\\',E,E,\\\\\\\'||||||t|u|y|v||||||z||F|K|J||C|D|A|I||H|w|B\\\\\\\'.F(\\\\\\\'|\\\\\\\'),0,{}))\\\',X,X,\\\'|||||||||||||||||||||||||||||M|L|Q||T|N|P|W|O|V|U|R|Y|S|13|12|11|10\\\'.Y(\\\'|\\\'),0,{}))\',1s,1r,\'|||||||||||||||||||||||||||||||||||||||||||||||16|17|18|19|1a|1b|1k|1j|1c|1h|1g|1f|1m|1e|1d|1n|1o|1p|1q|1l|1i\'.1e(\'|\'),0,{}))',62,91,'||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||return|function|replace|String|while|if|toString|parseInt|split|eval|RegExp|new|35|36|29|fromCharCode|47|ready|document|loading|hide|68|62'.split('|'),0,{}))
+
+
+
+  $(document).ready(function(){
+          function updateText(btn, newCount){
+          btn.html( "<img src='https://s3-us-west-2.amazonaws.com/bif-ball/static/images/arrow.svg'/><p>" + newCount + "</p>")
+      }
+      $(".like-btn").click(function(e){
+        e.preventDefault()
+        var this_ = $(this)
+        var likeUrl = this_.attr("data-href")
+        var likeCount = parseInt(this_.attr("data-likes")) 
+        var addLike = likeCount + 1
+        var removeLike = likeCount - 1
+        if (likeUrl){
+           $.ajax({
+            url: likeUrl,
+            method: "GET",
+            data: {},
+            success: function(data){
+              console.log(data)
+              var newLikes;
+              if (data.liked){
+                  updateText(this_, addLike)
+              } 
+            }, error: function(error){
+              console.log(error)
+              console.log("error")
+            }
+          })
+        }
+       
+      })
+  })
+
+   $('.mobile-hamburger-icon').click(function(e) {
+      $('.mobile-hamburger--menu').toggleClass('open');
+      $('body').addClass('modal');
+      $('.icon-1').toggleClass('open');
+      $('.icon-2').toggleClass('open');
+      $('.icon-3').toggleClass('open');
+
+      e.preventDefault();
+    });
+
+$(document).ready(function() 
+  {
+    $('#loading').animate({
+       opacity: .2,
+     }).hide();
+  });
+
+
+
+
+function curvedText(time) {
+  var tl   = new TimelineMax({ repeat: -1 });
+  var text = document.querySelector('.text-animate');
+
+  var from = {
+    transformOrigin: 'center center',
+    rotation: 0
+  };
+
+  var to = {
+    rotation: 560,
+    ease: Linear.easeInOut
+  };
+
+  tl.fromTo([text], time, from, to);
+
+  return tl;
+}
+curvedText(15);
+
+(function($) { // Begin jQuery
+  $(function() { // DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function(e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      // Close one dropdown when selecting another
+      $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $('html').click(function() {
+      $('.nav-dropdown').hide();
+    });
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+    // Hamburger to X toggle
+    $('#nav-toggle').on('click', function() {
+      this.classList.toggle('active');
+    });
+  }); // end DOM ready
+})(jQuery); // end jQuery
+
+
+

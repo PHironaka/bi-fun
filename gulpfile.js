@@ -4,7 +4,9 @@ var cssmin = require('gulp-cssmin');
 var browserSync = require('browser-sync').create();
 var moduleImporter = require('sass-modules-importer');
 var minifyjs = require('gulp-js-minify');
-
+var concat = require('gulp-concat');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
 
 gulp.task('hello', function() {
   console.log('Hello Zell');
@@ -18,10 +20,13 @@ gulp.task('sass', function(){
     .pipe(browserSync.stream());
 });
 
-gulp.task('minify-js', function(){
-  gulp.src('static/js/scripts.js')
-    .pipe(minifyjs())
-    .pipe(gulp.dest('static/js/'));
+gulp.task('scripts', function() {
+    return gulp.src('static/js/main.js')
+        .pipe(concat('scripts.js'))
+        .pipe(gulp.dest('static/js/'))
+        .pipe(rename('scripts.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('static/js/'));
 });
 
 gulp.task('browserSync', function() {
@@ -35,10 +40,16 @@ gulp.task('browserSync', function() {
 
 gulp.task('watch', function(){
   gulp.watch('./static/**/*.scss', ['sass']); 
+
   // Other watchers
 })
 
-gulp.task('scripts', function(){
-  gulp.watch('./static/**/*.js', ['minify-js']); 
+gulp.task('script', function(){
+  gulp.watch('./static/**/*.js', ['scripts']); 
+
   // Other watchers
 })
+
+// gulp.task('scripts', function(){
+//   // Other watchers
+// })

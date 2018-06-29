@@ -378,12 +378,14 @@ h1 {
    a {
     padding: 6px 15px;
     border-radius: 9px;
-    border: 1px solid #000;
+    border: 1px solid #eee;
       -webkit-transition: all .2s;
     transition: all .2s;
 
     &:hover {
-    background:black;
+    border: 1px solid #064ce8;
+
+    background:#064ce8;
     color:white;
     }
    }

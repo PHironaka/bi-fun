@@ -19,6 +19,7 @@
 </style>
 {% block head_extra %} {% endblock head_extra %}
 
+<script src='{% static "turbolinks/turbolinks.js" %}'></script>
 </head>
 <body lang="en" class="{% block body_class %}default{% endblock body_class %}">
 <header>
@@ -133,16 +134,16 @@
 </div>
 {% include "section/footer.html" %}
 {% load static %}
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
-<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 
-<script src='{% static "js/main.js" %}'></script>
-<script src='{% static "turbolinks/turbolinks.js" %}'></script>
 
 
 <script>
       {% block jquery %}{% endblock %}
  </script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+<script src='{% static "js/scripts.min.js" %}'></script>
+
+ <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 </body>
 </html>
