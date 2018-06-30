@@ -302,8 +302,15 @@ text-align: center;
 }
 
 .signup {
-  border: 1px solid;
+  border: 1px solid #eee;
   color: black;
+  border-radius: 10px;
+-webkit-transition: all .2s;
+transition: all .2s;
+  &:hover {
+  color:white;
+  background: #00f;
+  }
 }
 
 nav ul li.signup a:hover {
@@ -967,6 +974,12 @@ header.land {
   padding: 5px 0;  
 }
 
+.nav-list {
+  li {
+  margin-top: .4em;
+  }
+}
+
 nav {
   padding: 1em 0;
 transition: all .6s cubic-bezier(.62,.04,.3,1.56);
@@ -984,8 +997,6 @@ margin: 18px 0;
     li {
       list-style: none;
       color: #fff;
-      line-height: 2.2;
-      
       
     }
   }
@@ -1018,7 +1029,7 @@ margin: 18px 0;
     background-color: #f5a623;
      -webkit-transition: all .2s;
     transition: all .2s;
-
+    margin: 0;
     a {
         color:white;
 
