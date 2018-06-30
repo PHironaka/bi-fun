@@ -118,15 +118,15 @@ def pre_save_court_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = create_slug(instance)
 
-class CourtImage(models.Model):
-    court_image = models.ImageField(
-        upload_to=upload_location
-    )
-    width_x = models.IntegerField()
-    width_y = models.IntegerField()
+# class CourtImage(models.Model):
+#     court_image = models.ImageField(
+#         upload_to=upload_location
+#     )
+#     width_x = models.IntegerField()
+#     width_y = models.IntegerField()
 
-    # Foreign Key to Post
-    post = models.ForeignKey('Court', null=True, blank=True)
+#     # Foreign Key to Post
+#     post = models.ForeignKey('Court', null=True, blank=True)
 
 # class Images(models.Model):
 #     court = models.ForeignKey(Court, default=None)

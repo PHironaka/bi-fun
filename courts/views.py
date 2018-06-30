@@ -20,11 +20,8 @@ from django.utils import timezone
 from django.views.generic import RedirectView
 from comments.forms import CommentForm
 from comments.models import Comment
-from django.forms import modelformset_factory
 from .forms import CourtForm
-from .forms import CourtImageForm
 from .models import Court
-from .models import CourtImage
 from django.views.generic import DetailView, ListView
 from taggit.models import Tag
 from django.contrib.sitemaps import Sitemap
@@ -36,43 +33,20 @@ from django.contrib.sitemaps import Sitemap
 def court_create(request):
 	if not request.user:
 		raise Http404
-	ImageFormSet = modelformset_factory(CourtImage,
-                                        form=CourtImageForm, extra=3)	
+		
 	form = CourtForm(request.POST or None, request.FILES or None)
-	formset = ImageFormSet(request.POST, request.FILES, queryset=CourtImage.objects.none())
-
-	if request.method == 'POST':
-
-		courtForm = CourtForm(request.POST)
-        
-
-		title = "Create Court"
-		if form.is_valid() and request.user.is_authenticated():
-			instance = courtForm.save(commit=False)
-			instance.user = request.user
-			instance.save()
-			form.save_m2m()
-
-			for form in formset.cleaned_data:
-				image = form['court_image']
-				photo = CourtImage(post=CourtForm, CourtImage=CourtImage)
-				photo.save()
-			messages.success(request, "YAAASSS")
-			return HttpResponseRedirect("/")
-
-			# message success
-			messages.success(request, "Successfully Created")
-			return HttpResponseRedirect("/")
-	
-	else:
-		courtForm = CourtForm()
-		formset = ImageFormSet(queryset=CourtImage.objects.none())
-
-		context = {
-			"form": form,
-			"formset": formset,
-
-		}
+	title = "Create Court"
+	if form.is_valid() and request.user.is_authenticated():
+		instance = form.save(commit=False)
+		instance.user = request.user
+		instance.save()
+		form.save_m2m()
+		# message success
+		messages.success(request, "Successfully Created")
+		return HttpResponseRedirect(instance.get_absolute_url())
+	context = {
+		"form": form,
+	}
 	return render(request, "court_form.html", context)
 
 def court_detail(request, slug=None):
@@ -194,7 +168,7 @@ def court_delete(request, slug=None):
 	instance = get_object_or_404(Court, slug=slug)
 	instance.delete()
 	messages.success(request, "Successfully deleted")
-	return redirect("court:list")
+	return redirect("forum:list")
 
 class courtLikeToggle(RedirectView):
 	def get_redirect_url(self, *args, **kwargs):

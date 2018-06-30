@@ -37,21 +37,25 @@
         {% if obj.image %}
         <div class="court-post--image">
           
-            <a href="{{ obj.get_absolute_url }}">  <img src='{{ obj.image.url }}' class='img-court' /></a>
+            <a href="{{ obj.get_absolute_url }}">  <img src='{{ obj.image.url }}' class='img-court' alt="{{ obj.title }}" name="{{ obj.title }}" /></a>
         </div>
              
         {% endif %}
         <div class="court-post--text">
 
 
-        <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> </h3>
+        <h3><a href="{{ obj.get_absolute_url }}" name="{{ obj.title }}">{{ obj.title }}</a> </h3>
     <p>{{ obj.location }}</p>
  <p>{{ obj.get_markdown }}</p>
 
   {% if obj.user %}<p>By: <a href='/profiles/{{ obj.user }}'>{{ obj.user }}</p></a>{% endif %}
-        {% for tag_obj in obj.tags.all %}
-    <li class="post-tags"> <a href="/courts/tags/{{tag_obj}}/" > {{ tag_obj}}</a></li>
+  <ul>
+     {% for tag_obj in obj.tags.all %}
+    <li class="post-tags"> <a href="{% url 'courts:tag' tag_obj.slug %}" > {{ tag_obj}}</a></li>
     {% endfor %}
+
+  </ul>
+       
 
 <!--  <p>{{ obj.timestamp|timesince }} ago</p>
  -->        </div>

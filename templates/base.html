@@ -2,7 +2,8 @@
 {% load notifications_tags %}
 
 <!DOCTYPE html>
-<head>
+<html lang="en">
+
 <title>{% block head_title %}Basketball Is Fun{% endblock head_title %}</title>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -18,6 +19,7 @@
 {% block style %}{% endblock style %}
 </style>
 {% block head_extra %} {% endblock head_extra %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script src='{% static "turbolinks/turbolinks.js" %}'></script>
 </head>
@@ -140,8 +142,6 @@
 <script>
       {% block jquery %}{% endblock %}
  </script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
- <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
 <script src='{% static "js/scripts.min.js" %}'></script>
 
  <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>

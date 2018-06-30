@@ -15,7 +15,7 @@ from .views import (
 
 urlpatterns = [
 	url(r'^$', court_list, name='list'),
-	url(r'^create/$', court_create, name='create'),
+	url(r'^courts/create/$', court_create, name='create'),
 	url(r'^courts/(?P<slug>[\w-]+)/edit/$', court_update, name='update'),
 	url(r'^courts/(?P<slug>[\w-]+)/delete/$', court_delete, name='delete'),
     url(r'^courts/(?P<slug>[\w-]+)/like/$', courtLikeToggle.as_view(), name='like-toggle'),

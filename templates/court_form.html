@@ -37,12 +37,6 @@
 
 {{ form | crispy }}
 
-
-    {{ formset.management_form }}
-    {% for form in formset %}
-        {{ form }}
-    {% endfor %}
-    
 <input type='submit' class="search-button"  value='Submit' />
 </form>
 </div>	

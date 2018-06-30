@@ -834,14 +834,29 @@ justify-content: center;
 }
 
 .pagination li.page {
-  border: 1px solid;
+  border: 1px solid #eee;
 padding: 3px;
 border-radius: 50%;
+
+&:hover{
+   background: #00f;
+  border: 1px solid #00f;
+}
+a {
+  &:hover {
+    color: white;
+
+  }
+}
 }
 
+.court-post--text {
+  ul {padding:0;}
+}
 .pagination li.page.active {
-  background: black;
+  background: #00f;
   color: white;
+  border: 1px solid #00f;
 }
 
 .step-links {
