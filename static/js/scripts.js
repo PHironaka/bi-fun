@@ -7,6 +7,17 @@ var _gsScope="undefined"!=typeof module&&module.exports&&"undefined"!=typeof glo
     $(this).parent().next(".comment-reply").toggle();
   })
 
+$(document).ready(function() {
+   window.setTimeout("fadeMyDiv();", 500); //call fade in 3 seconds
+ }
+)
+
+function fadeMyDiv() {
+   $(".messages").fadeOut('slow');
+}
+
+
+
   $(document).ready(function(){
           function updateText(btn, newCount){
           btn.html( "<img src='https://s3-us-west-2.amazonaws.com/bif-ball/static/images/arrow.svg'/><p>" + newCount + "</p>")
@@ -54,7 +65,10 @@ $(document).ready(function()
     $('#loading').animate({
        opacity: .2,
      }).hide();
+
   });
+
+
 
 
 

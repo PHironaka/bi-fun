@@ -42,7 +42,7 @@ def court_create(request):
 		instance.save()
 		form.save_m2m()
 		# message success
-		messages.success(request, "Successfully Created")
+		messages.success(request, "<a href='#'> Court Created</a> ", extra_tags='html_safe')
 		return HttpResponseRedirect(instance.get_absolute_url())
 	context = {
 		"form": form,
@@ -168,7 +168,7 @@ def court_delete(request, slug=None):
 	instance = get_object_or_404(Court, slug=slug)
 	instance.delete()
 	messages.success(request, "Successfully deleted")
-	return redirect("forum:list")
+	return redirect("court:list")
 
 class courtLikeToggle(RedirectView):
 	def get_redirect_url(self, *args, **kwargs):
