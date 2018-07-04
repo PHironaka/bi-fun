@@ -10,7 +10,10 @@
 {% block content %}
 
 <h2>{{object.username}}</h2>
+
+{% if object.image %}
 <img src="{{object.image.url}}">
+{% endif %}
 
 <h3 class="author-subtitle">Court Posts</h3>
 
