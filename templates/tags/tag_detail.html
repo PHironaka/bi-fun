@@ -24,7 +24,7 @@
     <p>{{ obj.location }}</p>
  <p>{{ obj.get_markdown }}</p>
 
-  {% if obj.user %}<p>By: <a href='/profiles/{{ obj.user }}'>{{ obj.user }}</p></a>{% endif %}
+  {% if obj.user %}<p>By: <a href='/profiles/{{ obj.user }}'>{{ obj.user.username }}</p></a>{% endif %}
       
 
 <!--  <p>{{ obj.timestamp|timesince }} ago</p>
