@@ -5,7 +5,7 @@ from django.contrib.auth import (
     logout,
     )
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 from .forms import UserLoginForm, UserRegisterForm
 
 
@@ -57,6 +57,13 @@ def logout_view(request):
 User = get_user_model()
 class UserDetailView(DetailView):
     template_name = 'user_detail.html'
+    queryset = User.objects.all()
+    def get_object(self):
+        return get_object_or_404(User, username__iexact=self.kwargs.get("username"))
+
+class UserListView(ListView):
+    """docstring for UserListView"""
+    template_name = 'user_list.html'
     queryset = User.objects.all()
     def get_object(self):
         return get_object_or_404(User, username__iexact=self.kwargs.get("username"))

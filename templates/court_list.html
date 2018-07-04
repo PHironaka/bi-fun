@@ -48,7 +48,7 @@
     <p>{{ obj.location }}</p>
  <p>{{ obj.get_markdown }}</p>
 
-  {% if obj.user %}<p>By: <a href='/profiles/{{ obj.user }}'>{{ obj.user }}</p></a>{% endif %}
+  {% if obj.user %}<p>By: <a href='/profiles/{{ obj.user.username }}'>{{ obj.user.username }}</p></a>{% endif %}
   <ul>
      {% for tag_obj in obj.tags.all %}
     <li class="post-tags"> <a href="{% url 'courts:tag' tag_obj.slug %}" > {{ tag_obj}}</a></li>

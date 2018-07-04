@@ -10,6 +10,8 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from django.contrib.contenttypes.models import ContentType
 from geoposition.fields import GeopositionField
+from markdownx.models import MarkdownxField # <---
+from markdownx.utils import markdownify # <---
 from markdown_deux import markdown
 from taggit.managers import TaggableManager
 from comments.models import Comment
@@ -49,7 +51,7 @@ class Court(models.Model):
         height_field="height_field")
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
-    content = models.CharField(max_length=140, default='')
+    content = MarkdownxField()
     address = models.CharField(max_length=255)
     location = GeopositionField(blank=True)
     tags = TaggableManager(blank=True)

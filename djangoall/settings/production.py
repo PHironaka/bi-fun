@@ -103,6 +103,8 @@ INSTALLED_APPS = [
 
 ]
 
+AUTH_USER_MODEL = 'accounts.User'
+
 SITE_ID = 3
 
 

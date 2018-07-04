@@ -25,7 +25,7 @@ Posts | {{ block.super }}
 {% for obj in object_list %}
     <div class="post-content">
         {% if obj.image %}
-                 <img src='{{ obj.image.url }}' class='img-responsive' />
+                 <img src='{{ obj.image.url }}' class='img-responsive' alt="{{ obj.title }} " name="{{ obj.title }} " />
         {% endif %}
 
 

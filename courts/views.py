@@ -115,6 +115,7 @@ def court_list(request):
 		obj = obj.filter(
 				Q(title__icontains=query)|
 				Q(content__icontains=query)|
+				Q(location__icontains=query)|
 				Q(user__first_name__icontains=query) |
 				Q(user__last_name__icontains=query)
 				).distinct()
