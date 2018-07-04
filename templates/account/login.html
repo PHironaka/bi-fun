@@ -34,7 +34,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 <a href="/accounts/signup" class="signup-link">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
-<form class="login" method="POST" action=''>
+<form class="login" method="POST" action='/'>
   {% csrf_token %}
   {{ form | crispy }}
   {% if redirect_field_value %}
