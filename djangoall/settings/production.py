@@ -105,7 +105,7 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'accounts.User'
 
-SITE_ID = 3
+SITE_ID = 1
 
 
 STAR_RATINGS_STAR_SPRITE = "https://bif-ball.s3.amazonaws.com:443/static/images/bball.svg"

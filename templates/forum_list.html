@@ -35,7 +35,7 @@
 
     <div class="caption">
       <a  data-href='{{ obj.get_api_comment_url }}' class=" caption-stats" data-likes='{{ obj.comments.count }}'>{{ obj.comments.count }} comments</a>
-    {% if obj.user %}<p><a href='/profiles/{{ obj.user }}'>@{{ obj.user }}</p></a>{% endif %}
+    {% if obj.user %}<p><a href='/profiles/{{ obj.user }}'>@{{ obj.user.username }}</p></a>{% endif %}
     <p class="caption-stats">{{ obj.timestamp|timesince }} ago</p>
      <a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View  ↳</a>
 
