@@ -39,9 +39,7 @@
 <!-- {% if instance.read_time|time:"i" <= "01" %} < 1 minute {% else %}{{ instance.read_time|time:"i" }} minutes {% endif %} -->
 
 
-{% if instance.user %}
-<p>by: <a href="/profiles/{{ instance.user }}" class="author-color">{{ obj.user.username }}</a></p>
-{% endif %}
+<p>by: <a href="/profiles/{{ instance.user.username }}" class="author-color">{{ instance.user.username }}</a></p>
 
     <div class="location">
       <div class="location-coords">
