@@ -32,6 +32,12 @@
     You have <strong>{{ unread_count }}</strong> unread notifications.
 {% endif %}
 {% include "messages_display.html" %}
+<button class="mobile-search-icon">
+	<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 25 25' fill-rule='evenodd'%3E%3Cpath d='M16.036 18.455l2.404-2.405 5.586 5.587-2.404 2.404zM8.5 2C12.1 2 15 4.9 15 8.5S12.1 15 8.5 15 2 12.1 2 8.5 4.9 2 8.5 2zm0-2C3.8 0 0 3.8 0 8.5S3.8 17 8.5 17 17 13.2 17 8.5 13.2 0 8.5 0zM15 16a1 1 0 1 1 2 0 1 1 0 1 1-2 0'%3E%3C/path%3E%3C/svg%3E">
+
+</button>
+
+
  <div class="mobile-hamburger-icon" id="icon">
     <div class="icon-1" id="a"></div>
     <div class="icon-2" id="b"></div>
@@ -39,11 +45,6 @@
  </div>
 
  <div class="mobile-hamburger--menu">
-
- 	<form class="search-court--form" method='GET' action='/' >
-<input type='text' name='q' class="search-court" placeholder='Search for Courts!' value='{{ request.GET.q }}'/>
-<input type='submit' class="search-btn"  value='Search' />
-</form>
 
 <ul class="nav-pages">
 	<li><a href='{% url "courts:list" %}'>Courts</a></li>
