@@ -62,6 +62,7 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 LOGIN_REDIRECT_URL = '/'
 
 
+
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
 # Application definition
