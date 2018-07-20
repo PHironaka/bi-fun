@@ -13,6 +13,13 @@ $(document).ready(function() {
  }
 )
 
+
+
+$('.mobile-search-icon').click(function() {
+  $('.search-court--mobile').show(400);
+      
+ });
+
 function fadeMyDiv() {
    $(".messages").fadeOut('slow');
 }
@@ -67,7 +74,11 @@ $(document).ready(function()
        opacity: .2,
      }).hide();
 
+
   });
+
+
+
 
 
 

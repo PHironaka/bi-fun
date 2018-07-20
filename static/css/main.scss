@@ -331,9 +331,10 @@ nav ul li a:not(:only-child):after, nav ul li a:visited:not(:only-child):after {
 }
 .nav-pages {
   display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  font-weight:600;
-  font-size:1.3em;
+      grid-template-columns: 1fr;
+    font-weight: 600;
+    font-size: 1.3em;
+    text-align: left;
 }
 
 img {
@@ -975,9 +976,21 @@ header.land {
 }
 
 .nav-list {
+text-align:left;
   li {
   margin-top: .4em;
   }
+}
+
+.search-court--mobile {
+  display:none;
+  position: fixed;
+  width:100%;
+  height: 100%;
+  background:white;
+  top:0;
+  margin:0;
+  
 }
 
 nav {

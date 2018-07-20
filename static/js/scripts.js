@@ -67,10 +67,14 @@ $(document).ready(function()
        opacity: .2,
      }).hide();
 
+
   });
 
 
-
+$('.mobile-search-icon').click(function(e) {    
+      $('.search-court--mobile').toggle(.fadeIn());
+      e.preventDefault();
+    });
 
 
 
