@@ -7,6 +7,7 @@ var _gsScope="undefined"!=typeof module&&module.exports&&"undefined"!=typeof glo
     $(this).parent().next(".comment-reply").toggle();
   })
 
+
 $(document).ready(function() {
    window.setTimeout("fadeMyDiv();", 500); //call fade in 3 seconds
  }
@@ -15,7 +16,7 @@ $(document).ready(function() {
 
 
 $('.mobile-search-icon').click(function() {
-  $('.search-court--mobile').show(400);
+  $('.search-court--mobile').toggle(90);
       
  });
 
