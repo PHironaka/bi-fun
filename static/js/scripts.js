@@ -7,11 +7,17 @@ var _gsScope="undefined"!=typeof module&&module.exports&&"undefined"!=typeof glo
     $(this).parent().next(".comment-reply").toggle();
   })
 
-
 $(document).ready(function() {
    window.setTimeout("fadeMyDiv();", 500); //call fade in 3 seconds
  }
 )
+
+
+
+$('.mobile-search-icon').click(function() {
+  $('.search-court--mobile').show(400);
+      
+ });
 
 function fadeMyDiv() {
    $(".messages").fadeOut('slow');
@@ -71,10 +77,10 @@ $(document).ready(function()
   });
 
 
-$('.mobile-search-icon').click(function(e) {    
-      $('.search-court--mobile').toggle(.fadeIn());
-      e.preventDefault();
-    });
+
+
+
+
 
 
 
