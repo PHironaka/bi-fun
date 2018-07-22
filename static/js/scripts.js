@@ -16,7 +16,7 @@ $(document).ready(function() {
 
 
 $('.mobile-search-icon').click(function() {
-  $('.search-court--mobile').toggle(90);
+  $('.search-court--mobile').toggle(1);
       
  });
 
