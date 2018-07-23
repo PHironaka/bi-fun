@@ -50,7 +50,7 @@ class Forum(models.Model):
     link = models.URLField(default="https://")
     likes = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='forum_likes')
     draft = models.BooleanField(default=False)
-    publish = models.DateField(auto_now=False, auto_now_add=False)
+    publish = models.DateField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
