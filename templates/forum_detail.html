@@ -37,7 +37,7 @@
 <div class="caption">
 
 <!-- {% if instance.read_time|time:"i" <= "01" %} < 1 minute {% else %}{{ instance.read_time|time:"i" }} minutes {% endif %} -->
-<p>Author: <a href="/profiles/{{ instance.user }}">{{ instance.user }}</a></p>
+<p>Author: <a href="/profiles/{{ instance.user }}">{{ instance.user.username }}</a></p>
 
 <p>{{ instance.publish }}</p>
 <a class='like-btn forum-detail' data-href='{{ instance.get_api_like_url }}' data-likes='{{ instance.likes.count }}' href='{{ instance.get_like_url }}'> <svg width="9px" height="9px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
