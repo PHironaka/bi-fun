@@ -52,6 +52,8 @@ def logout_view(request):
     logout(request)
     return redirect("/")
 
+
+
 User = get_user_model()
 class UserDetailView(DetailView):
     template_name = 'user_detail.html'
@@ -66,3 +68,10 @@ class UserListView(ListView):
     def get_object(self):
         return get_object_or_404(User, username__iexact=self.kwargs.get("username"))
 
+def user_delete(request, slug=None):
+    if not request.user:
+        raise Http404
+    object = get_object_or_404(User, slug=slug)
+    object.delete()
+    messages.success(request, "Successfully deleted")
+    return redirect("court:list")
