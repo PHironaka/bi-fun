@@ -4,6 +4,7 @@ from django.contrib.auth import (
     login,
     logout,
     )
+from .models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import DetailView, ListView
 from .forms import UserLoginForm, UserRegisterForm
@@ -45,7 +46,7 @@ def register_view(request):
         "form": form,
         "title": title
     }
-    return render(request, "form.html", context)
+    return render(request, "account/signup.html", context)
 
 
 def logout_view(request):
