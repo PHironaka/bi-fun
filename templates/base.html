@@ -80,8 +80,9 @@
 	{% if  request.user.is_staff %}
 			<li><a  href='{% url "posts:create" %}'>Write Post</a></li>
 			{% endif %}
+			<li><a href='{% url "courts:create" %}'>Add Court</a></li>
+			
 			<li><a href='{% url "forum:create" %}'>Write Forum</a></li>
-			<li><a href='{% url "courts:create" %}'>Create Court</a></li>
 		<li><a href="/profiles/{{request.user}}"> @{{request.user.username }} </a></li>
 
 			<li><a href='{% url "logout" %}'>Logout</a></li>
@@ -131,7 +132,7 @@
 
 			
 			<li><a href="/profiles/{{request.user.username}}"> @{{request.user.username }} </a></li>
-			<li><a href='{% url "courts:create" %}'>Create Court</a></li>
+			<li><a href='{% url "courts:create" %}'>Add Court</a></li>
 			<li><a href='{% url "forum:create" %}'>Write Forum</a></li>
 
 			{% if  request.user.is_staff %}

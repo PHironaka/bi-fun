@@ -117,7 +117,7 @@ def court_list(request):
 				Q(content__icontains=query)|
 				Q(location__icontains=query)
 				).distinct()
-	paginator = Paginator(obj, 10) # Show 25 contacts per page
+	paginator = Paginator(obj, 8) # Show 25 contacts per page
 	page_request_var = "page"
 	page = request.GET.get(page_request_var)
 	try:
