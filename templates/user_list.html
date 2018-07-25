@@ -16,7 +16,6 @@
     <li ><a href="/profiles/{{ user.username }}" >{{ user.username }}</a></li>
     {% if user.image == None %}
 {% include "section/logo.html" %}
-    
 {% else %}
   	<img src="{{user.image.url}}">
 {% endif %}
