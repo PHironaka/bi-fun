@@ -1393,6 +1393,7 @@ grid-template-columns: 2fr 1fr;
   display:grid;
   grid-template-columns: 150px 1fr 1fr;
   border-top:1px solid #eee;
+  max-height:35px;
 li {
 padding:1em 0;
 }
