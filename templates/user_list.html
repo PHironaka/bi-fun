@@ -13,13 +13,14 @@ Profiles | {{ block.super }}
 <ul>
   {% for user in object_list %}
   <div class="user-profile--list">
-    <li ><a href="/profiles/{{ user.username }}" >{{ user.username }}</a></li>
-    {% if user.image == '' %}
-{% include "section/smiley.html" %}
+  	   {% if user.image == '' %}
+<a href="/profiles/{{ user.username }}" >{% include "section/smiley.html" %}</a>
 {% else %}
-  	<img src="{{user.image.url}}">
+  	<a href="/profiles/{{ user.username }}" ><img src="{{user.image.url}}"></a>
 {% endif %}
 
+    <li ><a href="/profiles/{{ user.username }}" >{{ user.username }}</a></li>
+ 
   </div>
   {% endfor %}
 </ul>

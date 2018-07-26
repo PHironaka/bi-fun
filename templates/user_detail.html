@@ -12,13 +12,18 @@
 <div class="profile">
 
 <h2>{{object.username}}</h2>
-<p>Last Login: {{object.last_login}}</p>
+<p>Last Login: {{object.last_login.date}}</p>
 {% if object.image %}
 <div class="profile-image">
 <img src="{{object.image.url}}">
 	
 </div>
 {% endif %}
+{% if object.staff %}
+<h1>staff</h1>
+{% endif %}
+
+
 </div>
 <h3 class="author-subtitle">Court Posts</h3>
 

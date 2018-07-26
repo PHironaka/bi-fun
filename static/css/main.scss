@@ -1389,10 +1389,16 @@ grid-template-columns: 2fr 1fr;
 
 .user-profile--list {
   margin:1em 0;
+  padding: 1em 0;
+  display:grid;
+  grid-template-columns: 150px 1fr 1fr;
   border-top:1px solid #eee;
+li {
+padding:1em 0;
+}
 
   img {
-      max-width: 170px;
+      max-width: 50px;
     border-radius: 50%;
   }
 }
