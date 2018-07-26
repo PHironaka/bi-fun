@@ -1,4 +1,7 @@
 from django import forms
+from .models import User
+from django.forms import ModelForm
+
 from django.contrib.auth import (
     authenticate,
     get_user_model,
@@ -39,10 +42,10 @@ class UserRegisterForm(forms.ModelForm):
     class Meta:
         model = User
         fields = [
-            'username',
             'email',
             'email2',
-            'password'
+            'password',
+            'image'
         ]
 
     # def clean(self, *args, **kwargs):

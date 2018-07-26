@@ -23,7 +23,12 @@
 {{ form.media }}
   
   {{ form | crispy }}
+    <!-- <p>
+        <input id="id_image" type="file" class="" name="image">
+    </p>
+     -->
   {% if redirect_field_value %}
+
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   <button type="submit" class="search-button">{% trans "Sign Up" %} </button>
