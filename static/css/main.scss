@@ -1002,14 +1002,18 @@ text-align:left;
  .search {
  position:absolute;
  top:40%;
- left:30%;
  -webkit-appearance: textfield;
     background-color: white;
     -webkit-rtl-ordering: logical;
     cursor: text;
-
+width: 100%;
+text-align: center;
 border: none;
 font-size: 3em;
+@media screen and (max-width: 800px) {
+font-size: 1.4em;
+   
+}
  }
 
 .search-btn {
@@ -1383,3 +1387,12 @@ grid-template-columns: 2fr 1fr;
  }
 }
 
+.user-profile--list {
+  margin:1em 0;
+  border-top:1px solid #eee;
+
+  img {
+      max-width: 170px;
+    border-radius: 50%;
+  }
+}

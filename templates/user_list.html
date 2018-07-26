@@ -2,7 +2,7 @@
 {% load urlify %}
 
 {% block head_title %}
-{{ object.username }} | {{ block.super }}
+Profiles | {{ block.super }}
 {% endblock head_title %}
 
 
@@ -12,10 +12,10 @@
 
 <ul>
   {% for user in object_list %}
-  <div>
+  <div class="user-profile--list">
     <li ><a href="/profiles/{{ user.username }}" >{{ user.username }}</a></li>
     {% if user.image == '' %}
-{% include "section/logo.html" %}
+{% include "section/smiley.html" %}
 {% else %}
   	<img src="{{user.image.url}}">
 {% endif %}
