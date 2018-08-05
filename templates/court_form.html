@@ -34,7 +34,6 @@ Create Court | {{ block.super }}
 {% csrf_token %}
 
 {{ form.media }}
-
 {{ form | crispy }}
 
 <input type='submit' class="search-button"  value='Submit' />

@@ -69,7 +69,6 @@ class User(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
-
     image = models.ImageField(upload_to=upload_location, 
         null=True, 
         blank=True, 
@@ -83,7 +82,7 @@ class User(AbstractBaseUser):
     width_field = models.IntegerField(default=0)
     # notice the absence of a "Password field", that's built in.
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = [] # Email & Password are required by default.
 
     objects = UserManager()
@@ -122,6 +121,3 @@ class User(AbstractBaseUser):
     def is_active(self):
         "Is the user active?"
         return self.active
-
-
-

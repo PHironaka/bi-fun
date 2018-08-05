@@ -16,13 +16,20 @@
 {% if object.image %}
 <div class="profile-image">
 <img src="{{object.image.url}}">
-	
 </div>
+{% else %}
+<div class="profile-image">
+{% include "section/smiley.html" %}
+</div>
+	
 {% endif %}
 {% if object.staff %}
 <h1>staff</h1>
 {% endif %}
-
+{% if request.user == object %}
+<a href="{{object.username}}/delete">Delete account</a>
+<!-- <a href="/profiles/{{object.username}}/edit">Edit account</a> -->
+{% endif %}
 
 </div>
 <h3 class="author-subtitle">Court Posts</h3>
@@ -41,17 +48,14 @@
 {% endfor %}
 
 
-<div class="author">
-<h2>@{{object.username}} </h2>
-</div>
 
-<h3 class="author-subtitle">Forum Posts</h3>
+<!-- <h3 class="author-subtitle">Forum Posts</h3>
 {% for forum in object.forum_set.all %}
 <div class='account-page--content'>
 <h3><a href="{{forum.get_absolute_url}}">{{ forum.title }}</a></h3>
 </div>
 
-{% endfor %}
+{% endfor %} -->
 
 
 

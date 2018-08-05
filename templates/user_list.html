@@ -20,6 +20,7 @@ Profiles | {{ block.super }}
 {% endif %}
 
     <li ><a href="/profiles/{{ user.username }}" >{{ user.username }}</a></li>
+    <p>courts found: {{user.court_set.count}} </p>
  
   </div>
   {% endfor %}

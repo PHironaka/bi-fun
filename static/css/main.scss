@@ -31,11 +31,18 @@ grid-column-gap: 2rem;
 grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
 }
 
+
+
 .container.form {
   background:white;}
 
 .container.forum-detail {
    grid-template-columns: 2fr 2fr 2fr  2fr;
+}
+
+.container.sign {
+   grid-template-columns: 1fr;
+  
 }
 
 
@@ -291,7 +298,8 @@ color:white;
 .breadcrumb li {display: inline;}
 nav ul {
     display: grid;
-grid-template-columns: 50px 62px 67px;
+grid-template-columns: 1fr;
+justify-self:right;
 padding: 0;
 grid-gap: 15px;
 }
@@ -405,6 +413,8 @@ h1 {
 .container.editorial-posts {
   margin-top: 2em;
 }
+
+
 
 .container.courts {
   grid-template-columns: 2fr 2fr;
@@ -1387,6 +1397,11 @@ grid-template-columns: 2fr 1fr;
  }
 }
 
+html.turbolinks-progress-bar::before {
+  background-color: #f5a623 !important;
+  height: 4px !important;
+}
+
 .user-profile--list {
   margin:1em 0;
   padding: 1em 0;
@@ -1402,4 +1417,23 @@ padding:1em 0;
       max-width: 50px;
     border-radius: 50%;
   }
+}
+
+.geoposition-search {
+width:100% !important;
+  input {
+      background-color: #fcfcfc;
+    border: none;
+    border-radius: 4px;
+    color: #555f77;
+    font-family: inherit;
+    font-size: 14px;
+    outline: 0;
+    margin: 1em 0;
+    min-height: 28px;
+  }
+}
+
+.geoposition-widget table {
+  display:none !important;
 }

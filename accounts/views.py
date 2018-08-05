@@ -75,3 +75,25 @@ def user_delete(request, slug=None):
     object.delete()
     messages.success(request, "Successfully deleted")
     return redirect("court:list")
+
+
+def profile_update(request, username=None):
+    if not request.user:
+        raise Http404
+    instance = get_object_or_404(User, username=username)
+    form = UserRegisterForm(request.POST or None, request.FILES or None, instance=instance)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+        form.save_m2m()
+        messages.success(request, "<a href='#'> Saved</a> ", extra_tags='html_safe')
+        return HttpResponseRedirect(instance.get_absolute_url())
+
+    context = {
+        "title": instance.username,
+        "instance": instance,
+        "form":form,
+    }
+    return render(request, "form.html", context)
+
+
