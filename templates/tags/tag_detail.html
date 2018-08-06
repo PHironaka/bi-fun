@@ -14,7 +14,10 @@
 
 {% block content %}
 
-
+<h2>{{object_list}}</h2>
+     {% for tag_obj in obj.tags.all %}
+    <li class="post-tags"> <a href="{% url 'courts:tag' tag_obj.slug %}" > {{ tag_obj}}</a></li>
+    {% endfor %}
 
 {% for obj in object_list %}
 
