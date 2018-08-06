@@ -13,7 +13,7 @@ Profiles | {{ block.super }}
 <ul>
   {% for user in object_list %}
   <div class="user-profile--list">
-  	   {% if user.image == '' %}
+  	   {% if not user.image %}
 <a href="/profiles/{{ user.username }}" >{% include "section/smiley.html" %}</a>
 {% else %}
   	<a href="/profiles/{{ user.username }}" ><img src="{{user.image.url}}"></a>
