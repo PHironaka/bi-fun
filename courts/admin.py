@@ -1,3 +1,4 @@
+
 from django.contrib import admin
 from .models import Court
 
@@ -18,5 +19,3 @@ class CourtAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Court, CourtAdmin)
-
-

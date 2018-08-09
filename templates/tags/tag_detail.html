@@ -7,17 +7,16 @@
 
 {% block meta-image %}bif-ball.s3.amazonaws.com/media/2/Logov3.png{% endblock meta-image %}
 {% block twitter-image %}bif-ball.s3.amazonaws.com/media/2/Logov3.png{% endblock twitter-image %}
-{% block meta %}data-no-turbolink="true" {% endblock meta %}
 {% block container-page %} court-lust{% endblock container-page %}
 {% block body_class %}body-posts{% endblock %}
 
 
 {% block content %}
-
-<h2>{{object_list}}</h2>
-     {% for tag_obj in obj.tags.all %}
-    <li class="post-tags"> <a href="{% url 'courts:tag' tag_obj.slug %}" > {{ tag_obj}}</a></li>
+   {% for tag in tags %}
+      <li>{{tag}} ({{tag.num_times}})</li>
     {% endfor %}
+
+   
 
 {% for obj in object_list %}
 

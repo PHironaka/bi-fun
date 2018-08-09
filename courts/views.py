@@ -167,7 +167,7 @@ def court_delete(request, slug=None):
 	instance = get_object_or_404(Court, slug=slug)
 	instance.delete()
 	messages.success(request, "Successfully deleted")
-	return redirect("court:list")
+	return redirect("/")
 
 class courtLikeToggle(RedirectView):
 	def get_redirect_url(self, *args, **kwargs):
