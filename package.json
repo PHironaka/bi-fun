@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "babel": "^6.23.0",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^9.1.0",
     "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.9.3",
@@ -42,7 +42,7 @@
     "gulp-uglify": "^3.0.0",
     "react": "^16.3.0",
     "sass-modules-importer": "^1.2.1",
-    "webpack": "^4.4.1",
+    "webpack": "^5.75.0",
     "webpack-bundle-tracker": "^0.3.0"
   }
 }
